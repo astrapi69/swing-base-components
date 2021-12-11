@@ -46,7 +46,7 @@ repositories {
 
 javadoc {
     failOnError = false
-    if(JavaVersion.current().isJava9Compatible()) {
+    if (JavaVersion.current().isJava9Compatible()) {
         options.addBooleanOption("html5", true)
     }
 }
@@ -91,14 +91,14 @@ publishing {
             pom {
                 name = "$rootProject.name"
                 description = "$projectDescription"
-                url = "$projectScmProviderUrl"+"$projectHolderUsername"+"$slash"+"$rootProject.name"
+                url = "$projectScmProviderUrl" + "$projectHolderUsername" + "$slash" + "$rootProject.name"
                 organization {
                     name = "$projectOrganizationName"
                     url = "$projectOrganizationUrl"
                 }
                 issueManagement {
                     system = "$projectIssueManagementSystem"
-                    url = "$projectScmProviderUrl"+"$projectHolderUsername"+"$slash"+"$rootProject.name"+"$issuesPath"
+                    url = "$projectScmProviderUrl" + "$projectHolderUsername" + "$slash" + "$rootProject.name" + "$issuesPath"
                 }
                 licenses {
                     license {
@@ -143,22 +143,22 @@ signing {
 jar {
     manifest {
         attributes(
-                "Name"                  : project.name,
-                "Manifest-Version"      : project.version,
-                "Implementation-Title"  : "$groupPackage" + "." + "$rootProject.name",
+                "Name": project.name,
+                "Manifest-Version": project.version,
+                "Implementation-Title": "$groupPackage" + "." + "$rootProject.name",
                 "Implementation-Version": project.version,
-                "Implementation-Vendor" : "$projectLeaderName",
-                "Created-By"            : "Gradle ${gradle.gradleVersion}",
-                "Built-By"              : "$projectLeaderName",
-                "Build-Timestamp"       : new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
-                "Build-Jdk"             : "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
-                "Build-OS"              : "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}")
+                "Implementation-Vendor": "$projectLeaderName",
+                "Created-By": "Gradle ${gradle.gradleVersion}",
+                "Built-By": "$projectLeaderName",
+                "Build-Timestamp": new java.text.SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSSZ").format(new Date()),
+                "Build-Jdk": "${System.properties['java.version']} (${System.properties['java.vendor']} ${System.properties['java.vm.version']})",
+                "Build-OS": "${System.properties['os.name']} ${System.properties['os.arch']} ${System.properties['os.version']}")
     }
 }
 
 license {
-    ext.year="$projectInceptionYear"
-    ext.owner="$projectLeaderName"
+    ext.year = "$projectInceptionYear"
+    ext.owner = "$projectLeaderName"
     header rootProject.file("src/main/resources/LICENSE.txt")
     excludes(["**/README",
               "**/README.md",
@@ -196,9 +196,19 @@ gradle.startParameter.excludedTaskNames += "licenseTest"
 dependencies {
     compileOnly("org.projectlombok:lombok:$lombokVersion")
     annotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    implementation("javax.help:javahelp:$javahelpVersion")
+    implementation("org.swinglabs.swingx:swingx-all:$swingxAllVersion")
+    implementation("io.github.astrapi69:model-api:$modelApiVersion")
+    implementation("io.github.astrapi69:model-object:$modelObjectVersion")
+    implementation("io.github.astrapi69:model-type-safe:$modelTypeSafeVersion")
+    implementation("io.github.astrapi69:menu-actions:$menuActionsVersion")
+    implementation("io.github.astrapi69:silly-collections:$sillyCollectionsVersion")
+    implementation("io.github.astrapi69:jobj-core:$jobjCoreVersion")
     testCompileOnly("org.projectlombok:lombok:$lombokVersion")
     testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    testImplementation("io.github.astrapi69:test-objects:$testObjectsVersion")
     testImplementation("io.github.astrapi69:silly-io:$sillyIoVersion")
+    testImplementation("io.github.astrapi69:icon-img-extensions:$iconImgExtensionsVersion")
     testImplementation("io.github.astrapi69:file-worker:$fileWorkerVersion")
     testImplementation("io.github.astrapi69:throw-able:$throwAbleVersion")
     testImplementation("io.github.astrapi69:gradle-migration-data:$gradleMigrationDataVersion")

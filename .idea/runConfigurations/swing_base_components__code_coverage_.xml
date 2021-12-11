@@ -1,5 +1,5 @@
 <component name="ProjectRunConfigurationManager">
-  <configuration default="false" name="java-library-template [code coverage]" type="TestNG">
+  <configuration default="false" name="swing-base-components [code coverage]" type="TestNG">
     <useClassPathOnly />
     <option name="SUITE_NAME" value="" />
     <option name="PACKAGE_NAME" value="" />
