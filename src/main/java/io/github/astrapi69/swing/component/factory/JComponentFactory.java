@@ -24,19 +24,21 @@
  */
 package io.github.astrapi69.swing.component.factory;
 
-import io.github.astrapi69.lang.ClassExtensions;
-import lombok.experimental.UtilityClass;
+import java.awt.*;
+import java.net.URL;
 
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
 import javax.swing.*;
-import java.awt.*;
-import java.net.URL;
+
+import lombok.experimental.UtilityClass;
+import io.github.astrapi69.lang.ClassExtensions;
 
 /**
  * The class {@link JComponentFactory} provides factory methods for create swing Component objects
  */
-@UtilityClass public class JComponentFactory
+@UtilityClass
+public class JComponentFactory
 {
 
 	public static Frame newFrame(String title)

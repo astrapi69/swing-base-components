@@ -24,13 +24,13 @@
  */
 package io.github.astrapi69.swing.layout;
 
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static org.junit.jupiter.api.Assertions.assertTrue;
+import org.junit.jupiter.api.Test;
 
 
 /**
@@ -46,7 +46,8 @@ public class ScreenSizeExtensionsTest
 	/**
 	 * Test method for {@link ScreenSizeExtensions#computeDialogPositions(int, int)}
 	 */
-	@Test public void testComputeDialogPositions()
+	@Test
+	public void testComputeDialogPositions()
 	{
 		boolean actual;
 		final List<Point> expected = new ArrayList<>();
@@ -86,7 +87,8 @@ public class ScreenSizeExtensionsTest
 	/**
 	 * Test method for {@link ScreenSizeExtensions#getPoint()}
 	 */
-	@Test public void testGetPoint()
+	@Test
+	public void testGetPoint()
 	{
 		boolean actual;
 		final Point screenpoint = ScreenSizeExtensions.getPoint();
@@ -100,7 +102,8 @@ public class ScreenSizeExtensionsTest
 	/**
 	 * Test method for {@link ScreenSizeExtensions#getScreenHeight()}
 	 */
-	@Test public void testGetScreenHeight()
+	@Test
+	public void testGetScreenHeight()
 	{
 		boolean actual;
 		final int expected = (int)Toolkit.getDefaultToolkit().getScreenSize().getHeight();
@@ -110,9 +113,10 @@ public class ScreenSizeExtensionsTest
 	}
 
 	/**
-	 * Test method for  {@link ScreenSizeExtensions#getScreenWidth()}
+	 * Test method for {@link ScreenSizeExtensions#getScreenWidth()}
 	 */
-	@Test public void testGetScreenWidth()
+	@Test
+	public void testGetScreenWidth()
 	{
 		boolean actual;
 		final int expected = (int)Toolkit.getDefaultToolkit().getScreenSize().getWidth();

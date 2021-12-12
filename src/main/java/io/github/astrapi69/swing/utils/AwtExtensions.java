@@ -24,15 +24,16 @@
  */
 package io.github.astrapi69.swing.utils;
 
-import io.github.astrapi69.lang.ClassExtensions;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.image.BufferedImage;
 import java.io.IOException;
 import java.io.InputStream;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+import io.github.astrapi69.lang.ClassExtensions;
 
 /**
  * The class {@link AwtExtensions}
@@ -125,9 +126,9 @@ public final class AwtExtensions
 	 */
 	public static Cursor newInvisibleCursor()
 	{
-		return Toolkit.getDefaultToolkit()
-			.createCustomCursor(Toolkit.getDefaultToolkit().createImage(new byte[0]),
-				new Point(0, 0), "InvisibleCursor");
+		return Toolkit.getDefaultToolkit().createCustomCursor(
+			Toolkit.getDefaultToolkit().createImage(new byte[0]), new Point(0, 0),
+			"InvisibleCursor");
 	}
 
 	/**

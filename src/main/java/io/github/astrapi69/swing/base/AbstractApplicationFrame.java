@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2021 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -24,10 +24,18 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
-import io.github.astrapi69.swing.menu.MenuFactory;
-import io.github.astrapi69.swing.plaf.LookAndFeels;
+import java.awt.*;
+import java.awt.image.BufferedImage;
+import java.io.File;
+import java.io.IOException;
+import java.util.Optional;
+import java.util.logging.Level;
+
+import javax.imageio.ImageIO;
+import javax.swing.*;
+
+import io.github.astrapi69.swing.actions.OpenBrowserAction;
+import io.github.astrapi69.swing.actions.ShowDialogAction;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -36,15 +44,10 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
-
-import javax.imageio.ImageIO;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.image.BufferedImage;
-import java.io.File;
-import java.io.IOException;
-import java.util.Optional;
-import java.util.logging.Level;
+import io.github.astrapi69.lang.ClassExtensions;
+import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
+import io.github.astrapi69.swing.menu.MenuFactory;
+import io.github.astrapi69.swing.plaf.LookAndFeels;
 
 /**
  * The class {@link AbstractApplicationFrame}
@@ -52,8 +55,11 @@ import java.util.logging.Level;
  * @param <T>
  *            the generic type of the model object
  */
-@ToString @EqualsAndHashCode(callSuper = true) @Log @FieldDefaults(level = AccessLevel.PRIVATE) public abstract class AbstractApplicationFrame<T, C extends JComponent>
-	extends BaseFrame<T>
+@ToString
+@EqualsAndHashCode(callSuper = true)
+@Log
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public abstract class AbstractApplicationFrame<T, C extends JComponent> extends BaseFrame<T>
 {
 
 	/**
@@ -64,16 +70,23 @@ import java.util.logging.Level;
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	/** The configuration directory for configuration files. */
-	@Getter File configurationDirectory;
+	@Getter
+	File configurationDirectory;
 	/** The current look and feels. */
-	@Getter @Setter LookAndFeels currentLookAndFeels = LookAndFeels.SYSTEM;
-	@Getter BufferedImage icon;
+	@Getter
+	@Setter
+	LookAndFeels currentLookAndFeels = LookAndFeels.SYSTEM;
+	@Getter
+	BufferedImage icon;
 	/** The main component. */
-	@Getter C mainComponent;
-	@Getter BaseDesktopMenu menu;
+	@Getter
+	C mainComponent;
+	@Getter
+	BaseDesktopMenu menu;
 
 	/** The toolbar. */
-	@Getter JToolBar toolbar;
+	@Getter
+	JToolBar toolbar;
 
 	/**
 	 * Instantiates a new {@link AbstractApplicationFrame}
@@ -86,7 +99,8 @@ import java.util.logging.Level;
 		super(title);
 	}
 
-	@Override protected void onBeforeInitialize()
+	@Override
+	protected void onBeforeInitialize()
 	{
 		super.onBeforeInitialize();
 		configurationDirectory = newConfigurationDirectory(System.getProperty("user.home"),
@@ -96,7 +110,8 @@ import java.util.logging.Level;
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected void onInitializeComponents()
+	@Override
+	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
 		menu = newDesktopMenu(this);
@@ -125,14 +140,15 @@ import java.util.logging.Level;
 		Optional<BufferedImage> optional = Optional.empty();
 		try
 		{
-			BufferedImage bufferedImage = ImageIO.read(
-				ClassExtensions.getResourceAsStream(iconPath));
+			BufferedImage bufferedImage = ImageIO
+				.read(ClassExtensions.getResourceAsStream(iconPath));
 			optional = Optional.of(bufferedImage);
 		}
 		catch (IOException e)
 		{
 			String title = e.getLocalizedMessage();
-			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>" + e.getMessage();
+			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
+				+ e.getMessage();
 			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}
@@ -170,7 +186,30 @@ import java.util.logging.Level;
 	 */
 	protected BaseDesktopMenu newDesktopMenu(@NonNull Component applicationFrame)
 	{
-		return new BaseDesktopMenu(applicationFrame);
+		return new BaseDesktopMenu(applicationFrame)
+		{
+			protected OpenBrowserAction newOpenBrowserToDonateAction(String name,
+				@NonNull Component component)
+			{
+				return null;
+			}
+
+			protected ShowDialogAction newShowInfoDialogAction(String name, @NonNull Frame owner,
+				@NonNull String title)
+			{
+				return null;
+			}
+
+			protected AbstractAction newShowLicenseFrameAction(String name, @NonNull String title)
+			{
+				return null;
+			}
+
+			protected JDialog onNewInfoDialog(Frame owner, String title)
+			{
+				return null;
+			}
+		};
 	}
 
 	/**
@@ -210,7 +249,8 @@ import java.util.logging.Level;
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected void onAfterInitialize()
+	@Override
+	protected void onAfterInitialize()
 	{
 		super.onAfterInitialize();
 	}
@@ -233,10 +273,12 @@ import java.util.logging.Level;
 			LookAndFeels.setLookAndFeel(lookAndFeels, component);
 			setCurrentLookAndFeels(lookAndFeels);
 		}
-		catch (final ClassNotFoundException | InstantiationException | IllegalAccessException | UnsupportedLookAndFeelException e)
+		catch (final ClassNotFoundException | InstantiationException | IllegalAccessException
+			| UnsupportedLookAndFeelException e)
 		{
 			String title = e.getLocalizedMessage();
-			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>" + e.getMessage();
+			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
+				+ e.getMessage();
 			JOptionPane.showMessageDialog(this, htmlMessage, title, JOptionPane.ERROR_MESSAGE);
 			log.log(Level.SEVERE, e.getMessage(), e);
 		}

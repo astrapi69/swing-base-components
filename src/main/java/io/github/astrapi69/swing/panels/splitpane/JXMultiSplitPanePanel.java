@@ -24,16 +24,19 @@
  */
 package io.github.astrapi69.swing.panels.splitpane;
 
+import java.awt.*;
+
+import javax.swing.*;
+
+import lombok.Getter;
+
+import org.jdesktop.swingx.JXMultiSplitPane;
+import org.jdesktop.swingx.MultiSplitLayout;
+
 import io.github.astrapi69.model.api.Model;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.component.factory.DimensionFactory;
 import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
-import lombok.Getter;
-import org.jdesktop.swingx.JXMultiSplitPane;
-import org.jdesktop.swingx.MultiSplitLayout;
-
-import javax.swing.*;
-import java.awt.*;
 
 public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 {
@@ -42,7 +45,8 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 	private static final long serialVersionUID = 1L;
 
 	/** The {@link JXMultiSplitPane} */
-	@Getter JXMultiSplitPane multiSplitPane;
+	@Getter
+	JXMultiSplitPane multiSplitPane;
 
 	/**
 	 * Instantiates a new new {@link JXMultiSplitPanePanel} object
@@ -90,7 +94,9 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 	 */
 	protected String newLayoutDefinition()
 	{
-		String layoutDefinition = "(COLUMN " + "(ROW weight=0.8 " + "(COLUMN weight=0.25 " + "(LEAF name=left.top weight=0.5) " + "(LEAF name=left.middle weight=0.5)" + ")" + "(LEAF name=editor weight=0.75)" + ") " + "(LEAF name=bottom weight=0.2)" + ")";
+		String layoutDefinition = "(COLUMN " + "(ROW weight=0.8 " + "(COLUMN weight=0.25 "
+			+ "(LEAF name=left.top weight=0.5) " + "(LEAF name=left.middle weight=0.5)" + ")"
+			+ "(LEAF name=editor weight=0.75)" + ") " + "(LEAF name=bottom weight=0.2)" + ")";
 		return layoutDefinition;
 	}
 
@@ -121,7 +127,8 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected void onInitializeComponents()
+	@Override
+	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
 
@@ -134,7 +141,8 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected void onInitializeLayout()
+	@Override
+	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
 		setLayout(new BorderLayout());

@@ -36,8 +36,11 @@ import lombok.experimental.FieldDefaults;
  * @param <T>
  *            the generic type of the model object
  */
-@Getter @Setter @ToString @FieldDefaults(level = AccessLevel.PRIVATE) public abstract class ApplicationPanelFrame<T>
-	extends AbstractApplicationFrame<T, BasePanel<T>>
+@Getter
+@Setter
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public abstract class ApplicationPanelFrame<T> extends AbstractApplicationFrame<T, BasePanel<T>>
 {
 
 	/** The Constant serialVersionUID. */
@@ -57,7 +60,8 @@ import lombok.experimental.FieldDefaults;
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected void onInitializeComponents()
+	@Override
+	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
 	}
@@ -65,6 +69,7 @@ import lombok.experimental.FieldDefaults;
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected abstract BasePanel<T> newMainComponent();
+	@Override
+	protected abstract BasePanel<T> newMainComponent();
 
 }

@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
 import lombok.AccessLevel;
 import lombok.experimental.FieldDefaults;
+import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
 
 /**
  * The class {@link ApplicationSplitPaneFrame}
@@ -34,8 +34,10 @@ import lombok.experimental.FieldDefaults;
  * @param <T>
  *            the generic type of the model object
  */
-@FieldDefaults(level = AccessLevel.PRIVATE) public abstract class ApplicationSplitPaneFrame<T>
-	extends AbstractApplicationFrame<T, JXMultiSplitPanePanel<T>>
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public abstract class ApplicationSplitPaneFrame<T>
+	extends
+		AbstractApplicationFrame<T, JXMultiSplitPanePanel<T>>
 {
 
 	/** The Constant serialVersionUID. */
@@ -57,12 +59,14 @@ import lombok.experimental.FieldDefaults;
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected abstract JXMultiSplitPanePanel<T> newMainComponent();
+	@Override
+	protected abstract JXMultiSplitPanePanel<T> newMainComponent();
 
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected void onInitializeComponents()
+	@Override
+	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
 	}

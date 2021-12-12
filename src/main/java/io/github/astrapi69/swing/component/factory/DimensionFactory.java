@@ -24,15 +24,17 @@
  */
 package io.github.astrapi69.swing.component.factory;
 
-import lombok.experimental.UtilityClass;
+import java.awt.*;
 
 import javax.swing.*;
-import java.awt.*;
+
+import lombok.experimental.UtilityClass;
 
 /**
  * A factory {@link DimensionFactory} provides factory methods for create Dimension objects
  */
-@UtilityClass public class DimensionFactory
+@UtilityClass
+public class DimensionFactory
 {
 
 	/**
@@ -66,9 +68,9 @@ import java.awt.*;
 		Dimension firstDimension = first.getPreferredSize();
 		Dimension secondDimension = second.getPreferredSize();
 		return new Dimension(firstDimension.width + secondDimension.width,
-			(firstDimension.height < secondDimension.height ?
-				secondDimension.height :
-				firstDimension.height));
+			(firstDimension.height < secondDimension.height
+				? secondDimension.height
+				: firstDimension.height));
 
 	}
 }

@@ -24,17 +24,18 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.swing.component.factory.JComponentFactory;
-import io.github.astrapi69.swing.desktoppane.SingletonDesktopPane;
-import io.github.astrapi69.swing.utils.JInternalFrameExtensions;
+import java.awt.*;
+
+import javax.swing.*;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-
-import javax.swing.*;
-import java.awt.*;
+import io.github.astrapi69.swing.component.factory.JComponentFactory;
+import io.github.astrapi69.swing.desktoppane.SingletonDesktopPane;
+import io.github.astrapi69.swing.utils.JInternalFrameExtensions;
 
 /**
  * The class {@link ApplicationFrame}
@@ -42,8 +43,11 @@ import java.awt.*;
  * @param <T>
  *            the generic type of the model object
  */
-@Getter @Setter @ToString @FieldDefaults(level = AccessLevel.PRIVATE) public abstract class ApplicationFrame<T>
-	extends AbstractApplicationFrame<T, JDesktopPane>
+@Getter
+@Setter
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public abstract class ApplicationFrame<T> extends AbstractApplicationFrame<T, JDesktopPane>
 {
 
 	/** The Constant serialVersionUID. */
@@ -67,7 +71,8 @@ import java.awt.*;
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected JDesktopPane newMainComponent()
+	@Override
+	protected JDesktopPane newMainComponent()
 	{
 		return SingletonDesktopPane.getInstance();
 	}
@@ -75,7 +80,8 @@ import java.awt.*;
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected void onInitializeComponents()
+	@Override
+	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
 	}

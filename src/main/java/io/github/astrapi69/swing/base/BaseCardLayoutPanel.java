@@ -24,16 +24,17 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.model.api.Model;
+import java.awt.*;
+
+import javax.swing.border.LineBorder;
+
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-
-import javax.swing.border.LineBorder;
-import java.awt.*;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The class {@link BaseCardLayoutPanel} is a {@link BasePanel} with an initialized
@@ -42,15 +43,20 @@ import java.awt.*;
  * @param <T>
  *            the generic type of the model object
  */
-@Getter @Setter @ToString @EqualsAndHashCode(callSuper = true) @FieldDefaults(level = AccessLevel.PRIVATE) public class BaseCardLayoutPanel<T>
-	extends BasePanel<T>
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(callSuper = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class BaseCardLayoutPanel<T> extends BasePanel<T>
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
 	/** The card layout. */
-	@Getter CardLayout cardLayout;
+	@Getter
+	CardLayout cardLayout;
 
 	/**
 	 * Instantiates a new {@link BaseCardLayoutPanel}.
@@ -120,7 +126,8 @@ import java.awt.*;
 	/**
 	 * The layout have to initialize before components. {@inheritDoc}
 	 */
-	@Override protected void onBeforeInitializeComponents()
+	@Override
+	protected void onBeforeInitializeComponents()
 	{
 		super.onBeforeInitializeComponents();
 		cardLayout = newCardLayout();
@@ -130,7 +137,8 @@ import java.awt.*;
 	/**
 	 * {@inheritDoc}
 	 */
-	@Override protected void onInitializeLayout()
+	@Override
+	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
 		setBorder(new LineBorder(Color.BLACK));

@@ -24,16 +24,17 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.model.api.Model;
+import java.awt.*;
+
+import javax.swing.*;
+
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-
-import javax.swing.*;
-import java.awt.*;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The class {@link BaseDialog}.
@@ -41,8 +42,12 @@ import java.awt.*;
  * @param <T>
  *            the generic type
  */
-@Getter @Setter @ToString @EqualsAndHashCode(callSuper = true) @FieldDefaults(level = AccessLevel.PRIVATE) public class BaseDialog<T>
-	extends JDialog
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(callSuper = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class BaseDialog<T> extends JDialog
 {
 
 	/** The serialVersionUID. */

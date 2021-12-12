@@ -24,16 +24,17 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.model.api.Model;
+import java.awt.*;
+
+import javax.swing.*;
+
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-
-import javax.swing.*;
-import java.awt.*;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The class {@link PanelDialog} contains a panel for the content and a panel for the buttons
@@ -41,8 +42,12 @@ import java.awt.*;
  * @param <T>
  *            the generic type
  */
-@Getter @Setter @ToString @EqualsAndHashCode(callSuper = true) @FieldDefaults(level = AccessLevel.PRIVATE) public class PanelDialog<T>
-	extends BaseDialog<T>
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(callSuper = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class PanelDialog<T> extends BaseDialog<T>
 {
 
 	/** The serialVersionUID. */
@@ -138,7 +143,8 @@ import java.awt.*;
 		return emptyPanel;
 	}
 
-	@Override protected void onInitializeComponents()
+	@Override
+	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
 		setModal(isModal());
@@ -147,7 +153,8 @@ import java.awt.*;
 		buttons = newButtons(getModel());
 	}
 
-	@Override protected void onInitializeLayout()
+	@Override
+	protected void onInitializeLayout()
 	{
 		super.onInitializeLayout();
 		container = getContentPane();

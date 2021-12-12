@@ -24,19 +24,22 @@
  */
 package io.github.astrapi69.swing.base;
 
+import java.awt.*;
+
+import javax.swing.*;
+import javax.swing.border.Border;
+
+import org.jdesktop.swingx.MultiSplitLayout;
+
 import io.github.astrapi69.swing.button.IconButtonFactory;
 import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
 import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 import io.github.astrapi69.window.adapter.CloseWindow;
-import org.jdesktop.swingx.MultiSplitLayout;
-
-import javax.swing.*;
-import javax.swing.border.Border;
-import java.awt.*;
 
 public class ApplicationPanelFrameExample
-	extends ApplicationPanelFrame<ApplicationTestModel<String>>
+	extends
+		ApplicationPanelFrame<ApplicationTestModel<String>>
 {
 
 
@@ -77,7 +80,8 @@ public class ApplicationPanelFrameExample
 	}
 
 
-	@Override protected String newIconPath()
+	@Override
+	protected String newIconPath()
 	{
 		return "img/xmas/bell.png";
 	}
@@ -90,11 +94,14 @@ public class ApplicationPanelFrameExample
 		return label;
 	}
 
-	@SuppressWarnings("serial") @Override protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent()
+	@SuppressWarnings("serial")
+	@Override
+	protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent()
 	{
 		final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
 		{
-			@Override protected MultiSplitLayout.Node newRootNode(String layoutDefinition)
+			@Override
+			protected MultiSplitLayout.Node newRootNode(String layoutDefinition)
 			{
 				return ApplicationPanelFrameExample.this.newRootNode();
 			}
@@ -127,7 +134,8 @@ public class ApplicationPanelFrameExample
 		return label;
 	}
 
-	@Override protected JToolBar newJToolBar()
+	@Override
+	protected JToolBar newJToolBar()
 	{
 		JToolBar toolBar = super.newJToolBar();
 		toolBar.setSize(this.getWidth(), 25);

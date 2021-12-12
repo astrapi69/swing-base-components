@@ -24,16 +24,18 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.model.api.Model;
+import java.awt.*;
+
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+
 import org.jdesktop.swingx.JXPanel;
 
-import java.awt.*;
+import io.github.astrapi69.model.api.Model;
 
 /**
  * The class {@link BasePanel} for swing panels to provide an initialization cycle where the user
@@ -42,8 +44,12 @@ import java.awt.*;
  * @param <T>
  *            the generic type of the model object
  */
-@Getter @Setter @ToString @EqualsAndHashCode(callSuper = true) @FieldDefaults(level = AccessLevel.PRIVATE) public class BasePanel<T>
-	extends JXPanel
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(callSuper = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class BasePanel<T> extends JXPanel
 {
 
 	/** The Constant serialVersionUID. */

@@ -24,9 +24,10 @@
  */
 package io.github.astrapi69.swing.utils;
 
-import javax.swing.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
+
+import javax.swing.*;
 
 /**
  * The class {@link ClipboardExtensions}

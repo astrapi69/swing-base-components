@@ -35,7 +35,14 @@ import lombok.ToString;
 /**
  * The class {@link ApplicationTestModel} for unit testing
  */
-@Getter @Setter @EqualsAndHashCode @ToString @NoArgsConstructor @AllArgsConstructor @Builder(toBuilder = true) public class ApplicationTestModel<T>
+@Getter
+@Setter
+@EqualsAndHashCode
+@ToString
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder(toBuilder = true)
+public class ApplicationTestModel<T>
 {
 
 	/**

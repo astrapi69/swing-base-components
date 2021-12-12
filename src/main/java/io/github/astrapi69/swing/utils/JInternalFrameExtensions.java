@@ -24,15 +24,17 @@
  */
 package io.github.astrapi69.swing.utils;
 
-import lombok.experimental.UtilityClass;
+import java.awt.*;
 
 import javax.swing.*;
-import java.awt.*;
+
+import lombok.experimental.UtilityClass;
 
 /**
  * The Class {@link JInternalFrameExtensions}.
  */
-@UtilityClass public class JInternalFrameExtensions
+@UtilityClass
+public class JInternalFrameExtensions
 {
 
 	/**

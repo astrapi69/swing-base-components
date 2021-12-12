@@ -24,15 +24,16 @@
  */
 package io.github.astrapi69.swing.component.factory;
 
-import lombok.experimental.UtilityClass;
-
 import javax.swing.*;
+
+import lombok.experimental.UtilityClass;
 
 /**
  * The class {@link SwingContainerFactory} provides factory methods for create swing container
  * component objects
  */
-@UtilityClass public class SwingContainerFactory
+@UtilityClass
+public class SwingContainerFactory
 {
 
 	/**

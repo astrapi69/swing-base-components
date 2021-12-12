@@ -24,16 +24,18 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.model.api.Model;
+import java.awt.*;
+
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
+
 import org.jdesktop.swingx.JXFrame;
 
-import java.awt.*;
+import io.github.astrapi69.model.api.Model;
 
 
 /**
@@ -43,8 +45,12 @@ import java.awt.*;
  * @param <T>
  *            the generic type of the model object
  */
-@Getter @Setter @ToString @EqualsAndHashCode(callSuper = true) @FieldDefaults(level = AccessLevel.PRIVATE) public class BaseFrame<T>
-	extends JXFrame
+@Getter
+@Setter
+@ToString
+@EqualsAndHashCode(callSuper = true)
+@FieldDefaults(level = AccessLevel.PRIVATE)
+public class BaseFrame<T> extends JXFrame
 {
 
 	/** The Constant serialVersionUID. */

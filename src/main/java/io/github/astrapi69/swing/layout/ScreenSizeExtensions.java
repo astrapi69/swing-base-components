@@ -24,17 +24,18 @@
  */
 package io.github.astrapi69.swing.layout;
 
-import io.github.astrapi69.collections.array.ArrayExtensions;
-import io.github.astrapi69.reflection.ReflectionExtensions;
-import io.github.astrapi69.swing.utils.AwtExtensions;
-import lombok.NonNull;
-
-import javax.swing.*;
 import java.awt.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
+
+import javax.swing.*;
+
+import lombok.NonNull;
+import io.github.astrapi69.collections.array.ArrayExtensions;
+import io.github.astrapi69.reflection.ReflectionExtensions;
+import io.github.astrapi69.swing.utils.AwtExtensions;
 
 /**
  * Utility class for handle with screensize.
@@ -146,14 +147,16 @@ public class ScreenSizeExtensions
 	 */
 	public static int getFirstScreenHeight()
 	{
-		final GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		final GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment
+			.getLocalGraphicsEnvironment();
 		final GraphicsDevice[] graphicsDevices = graphicsEnvironment.getScreenDevices();
 		int height = getScreenHeight();
 		for (final GraphicsDevice graphicsDevice : graphicsDevices)
 		{
-			final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
-			final GraphicsConfiguration graphicsConfiguration = ArrayExtensions.getFirst(
-				graphicsConfigurations);
+			final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice
+				.getConfigurations();
+			final GraphicsConfiguration graphicsConfiguration = ArrayExtensions
+				.getFirst(graphicsConfigurations);
 			if (graphicsConfiguration != null)
 			{
 				height = (int)getScreenHeight(graphicsConfiguration);
@@ -174,9 +177,10 @@ public class ScreenSizeExtensions
 		int width = getScreenWidth();
 		for (final GraphicsDevice graphicsDevice : graphicsDevices)
 		{
-			final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
-			final GraphicsConfiguration graphicsConfiguration = ArrayExtensions.getFirst(
-				graphicsConfigurations);
+			final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice
+				.getConfigurations();
+			final GraphicsConfiguration graphicsConfiguration = ArrayExtensions
+				.getFirst(graphicsConfigurations);
 			if (graphicsConfiguration != null)
 			{
 				width = (int)getScreenWidth(graphicsConfiguration);
@@ -248,7 +252,8 @@ public class ScreenSizeExtensions
 		Dimension dimension = new Dimension(0, 0);
 
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		GraphicsConfiguration defaultConfiguration = ge.getScreenDevices()[screenID].getDefaultConfiguration();
+		GraphicsConfiguration defaultConfiguration = ge.getScreenDevices()[screenID]
+			.getDefaultConfiguration();
 		Rectangle rectangle = defaultConfiguration.getBounds();
 		dimension.setSize(rectangle.getWidth(), rectangle.getHeight());
 		return dimension;
@@ -304,8 +309,8 @@ public class ScreenSizeExtensions
 	public static int getScreenHeight(final GraphicsDevice graphicsDevice)
 	{
 		final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
-		final GraphicsConfiguration graphicsConfiguration = ArrayExtensions.getFirst(
-			graphicsConfigurations);
+		final GraphicsConfiguration graphicsConfiguration = ArrayExtensions
+			.getFirst(graphicsConfigurations);
 		if (graphicsConfiguration != null)
 		{
 			final double height = getScreenHeight(graphicsConfiguration);
@@ -337,7 +342,8 @@ public class ScreenSizeExtensions
 					Integer sid = (Integer)object;
 					counter.set(sid);
 				}
-				catch (NoSuchFieldException | SecurityException | IllegalArgumentException | IllegalAccessException e)
+				catch (NoSuchFieldException | SecurityException | IllegalArgumentException
+					| IllegalAccessException e)
 				{
 					e.printStackTrace();
 				}
@@ -397,8 +403,8 @@ public class ScreenSizeExtensions
 	public static int getScreenWidth(final GraphicsDevice graphicsDevice)
 	{
 		final GraphicsConfiguration[] graphicsConfigurations = graphicsDevice.getConfigurations();
-		final GraphicsConfiguration graphicsConfiguration = ArrayExtensions.getFirst(
-			graphicsConfigurations);
+		final GraphicsConfiguration graphicsConfiguration = ArrayExtensions
+			.getFirst(graphicsConfigurations);
 		if (graphicsConfiguration != null)
 		{
 			return (int)getScreenWidth(graphicsConfiguration);

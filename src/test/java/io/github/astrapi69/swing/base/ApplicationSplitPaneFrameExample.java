@@ -24,17 +24,20 @@
  */
 package io.github.astrapi69.swing.base;
 
-import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
-import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
-import io.github.astrapi69.window.adapter.CloseWindow;
-import org.jdesktop.swingx.MultiSplitLayout;
+import java.awt.*;
 
 import javax.swing.*;
 import javax.swing.border.Border;
-import java.awt.*;
+
+import org.jdesktop.swingx.MultiSplitLayout;
+
+import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
+import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class ApplicationSplitPaneFrameExample
-	extends ApplicationSplitPaneFrame<ApplicationTestModel<String>>
+	extends
+		ApplicationSplitPaneFrame<ApplicationTestModel<String>>
 {
 
 	private static final long serialVersionUID = 1L;
@@ -72,7 +75,8 @@ public class ApplicationSplitPaneFrameExample
 	}
 
 
-	@Override protected String newIconPath()
+	@Override
+	protected String newIconPath()
 	{
 		return "img/xmas/bell.png";
 	}
@@ -85,11 +89,14 @@ public class ApplicationSplitPaneFrameExample
 		return label;
 	}
 
-	@SuppressWarnings("serial") @Override protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent()
+	@SuppressWarnings("serial")
+	@Override
+	protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent()
 	{
 		final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
 		{
-			@Override protected MultiSplitLayout.Node newRootNode(String layoutDefinition)
+			@Override
+			protected MultiSplitLayout.Node newRootNode(String layoutDefinition)
 			{
 				return ApplicationSplitPaneFrameExample.this.newRootNode();
 			}
