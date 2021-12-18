@@ -24,6 +24,24 @@
  */
 package io.github.astrapi69.swing.base;
 
+import java.awt.*;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyEvent;
+import java.util.logging.Level;
+
+import javax.help.CSH;
+import javax.help.DefaultHelpBroker;
+import javax.help.HelpSet;
+import javax.help.HelpSetException;
+import javax.help.WindowPresentation;
+import javax.swing.*;
+
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
+import lombok.extern.java.Log;
 import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
@@ -32,29 +50,15 @@ import io.github.astrapi69.swing.plaf.actions.LookAndFeelMetalAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMotifAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelNimbusAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelSystemAction;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.ToString;
-import lombok.experimental.FieldDefaults;
-import lombok.extern.java.Log;
-
-import javax.help.CSH;
-import javax.help.DefaultHelpBroker;
-import javax.help.HelpSet;
-import javax.help.HelpSetException;
-import javax.help.WindowPresentation;
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
-import java.util.logging.Level;
 
 /**
  * The class {@link BaseDesktopMenu} holds the base menu items for an application
  */
-@Getter @ToString @FieldDefaults(level = AccessLevel.PRIVATE) @Log public class BaseDesktopMenu
-	extends JMenu
+@Getter
+@ToString
+@FieldDefaults(level = AccessLevel.PRIVATE)
+@Log
+public class BaseDesktopMenu extends JMenu
 {
 
 	/** The Constant serialVersionUID. */
@@ -118,7 +122,8 @@ import java.util.logging.Level;
 		catch (final HelpSetException e)
 		{
 			String title = e.getLocalizedMessage();
-			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>" + e.getMessage() + "\n" + path;
+			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
+				+ e.getMessage() + "\n" + path;
 			JOptionPane.showMessageDialog(this.getParent(), htmlMessage, title,
 				JOptionPane.ERROR_MESSAGE);
 			log.log(Level.SEVERE, e.getMessage(), e);
@@ -212,7 +217,8 @@ import java.util.logging.Level;
 		catch (final Exception e)
 		{
 			String title = e.getLocalizedMessage();
-			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>" + e.getMessage();
+			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
+				+ e.getMessage();
 			JOptionPane.showMessageDialog(this.getParent(), htmlMessage, title,
 				JOptionPane.ERROR_MESSAGE);
 			log.log(Level.SEVERE, e.getMessage(), e);
@@ -315,7 +321,8 @@ import java.util.logging.Level;
 		JMenuItem jmiPlafGTK;
 		jmiPlafGTK = new JMenuItem("GTK", 'g')
 		{
-			@Override public boolean isEnabled()
+			@Override
+			public boolean isEnabled()
 			{
 				LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
 				if (lookAndFeel != null && lookAndFeel.getID().equalsIgnoreCase("GTK"))
@@ -344,7 +351,8 @@ import java.util.logging.Level;
 		JMenuItem jmiPlafMotiv;
 		jmiPlafMotiv = new JMenuItem("Motif", 't')
 		{
-			@Override public boolean isEnabled()
+			@Override
+			public boolean isEnabled()
 			{
 				LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
 				if (lookAndFeel != null && lookAndFeel.getID().equalsIgnoreCase("Motif"))
@@ -361,7 +369,8 @@ import java.util.logging.Level;
 		JMenuItem jmiPlafNimbus;
 		jmiPlafNimbus = new JMenuItem("Nimbus", 'n')
 		{
-			@Override public boolean isEnabled()
+			@Override
+			public boolean isEnabled()
 			{
 				LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
 				if (lookAndFeel != null && lookAndFeel.getID().equalsIgnoreCase("Nimbus"))
@@ -372,14 +381,15 @@ import java.util.logging.Level;
 			}
 		}; // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(jmiPlafNimbus, 'N');
-		jmiPlafNimbus.addActionListener(
-			new LookAndFeelNimbusAction("Nimbus", this.applicationFrame));
+		jmiPlafNimbus
+			.addActionListener(new LookAndFeelNimbusAction("Nimbus", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafNimbus);
 		// Windows
 		JMenuItem jmiPlafSystem;
 		jmiPlafSystem = new JMenuItem("System", 'd')
 		{
-			@Override public boolean isEnabled()
+			@Override
+			public boolean isEnabled()
 			{
 				LookAndFeel lookAndFeel = UIManager.getLookAndFeel();
 				String systemLookAndFeelClassName = UIManager.getSystemLookAndFeelClassName();
@@ -392,8 +402,8 @@ import java.util.logging.Level;
 			}
 		}; // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(jmiPlafSystem, 'W');
-		jmiPlafSystem.addActionListener(
-			new LookAndFeelSystemAction("System", this.applicationFrame));
+		jmiPlafSystem
+			.addActionListener(new LookAndFeelSystemAction("System", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafSystem);
 
 		return menuLookAndFeel;

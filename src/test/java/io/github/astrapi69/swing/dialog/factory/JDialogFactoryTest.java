@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2015 Asterios Raptis
+ * Copyright (C) 2021 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -30,12 +30,12 @@ import javax.swing.*;
 
 import net.miginfocom.swing.MigLayout;
 
+import org.junit.jupiter.api.Disabled;
+import org.junit.jupiter.api.Test;
 
 import io.github.astrapi69.swing.button.ButtonFactory;
 import io.github.astrapi69.swing.dialog.JOptionPaneExtensions;
 import io.github.astrapi69.swing.listener.RequestFocusListener;
-import org.junit.jupiter.api.Disabled;
-import org.junit.jupiter.api.Test;
 
 
 /**

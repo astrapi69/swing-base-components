@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2015 Asterios Raptis
+ * Copyright (C) 2021 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -34,8 +34,6 @@ import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import io.github.astrapi69.swing.actions.OpenBrowserAction;
-import io.github.astrapi69.swing.actions.ShowDialogAction;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -45,6 +43,8 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
+import io.github.astrapi69.swing.actions.OpenBrowserAction;
+import io.github.astrapi69.swing.actions.ShowDialogAction;
 import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
