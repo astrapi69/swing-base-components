@@ -15,7 +15,7 @@ Version 1.1
 CHANGED:
 
 - moved dialog classes from swing-components repository to this repository
-- mofed GraphicsDeviceExtensions class from swing-components repository to this repository
+- moved GraphicsDeviceExtensions class from swing-components repository to this repository
 
 Version 1
 -------------
