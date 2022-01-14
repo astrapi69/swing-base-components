@@ -4,6 +4,9 @@
 Version 1.2-SNAPSHOT
 -------------
 
+CHANGED:
+
+- return type to general class JMenu in factory method newDesktopMenu from class AbstractApplicationFrame
 
 
 Version 1.1

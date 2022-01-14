@@ -34,12 +34,7 @@ import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import lombok.AccessLevel;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.Setter;
-import lombok.ToString;
+import lombok.*;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
@@ -78,11 +73,15 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	LookAndFeels currentLookAndFeels = LookAndFeels.SYSTEM;
 	@Getter
 	BufferedImage icon;
-	/** The main component. */
+	/**
+	 * The main component.
+	 */
 	@Getter
 	C mainComponent;
+
+	/** The menu. */
 	@Getter
-	BaseDesktopMenu menu;
+	JMenu menu;
 
 	/** The toolbar. */
 	@Getter
@@ -115,7 +114,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	{
 		super.onInitializeComponents();
 		menu = newDesktopMenu(this);
-		setJMenuBar(menu.getMenubar());
+		setJMenuBar(newJMenuBar());
 		setToolBar(toolbar = newJToolBar());
 		getContentPane().add(mainComponent = newMainComponent());
 		Optional<BufferedImage> optionalIcon = getIcon(newIconPath());
@@ -125,6 +124,20 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 		}
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		ScreenSizeExtensions.setDefaultFrameSize(this);
+	}
+
+	/**
+	 * Creates a new {@link JMenuBar}
+	 *
+	 * @return the new {@link JMenuBar}
+	 */
+	protected JMenuBar newJMenuBar()
+	{
+		if (menu instanceof BaseDesktopMenu)
+		{
+			return ((BaseDesktopMenu)menu).getMenubar();
+		}
+		return MenuFactory.newJMenuBar();
 	}
 
 	/**
@@ -182,9 +195,9 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	 *
 	 * @param applicationFrame
 	 *            the application frame
-	 * @return the new {@link BaseDesktopMenu} object
+	 * @return the new {@link JMenu} object
 	 */
-	protected BaseDesktopMenu newDesktopMenu(@NonNull Component applicationFrame)
+	protected JMenu newDesktopMenu(@NonNull Component applicationFrame)
 	{
 		return new BaseDesktopMenu(applicationFrame)
 		{
