@@ -8,13 +8,17 @@ ADDED:
 
 - new method in class DialogExtensions for confirm messages
 
+CHANGED:
+
+- return type to general class JMenu in factory method newDesktopMenu from class AbstractApplicationFrame
+
 Version 1.1
 -------------
 
 CHANGED:
 
 - moved dialog classes from swing-components repository to this repository
-- mofed GraphicsDeviceExtensions class from swing-components repository to this repository
+- moved GraphicsDeviceExtensions class from swing-components repository to this repository
 
 Version 1
 -------------

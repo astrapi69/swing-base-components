@@ -29,11 +29,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 
-import javax.help.CSH;
-import javax.help.DefaultHelpBroker;
-import javax.help.HelpSet;
-import javax.help.HelpSetException;
-import javax.help.WindowPresentation;
+import javax.help.*;
 import javax.swing.*;
 
 import lombok.AccessLevel;
@@ -45,11 +41,7 @@ import lombok.extern.java.Log;
 import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelGTKAction;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelMetalAction;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelMotifAction;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelNimbusAction;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelSystemAction;
+import io.github.astrapi69.swing.plaf.actions.*;
 
 /**
  * The class {@link BaseDesktopMenu} holds the base menu items for an application
@@ -141,10 +133,7 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenu newEditMenu(final ActionListener listener)
 	{
-		final JMenu menu = new JMenu("Edit");
-		menu.setMnemonic('E');
-
-		return menu;
+		return MenuFactory.newJMenu("Edit", 'E');
 	}
 
 	/**
@@ -175,8 +164,7 @@ public class BaseDesktopMenu extends JMenu
 	protected JMenu newHelpMenu(final ActionListener listener)
 	{
 		// Help menu
-		final JMenu menuHelp = new JMenu(newLabelTextHelp());
-		menuHelp.setMnemonic('H');
+		final JMenu menuHelp = MenuFactory.newJMenu(newLabelTextHelp(), 'H');
 
 		// Help JMenuItems
 		// Help content
@@ -191,8 +179,8 @@ public class BaseDesktopMenu extends JMenu
 		mihHelpContent.addActionListener(displayHelpFromSource);
 
 		// Info
-		final JMenuItem mihInfo = new JMenuItem(newLabelTextInfo(), 'i'); // $NON-NLS-1$
-		MenuExtensions.setCtrlAccelerator(mihInfo, 'I');
+		final JMenuItem mihInfo = MenuFactory.newJMenuItem(newLabelTextInfo(), 'i', 'I');
+		menuHelp.add(mihInfo);
 
 		return menuHelp;
 	}
@@ -233,7 +221,7 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenuBar newJMenuBar()
 	{
-		return new JMenuBar();
+		return MenuFactory.newJMenuBar();
 	}
 
 	protected String newLabelTextApplicationName()
@@ -313,8 +301,7 @@ public class BaseDesktopMenu extends JMenu
 	protected JMenu newLookAndFeelMenu(final ActionListener listener)
 	{
 
-		final JMenu menuLookAndFeel = new JMenu("Look and Feel");
-		menuLookAndFeel.setMnemonic('L');
+		final JMenu menuLookAndFeel = MenuFactory.newJMenu("Look and Feel", 'L');
 
 		// Look and Feel JMenuItems
 		// GTK
@@ -336,20 +323,15 @@ public class BaseDesktopMenu extends JMenu
 		jmiPlafGTK.addActionListener(new LookAndFeelGTKAction("GTK", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafGTK);
 		// Metal default Metal theme
-		JMenuItem jmiPlafMetal;
-		jmiPlafMetal = new JMenuItem("Metal", 'm'); // $NON-NLS-1$
-		MenuExtensions.setCtrlAccelerator(jmiPlafMetal, 'M');
+		JMenuItem jmiPlafMetal = MenuFactory.newJMenuItem("Metal", 'm', 'M');
 		jmiPlafMetal.addActionListener(new LookAndFeelMetalAction("Metal", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafMetal);
 		// Metal Ocean theme
-		JMenuItem jmiPlafOcean;
-		jmiPlafOcean = new JMenuItem("Ocean", 'o'); // $NON-NLS-1$
-		MenuExtensions.setCtrlAccelerator(jmiPlafOcean, 'O');
+		JMenuItem jmiPlafOcean = MenuFactory.newJMenuItem("Ocean", 'o', 'O');
 		jmiPlafOcean.addActionListener(new LookAndFeelMetalAction("Ocean", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafOcean);
 		// Motif
-		JMenuItem jmiPlafMotiv;
-		jmiPlafMotiv = new JMenuItem("Motif", 't')
+		JMenuItem jmiPlafMotiv = new JMenuItem("Motif", 't')
 		{
 			@Override
 			public boolean isEnabled()
@@ -366,8 +348,7 @@ public class BaseDesktopMenu extends JMenu
 		jmiPlafMotiv.addActionListener(new LookAndFeelMotifAction("Motif", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafMotiv);
 		// Nimbus
-		JMenuItem jmiPlafNimbus;
-		jmiPlafNimbus = new JMenuItem("Nimbus", 'n')
+		JMenuItem jmiPlafNimbus = new JMenuItem("Nimbus", 'n')
 		{
 			@Override
 			public boolean isEnabled()
@@ -385,8 +366,7 @@ public class BaseDesktopMenu extends JMenu
 			.addActionListener(new LookAndFeelNimbusAction("Nimbus", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafNimbus);
 		// Windows
-		JMenuItem jmiPlafSystem;
-		jmiPlafSystem = new JMenuItem("System", 'd')
+		JMenuItem jmiPlafSystem = new JMenuItem("System", 'd')
 		{
 			@Override
 			public boolean isEnabled()
