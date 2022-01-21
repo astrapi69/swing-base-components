@@ -98,6 +98,8 @@ public class DialogExtensions
 	 *            the title
 	 * @param message
 	 *            the information message
+	 * @param messageType
+	 *            the information type
 	 */
 	public static void showMessageDialog(Component parentComponent, String title, String message,
 		int messageType)
@@ -106,6 +108,35 @@ public class DialogExtensions
 		sb.append("<html>").append("<body>").append(message).append("</body>").append("</html>");
 		String htmlMessage = sb.toString();
 		JOptionPane.showMessageDialog(parentComponent, htmlMessage, title, messageType);
+	}
+
+	/**
+	 * Show a confirmation message for selecting one of a choice
+	 *
+	 * @param parentComponent
+	 *            determines the <code>Frame</code> in which the dialog is displayed; if
+	 *            <code>null</code>, or if the <code>parentComponent</code> has no
+	 *            <code>Frame</code>, a default <code>Frame</code> is used
+	 * @param title
+	 *            the title
+	 * @param message
+	 *            the information message
+	 * @param messageType
+	 *            the information type
+	 * @param optionType
+	 *            an integer designating the options available on the dialog:
+	 *            <code>YES_NO_OPTION</code>, <code>YES_NO_CANCEL_OPTION</code>, or
+	 *            <code>OK_CANCEL_OPTION</code>
+	 * @return an integer indicating the option selected by the user
+	 */
+	public static int showConfirmDialog(Component parentComponent, String title, String message,
+		int optionType, int messageType, Icon icon)
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append("<html>").append("<body>").append(message).append("</body>").append("</html>");
+		String htmlMessage = sb.toString();
+		return JOptionPane.showConfirmDialog(parentComponent, htmlMessage, title, optionType,
+			messageType, icon);
 	}
 
 	/**

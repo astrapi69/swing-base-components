@@ -53,8 +53,15 @@ public class DialogExtensionsTest
 		informationMessage.addActionListener(e -> DialogExtensions.showInformationDialog(frame,
 			"Help", "<div width='650'>Help content<br>foo<br>foo</div>"
 				+ "<div>Help content<br>foo<br>foo</div>"));
+		JButton confirmMessage = new JButton("Confirm");
+		confirmMessage
+			.addActionListener(e -> DialogExtensions.showConfirmDialog(frame, "Confirm deletion",
+				"<div width='450'>Are you sure<br></div>"
+					+ "<div>The delete action is not recoverable</div>",
+				JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null));
 		frame.getContentPane().add(BorderLayout.WEST, informationMessage);
 		frame.getContentPane().add(BorderLayout.EAST, exceptionMessage);
+		frame.getContentPane().add(BorderLayout.NORTH, confirmMessage);
 		frame.pack();
 		frame.setVisible(true);
 	}

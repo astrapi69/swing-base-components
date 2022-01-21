@@ -4,7 +4,9 @@
 Version 1.2-SNAPSHOT
 -------------
 
+ADDED:
 
+- new method in class DialogExtensions for confirm messages
 
 Version 1.1
 -------------
