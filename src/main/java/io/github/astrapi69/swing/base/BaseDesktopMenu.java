@@ -29,7 +29,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 
-import javax.help.*;
+import javax.help.CSH;
+import javax.help.DefaultHelpBroker;
+import javax.help.HelpSet;
+import javax.help.HelpSetException;
+import javax.help.WindowPresentation;
 import javax.swing.*;
 
 import lombok.AccessLevel;
@@ -41,7 +45,11 @@ import lombok.extern.java.Log;
 import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
-import io.github.astrapi69.swing.plaf.actions.*;
+import io.github.astrapi69.swing.plaf.actions.LookAndFeelGTKAction;
+import io.github.astrapi69.swing.plaf.actions.LookAndFeelMetalAction;
+import io.github.astrapi69.swing.plaf.actions.LookAndFeelMotifAction;
+import io.github.astrapi69.swing.plaf.actions.LookAndFeelNimbusAction;
+import io.github.astrapi69.swing.plaf.actions.LookAndFeelSystemAction;
 
 /**
  * The class {@link BaseDesktopMenu} holds the base menu items for an application

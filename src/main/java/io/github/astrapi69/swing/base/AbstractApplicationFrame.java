@@ -34,7 +34,12 @@ import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import lombok.*;
+import lombok.AccessLevel;
+import lombok.EqualsAndHashCode;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.Setter;
+import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
