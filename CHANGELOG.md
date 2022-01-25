@@ -7,6 +7,8 @@ Version 1.2-SNAPSHOT
 ADDED:
 
 - new method in class DialogExtensions for confirm messages
+- new class ComponentExtensions for provide extension methods for components
+- new method getComponentByName in class ComponentExtensions for resolve a component with a name
 
 CHANGED:
 
