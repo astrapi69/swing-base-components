@@ -35,7 +35,7 @@ import lombok.experimental.FieldDefaults;
 
 import org.jdesktop.swingx.JXFrame;
 
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 
 
 /**
@@ -57,7 +57,7 @@ public class BaseFrame<T> extends JXFrame
 	private static final long serialVersionUID = 1L;
 
 	/** The model. */
-	Model<T> model;
+	IModel<T> model;
 
 	/**
 	 * Instantiates a new {@link BaseFrame}.
@@ -85,7 +85,7 @@ public class BaseFrame<T> extends JXFrame
 	 * @param model
 	 *            the model
 	 */
-	public BaseFrame(Model<T> model)
+	public BaseFrame(IModel<T> model)
 	{
 		this.model = model;
 		initialize();
@@ -159,7 +159,7 @@ public class BaseFrame<T> extends JXFrame
 	 * @param model
 	 *            the model
 	 */
-	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose, Model<T> model)
+	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose, IModel<T> model)
 	{
 		super(title, gc, exitOnClose);
 		this.model = model;

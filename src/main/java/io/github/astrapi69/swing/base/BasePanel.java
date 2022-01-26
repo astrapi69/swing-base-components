@@ -35,7 +35,7 @@ import lombok.experimental.FieldDefaults;
 
 import org.jdesktop.swingx.JXPanel;
 
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 
 /**
  * The class {@link BasePanel} for swing panels to provide an initialization cycle where the user
@@ -56,7 +56,7 @@ public class BasePanel<T> extends JXPanel
 	private static final long serialVersionUID = 1L;
 
 	/** The model. */
-	Model<T> model;
+	IModel<T> model;
 
 	/**
 	 * Instantiates a new {@link BasePanel} object.
@@ -109,7 +109,7 @@ public class BasePanel<T> extends JXPanel
 	 * @param model
 	 *            the model
 	 */
-	public BasePanel(final Model<T> model)
+	public BasePanel(final IModel<T> model)
 	{
 		this.model = model;
 		initialize();

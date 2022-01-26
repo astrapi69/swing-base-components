@@ -34,7 +34,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 
 /**
  * The class {@link BaseDialog}.
@@ -54,7 +54,7 @@ public class BaseDialog<T> extends JDialog
 	private static final long serialVersionUID = 1L;
 
 	/** The model. */
-	Model<T> model;
+	IModel<T> model;
 
 	/**
 	 * Instantiates a new {@link BaseDialog} object
@@ -69,7 +69,7 @@ public class BaseDialog<T> extends JDialog
 	 *            the model
 	 */
 	public BaseDialog(final Frame owner, final String title, final boolean modal,
-		final Model<T> model)
+		final IModel<T> model)
 	{
 		super(owner, title, modal);
 		this.model = model;
@@ -89,7 +89,7 @@ public class BaseDialog<T> extends JDialog
 	 *            the model
 	 */
 	public BaseDialog(final Window owner, final String title, final boolean modal,
-		final Model<T> model)
+		final IModel<T> model)
 	{
 		super(owner, title, modal ? ModalityType.APPLICATION_MODAL : ModalityType.MODELESS);
 		this.model = model;
@@ -106,7 +106,7 @@ public class BaseDialog<T> extends JDialog
 	 * @param model
 	 *            the model
 	 */
-	public BaseDialog(final Window owner, final String title, final Model<T> model)
+	public BaseDialog(final Window owner, final String title, final IModel<T> model)
 	{
 		this(owner, title, true, model);
 	}
@@ -121,7 +121,7 @@ public class BaseDialog<T> extends JDialog
 	 * @param model
 	 *            the model
 	 */
-	public BaseDialog(final Frame owner, final String title, final Model<T> model)
+	public BaseDialog(final Frame owner, final String title, final IModel<T> model)
 	{
 		super(owner, title);
 		this.model = model;

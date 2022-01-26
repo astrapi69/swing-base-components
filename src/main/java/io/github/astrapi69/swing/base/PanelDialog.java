@@ -34,7 +34,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 
 /**
  * The class {@link PanelDialog} contains a panel for the content and a panel for the buttons
@@ -72,7 +72,7 @@ public class PanelDialog<T> extends BaseDialog<T>
 	 *            the model
 	 */
 	public PanelDialog(final Frame owner, final String title, final boolean modal,
-		final Model<T> model)
+		final IModel<T> model)
 	{
 		super(owner, title, modal, model);
 	}
@@ -87,7 +87,7 @@ public class PanelDialog<T> extends BaseDialog<T>
 	 * @param model
 	 *            the model
 	 */
-	public PanelDialog(final Frame owner, final String title, final Model<T> model)
+	public PanelDialog(final Frame owner, final String title, final IModel<T> model)
 	{
 		super(owner, title, model);
 	}
@@ -105,7 +105,7 @@ public class PanelDialog<T> extends BaseDialog<T>
 	 *            the model
 	 */
 	public PanelDialog(final Window owner, final String title, final boolean modal,
-		final Model<T> model)
+		final IModel<T> model)
 	{
 		super(owner, title, modal, model);
 	}
@@ -120,7 +120,7 @@ public class PanelDialog<T> extends BaseDialog<T>
 	 * @param model
 	 *            the model
 	 */
-	public PanelDialog(final Window owner, final String title, final Model<T> model)
+	public PanelDialog(final Window owner, final String title, final IModel<T> model)
 	{
 		super(owner, title, model);
 	}
@@ -130,14 +130,14 @@ public class PanelDialog<T> extends BaseDialog<T>
 		return getContentPane();
 	}
 
-	protected JPanel newButtons(final Model<T> model)
+	protected JPanel newButtons(final IModel<T> model)
 	{
 		JPanel buttonsPanel = new JPanel();
 		return buttonsPanel;
 	}
 
 
-	protected JPanel newContent(final Model<T> model)
+	protected JPanel newContent(final IModel<T> model)
 	{
 		JPanel emptyPanel = new JPanel();
 		return emptyPanel;

@@ -34,7 +34,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 
 /**
  * The class {@link BaseWindow}.
@@ -54,7 +54,7 @@ public class BaseWindow<T> extends JWindow
 	private static final long serialVersionUID = 1L;
 
 	/** The model. */
-	Model<T> model;
+	IModel<T> model;
 
 	/**
 	 * Instantiates a new {@link BaseWindow} object
@@ -64,7 +64,7 @@ public class BaseWindow<T> extends JWindow
 	 * @param model
 	 *            the model
 	 */
-	public BaseWindow(final Frame owner, final Model<T> model)
+	public BaseWindow(final Frame owner, final IModel<T> model)
 	{
 		super(owner);
 		this.model = model;
@@ -81,7 +81,7 @@ public class BaseWindow<T> extends JWindow
 	 * @param model
 	 *            the model
 	 */
-	public BaseWindow(final GraphicsConfiguration gc, final Model<T> model)
+	public BaseWindow(final GraphicsConfiguration gc, final IModel<T> model)
 	{
 		super(gc);
 		this.model = model;
@@ -94,7 +94,7 @@ public class BaseWindow<T> extends JWindow
 	 * @param model
 	 *            the model
 	 */
-	public BaseWindow(final Model<T> model)
+	public BaseWindow(final IModel<T> model)
 	{
 		super();
 		this.model = model;
@@ -113,7 +113,7 @@ public class BaseWindow<T> extends JWindow
 	 * @param model
 	 *            the model
 	 */
-	public BaseWindow(final Window owner, final GraphicsConfiguration gc, final Model<T> model)
+	public BaseWindow(final Window owner, final GraphicsConfiguration gc, final IModel<T> model)
 	{
 		super(owner, gc);
 		this.model = model;
@@ -128,7 +128,7 @@ public class BaseWindow<T> extends JWindow
 	 * @param model
 	 *            the model
 	 */
-	public BaseWindow(final Window owner, final Model<T> model)
+	public BaseWindow(final Window owner, final IModel<T> model)
 	{
 		super(owner);
 		this.model = model;

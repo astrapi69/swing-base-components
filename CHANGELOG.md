@@ -15,7 +15,7 @@ CHANGED:
 - update gradle to new version 7.3.3
 - update dependency of com.github.ben-manes.versions.gradle.plugin to new version 0.41.0
 - update dependency of jobj-core version to 5.2
-- update of dependency model-data version to 1.11
+- update of dependency model-data version to 1.12
 - update of test dependency test-objects version to 5.7
 - return type to general class JMenu in factory method newDesktopMenu from class AbstractApplicationFrame
 

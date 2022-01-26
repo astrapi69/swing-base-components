@@ -34,7 +34,7 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 
 /**
  * The class {@link BaseCardLayoutPanel} is a {@link BasePanel} with an initialized
@@ -107,7 +107,7 @@ public class BaseCardLayoutPanel<T> extends BasePanel<T>
 	 * @param model
 	 *            the model
 	 */
-	public BaseCardLayoutPanel(Model<T> model)
+	public BaseCardLayoutPanel(IModel<T> model)
 	{
 		super(model);
 	}

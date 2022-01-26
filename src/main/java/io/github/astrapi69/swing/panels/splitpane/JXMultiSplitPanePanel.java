@@ -33,7 +33,7 @@ import lombok.Getter;
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.MultiSplitLayout;
 
-import io.github.astrapi69.model.api.Model;
+import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.component.factory.DimensionFactory;
 import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
@@ -61,7 +61,7 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 	 * @param model
 	 *            the model
 	 */
-	public JXMultiSplitPanePanel(final Model<T> model)
+	public JXMultiSplitPanePanel(final IModel<T> model)
 	{
 		super(model);
 	}
