@@ -206,6 +206,7 @@ dependencies {
     implementation("io.github.astrapi69:throw-able:$throwAbleVersion")
     testCompileOnly("org.projectlombok:lombok:$lombokVersion")
     testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
+    testImplementation("io.github.astrapi69:randomizer:$randomizerVersion")
     testImplementation("com.miglayout:miglayout-swing:$miglayoutSwingVersion")
     testImplementation("io.github.astrapi69:test-objects:$testObjectsVersion")
     testImplementation("io.github.astrapi69:silly-io:$sillyIoVersion")

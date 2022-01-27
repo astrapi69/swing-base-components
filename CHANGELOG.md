@@ -18,6 +18,10 @@ CHANGED:
 - update of dependency model-data version to 1.12
 - update of test dependency test-objects version to 5.7
 - return type to general class JMenu in factory method newDesktopMenu from class AbstractApplicationFrame
+- moved class ShowLicenseFrameAction from module swing-components to this module
+- moved help components from module swing-components to this module
+- renamed package panels to panel
+
 
 Version 1.1
 -------------

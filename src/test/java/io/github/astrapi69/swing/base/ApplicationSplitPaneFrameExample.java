@@ -31,8 +31,8 @@ import javax.swing.border.Border;
 
 import org.jdesktop.swingx.MultiSplitLayout;
 
-import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
-import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
+import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
+import io.github.astrapi69.swing.panel.splitpane.SplitFactory;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class ApplicationSplitPaneFrameExample

@@ -32,9 +32,8 @@ import javax.swing.border.Border;
 import org.jdesktop.swingx.MultiSplitLayout;
 
 import io.github.astrapi69.swing.button.IconButtonFactory;
-import io.github.astrapi69.swing.panels.splitpane.JXMultiSplitPanePanel;
-import io.github.astrapi69.swing.panels.splitpane.SplitFactory;
-import io.github.astrapi69.swing.plaf.LookAndFeels;
+import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
+import io.github.astrapi69.swing.panel.splitpane.SplitFactory;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class ApplicationPanelFrameExample
@@ -54,7 +53,7 @@ public class ApplicationPanelFrameExample
 	public ApplicationPanelFrameExample(String title)
 	{
 		super(title);
-		setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
+//		setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
 	}
 
 	/**
@@ -65,7 +64,7 @@ public class ApplicationPanelFrameExample
 	 */
 	public static void main(final String[] args)
 	{
-		final Frame frame = new ApplicationPanelFrameExample("ApplicationSplitPaneFrameExample");
+		final Frame frame = new ApplicationPanelFrameExample("ApplicationPanelFrameExample");
 		frame.addWindowListener(new CloseWindow());
 		frame.pack();
 		frame.setVisible(true);

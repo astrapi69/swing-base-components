@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2021 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -22,53 +22,66 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.base;
+package io.github.astrapi69.swing.action;
 
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
+import java.awt.event.ActionEvent;
+
+import javax.swing.*;
+
+import lombok.NonNull;
+import io.github.astrapi69.swing.help.HelpFrame;
 
 /**
- * The class {@link ApplicationSplitPaneFrame}
- *
- * @param <T>
- *            the generic type of the model object
+ * The abstract class {@link ShowLicenseFrameAction}
  */
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public abstract class ApplicationSplitPaneFrame<T>
-	extends
-		AbstractApplicationFrame<T, JXMultiSplitPanePanel<T>>
+public abstract class ShowLicenseFrameAction extends AbstractAction
 {
 
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 
+	final String title;
 
 	/**
-	 * Instantiates a new {@link ApplicationSplitPaneFrame}
+	 * Instantiates a new show license frame action.
 	 *
+	 * @param name
+	 *            the name
+	 */
+	public ShowLicenseFrameAction(final @NonNull String name)
+	{
+		this(name, name);
+	}
+
+	/**
+	 * Instantiates a new show license frame action.
+	 *
+	 * @param name
+	 *            the name
 	 * @param title
 	 *            the title
 	 */
-	public ApplicationSplitPaneFrame(String title)
+	public ShowLicenseFrameAction(final String name, final @NonNull String title)
 	{
-		super(title);
+		super(name);
+		this.title = title;
 	}
-
 
 	/**
 	 * {@inheritDoc}
 	 */
 	@Override
-	protected abstract JXMultiSplitPanePanel<T> newMainComponent();
+	public void actionPerformed(final ActionEvent e)
+	{
+		final HelpFrame frame = new HelpFrame(this.title, newLicenseText());
+		frame.setVisible(true);
+	}
 
 	/**
-	 * {@inheritDoc}
+	 * Load license.
+	 *
+	 * @return the string
 	 */
-	@Override
-	protected void onInitializeComponents()
-	{
-		super.onInitializeComponents();
-	}
+	protected abstract String newLicenseText();
 
 }

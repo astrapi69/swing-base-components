@@ -22,53 +22,38 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.base;
+package io.github.astrapi69.swing.panel.splitpane;
 
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
+import org.jdesktop.swingx.MultiSplitLayout;
 
-/**
- * The class {@link ApplicationSplitPaneFrame}
- *
- * @param <T>
- *            the generic type of the model object
- */
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public abstract class ApplicationSplitPaneFrame<T>
-	extends
-		AbstractApplicationFrame<T, JXMultiSplitPanePanel<T>>
+public class SplitFactory
 {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
 
-
-	/**
-	 * Instantiates a new {@link ApplicationSplitPaneFrame}
-	 *
-	 * @param title
-	 *            the title
-	 */
-	public ApplicationSplitPaneFrame(String title)
+	public static MultiSplitLayout.Leaf newLeaf(String name, double weight)
 	{
-		super(title);
+		MultiSplitLayout.Leaf source = new MultiSplitLayout.Leaf(name);
+		source.setWeight(weight);
+		return source;
 	}
 
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected abstract JXMultiSplitPanePanel<T> newMainComponent();
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onInitializeComponents()
+	public static MultiSplitLayout newMultiSplitLayout(MultiSplitLayout.Split split)
 	{
-		super.onInitializeComponents();
+		MultiSplitLayout layout = new MultiSplitLayout(split);
+		return layout;
+	}
+
+	public static MultiSplitLayout.Split newSplit(boolean rowLayout, double weight)
+	{
+		MultiSplitLayout.Split col1 = new MultiSplitLayout.Split();
+		col1.setRowLayout(rowLayout);
+		col1.setWeight(weight);
+		return col1;
+	}
+
+	public static void setChildren(MultiSplitLayout.Split split, MultiSplitLayout.Node... children)
+	{
+		split.setChildren(children);
 	}
 
 }

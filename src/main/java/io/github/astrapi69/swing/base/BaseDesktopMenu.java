@@ -36,6 +36,12 @@ import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
 import javax.swing.*;
 
+import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
+import io.github.astrapi69.swing.actions.OpenBrowserAction;
+import io.github.astrapi69.swing.actions.ShowDialogAction;
+import io.github.astrapi69.swing.actions.ShowInfoDialogAction;
+import io.github.astrapi69.swing.dialog.info.InfoDialog;
+import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -185,13 +191,129 @@ public class BaseDesktopMenu extends JMenu
 		final CSH.DisplayHelpFromSource displayHelpFromSource = new CSH.DisplayHelpFromSource(
 			helpBroker);
 		mihHelpContent.addActionListener(displayHelpFromSource);
-
+		// Donate
+		final JMenuItem mihDonate = new JMenuItem(newLabelTextDonate());
+		mihDonate.addActionListener(
+				newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame));
+		menuHelp.add(mihDonate);
+		// Licence
+		final JMenuItem mihLicence = new JMenuItem(newLabelTextLicence());
+		mihLicence.addActionListener(
+				newShowLicenseFrameAction(newLabelTextLicence() + "Action", newLabelTextLicence()));
+		menuHelp.add(mihLicence);
 		// Info
-		final JMenuItem mihInfo = MenuFactory.newJMenuItem(newLabelTextInfo(), 'i', 'I');
+		final JMenuItem mihInfo = new JMenuItem(newLabelTextInfo(), 'i'); // $NON-NLS-1$
+		MenuExtensions.setCtrlAccelerator(mihInfo, 'I');
+
+		mihInfo.addActionListener(newShowInfoDialogAction(newLabelTextInfo(),
+				(Frame)getApplicationFrame(), newLabelTextInfo()));
 		menuHelp.add(mihInfo);
+
 
 		return menuHelp;
 	}
+
+	protected ShowLicenseFrameAction newShowLicenseFrameAction(final String name,
+															   final @NonNull String title)
+	{
+		return new ShowLicenseFrameAction(name, title)
+		{
+			private static final long serialVersionUID = 1L;
+
+			@Override
+			protected String newLicenseText()
+			{
+				return onNewLicenseText();
+			}
+		};
+	}
+
+	protected OpenBrowserAction newOpenBrowserToDonateAction(final String name,
+															 final @NonNull Component component)
+	{
+		return null;
+	}
+
+	@SuppressWarnings("serial")
+	protected ShowDialogAction newShowInfoDialogAction(final String name,
+													   final @NonNull Frame owner, final @NonNull String title)
+	{
+		return new ShowInfoDialogAction(name, owner, title)
+		{
+			@Override
+			protected JDialog newJDialog(Frame frame, String s)
+			{
+				return BaseDesktopMenu.this.onNewInfoDialog(owner, title);
+			}
+		};
+	}
+
+	@SuppressWarnings("serial")
+	protected InfoDialog onNewInfoDialog(Frame owner, String title)
+	{
+		return new InfoDialog(owner, title)
+		{
+
+			@Override
+			protected InfoPanel newInfoPanel()
+			{
+				return new InfoPanel()
+				{
+
+					@Override
+					protected String newLabelTextApplicationName()
+					{
+						return BaseDesktopMenu.this.newLabelTextApplicationName();
+					}
+
+					@Override
+					protected String newLabelTextCopyright()
+					{
+						return BaseDesktopMenu.this.newLabelTextCopyright();
+					}
+
+					@Override
+					protected String newLabelTextLabelApplicationName()
+					{
+						return BaseDesktopMenu.this.newLabelTextLabelApplicationName();
+					}
+
+					@Override
+					protected String newLabelTextLabelCopyright()
+					{
+						return BaseDesktopMenu.this.newLabelTextLabelCopyright();
+					}
+
+					@Override
+					protected String newLabelTextLabelVersion()
+					{
+						return BaseDesktopMenu.this.newLabelTextLabelVersion();
+					}
+
+					@Override
+					protected String newLabelTextVersion()
+					{
+						return BaseDesktopMenu.this.newLabelTextVersion();
+					}
+
+					@Override
+					protected String newTextWarning()
+					{
+						return BaseDesktopMenu.this.newTextWarning();
+					}
+
+				};
+			}
+
+			@Override
+			protected String newLabelTextPlaceholder()
+			{
+				return "";
+			}
+
+		};
+	}
+
 
 	protected Window newHelpWindow(final DefaultHelpBroker helpBroker)
 	{
@@ -396,6 +518,11 @@ public class BaseDesktopMenu extends JMenu
 
 		return menuLookAndFeel;
 
+	}
+
+	protected String newTextWarning()
+	{
+		return "";
 	}
 
 	protected String onNewLicenseText()

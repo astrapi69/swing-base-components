@@ -34,6 +34,8 @@ import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
+import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
+import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -218,12 +220,12 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 				return null;
 			}
 
-			protected AbstractAction newShowLicenseFrameAction(String name, @NonNull String title)
+			protected ShowLicenseFrameAction newShowLicenseFrameAction(String name, @NonNull String title)
 			{
 				return null;
 			}
 
-			protected JDialog onNewInfoDialog(Frame owner, String title)
+			protected InfoDialog onNewInfoDialog(Frame owner, String title)
 			{
 				return null;
 			}

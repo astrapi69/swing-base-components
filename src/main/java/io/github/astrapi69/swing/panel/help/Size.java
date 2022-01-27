@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2021 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -22,38 +22,9 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.panels.splitpane;
+package io.github.astrapi69.swing.panel.help;
 
-import org.jdesktop.swingx.MultiSplitLayout;
-
-public class SplitFactory
+public enum Size
 {
-
-
-	public static MultiSplitLayout.Leaf newLeaf(String name, double weight)
-	{
-		MultiSplitLayout.Leaf source = new MultiSplitLayout.Leaf(name);
-		source.setWeight(weight);
-		return source;
-	}
-
-	public static MultiSplitLayout newMultiSplitLayout(MultiSplitLayout.Split split)
-	{
-		MultiSplitLayout layout = new MultiSplitLayout(split);
-		return layout;
-	}
-
-	public static MultiSplitLayout.Split newSplit(boolean rowLayout, double weight)
-	{
-		MultiSplitLayout.Split col1 = new MultiSplitLayout.Split();
-		col1.setRowLayout(rowLayout);
-		col1.setWeight(weight);
-		return col1;
-	}
-
-	public static void setChildren(MultiSplitLayout.Split split, MultiSplitLayout.Node... children)
-	{
-		split.setChildren(children);
-	}
-
+	SMALL, MEDIUM, LARGE
 }
