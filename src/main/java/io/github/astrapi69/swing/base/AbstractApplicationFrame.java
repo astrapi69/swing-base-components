@@ -34,8 +34,6 @@ import java.util.logging.Level;
 import javax.imageio.ImageIO;
 import javax.swing.*;
 
-import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
-import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -45,8 +43,10 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
+import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
 import io.github.astrapi69.swing.actions.OpenBrowserAction;
 import io.github.astrapi69.swing.actions.ShowDialogAction;
+import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
@@ -220,7 +220,8 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 				return null;
 			}
 
-			protected ShowLicenseFrameAction newShowLicenseFrameAction(String name, @NonNull String title)
+			protected ShowLicenseFrameAction newShowLicenseFrameAction(String name,
+				@NonNull String title)
 			{
 				return null;
 			}

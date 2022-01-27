@@ -36,18 +36,18 @@ import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
 import javax.swing.*;
 
-import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
-import io.github.astrapi69.swing.actions.OpenBrowserAction;
-import io.github.astrapi69.swing.actions.ShowDialogAction;
-import io.github.astrapi69.swing.actions.ShowInfoDialogAction;
-import io.github.astrapi69.swing.dialog.info.InfoDialog;
-import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
+import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
+import io.github.astrapi69.swing.actions.OpenBrowserAction;
+import io.github.astrapi69.swing.actions.ShowDialogAction;
+import io.github.astrapi69.swing.actions.ShowInfoDialogAction;
+import io.github.astrapi69.swing.dialog.info.InfoDialog;
+import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
@@ -194,19 +194,19 @@ public class BaseDesktopMenu extends JMenu
 		// Donate
 		final JMenuItem mihDonate = new JMenuItem(newLabelTextDonate());
 		mihDonate.addActionListener(
-				newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame));
+			newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame));
 		menuHelp.add(mihDonate);
 		// Licence
 		final JMenuItem mihLicence = new JMenuItem(newLabelTextLicence());
 		mihLicence.addActionListener(
-				newShowLicenseFrameAction(newLabelTextLicence() + "Action", newLabelTextLicence()));
+			newShowLicenseFrameAction(newLabelTextLicence() + "Action", newLabelTextLicence()));
 		menuHelp.add(mihLicence);
 		// Info
 		final JMenuItem mihInfo = new JMenuItem(newLabelTextInfo(), 'i'); // $NON-NLS-1$
 		MenuExtensions.setCtrlAccelerator(mihInfo, 'I');
 
 		mihInfo.addActionListener(newShowInfoDialogAction(newLabelTextInfo(),
-				(Frame)getApplicationFrame(), newLabelTextInfo()));
+			(Frame)getApplicationFrame(), newLabelTextInfo()));
 		menuHelp.add(mihInfo);
 
 
@@ -214,7 +214,7 @@ public class BaseDesktopMenu extends JMenu
 	}
 
 	protected ShowLicenseFrameAction newShowLicenseFrameAction(final String name,
-															   final @NonNull String title)
+		final @NonNull String title)
 	{
 		return new ShowLicenseFrameAction(name, title)
 		{
@@ -229,14 +229,14 @@ public class BaseDesktopMenu extends JMenu
 	}
 
 	protected OpenBrowserAction newOpenBrowserToDonateAction(final String name,
-															 final @NonNull Component component)
+		final @NonNull Component component)
 	{
 		return null;
 	}
 
 	@SuppressWarnings("serial")
 	protected ShowDialogAction newShowInfoDialogAction(final String name,
-													   final @NonNull Frame owner, final @NonNull String title)
+		final @NonNull Frame owner, final @NonNull String title)
 	{
 		return new ShowInfoDialogAction(name, owner, title)
 		{

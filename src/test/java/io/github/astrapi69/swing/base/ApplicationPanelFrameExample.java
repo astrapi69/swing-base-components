@@ -53,7 +53,7 @@ public class ApplicationPanelFrameExample
 	public ApplicationPanelFrameExample(String title)
 	{
 		super(title);
-//		setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
+		// setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
 	}
 
 	/**
