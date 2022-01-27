@@ -28,7 +28,7 @@ import java.awt.*;
 
 import javax.swing.*;
 
-import io.github.astrapi69.actions.DisposeWindowAction;
+import io.github.astrapi69.awt.action.DisposeWindowAction;
 
 /**
  * The abstract class {@link InfoDialog} for display a simple info message. Provides abstract
