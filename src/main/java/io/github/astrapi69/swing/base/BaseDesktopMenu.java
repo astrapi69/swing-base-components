@@ -441,8 +441,10 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenu newLookAndFeelMenu()
 	{
-
-		final JMenu menuLookAndFeel = MenuFactory.newJMenu("Look and Feel", 'L');
+		final JMenu menuLookAndFeel = JMenuItemInfo.builder().text("Look and Feel")
+				.mnemonic(MenuExtensions.toMnemonic('L'))
+				.name(BaseMenuId.LOOK_AND_FEEL.propertiesKey())
+				.build().toJMenu();
 
 		// Look and Feel JMenuItems
 		// GTK
@@ -460,15 +462,19 @@ public class BaseDesktopMenu extends JMenu
 				return super.isEnabled();
 			}
 		}; // $NON-NLS-1$
+		jmiPlafGTK.setName(BaseMenuId.LOOK_AND_FEEL_GTK.propertiesKey());
 		MenuExtensions.setCtrlAccelerator(jmiPlafGTK, 'G');
 		jmiPlafGTK.addActionListener(new LookAndFeelGTKAction("GTK", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafGTK);
 		// Metal default Metal theme
 		JMenuItem jmiPlafMetal = MenuFactory.newJMenuItem("Metal", 'm', 'M');
+
+		jmiPlafMetal.setName(BaseMenuId.LOOK_AND_FEEL_METAL.propertiesKey());
 		jmiPlafMetal.addActionListener(new LookAndFeelMetalAction("Metal", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafMetal);
 		// Metal Ocean theme
 		JMenuItem jmiPlafOcean = MenuFactory.newJMenuItem("Ocean", 'o', 'O');
+		jmiPlafOcean.setName(BaseMenuId.LOOK_AND_FEEL_OCEAN.propertiesKey());
 		jmiPlafOcean.addActionListener(new LookAndFeelMetalAction("Ocean", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafOcean);
 		// Motif
@@ -485,6 +491,7 @@ public class BaseDesktopMenu extends JMenu
 				return super.isEnabled();
 			}
 		}; // $NON-NLS-1$
+		jmiPlafMotiv.setName(BaseMenuId.LOOK_AND_FEEL_MOTIF.propertiesKey());
 		MenuExtensions.setCtrlAccelerator(jmiPlafMotiv, 'T');
 		jmiPlafMotiv.addActionListener(new LookAndFeelMotifAction("Motif", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafMotiv);
@@ -502,6 +509,7 @@ public class BaseDesktopMenu extends JMenu
 				return super.isEnabled();
 			}
 		}; // $NON-NLS-1$
+		jmiPlafNimbus.setName(BaseMenuId.LOOK_AND_FEEL_NIMBUS.propertiesKey());
 		MenuExtensions.setCtrlAccelerator(jmiPlafNimbus, 'N');
 		jmiPlafNimbus
 			.addActionListener(new LookAndFeelNimbusAction("Nimbus", this.applicationFrame));
@@ -522,6 +530,7 @@ public class BaseDesktopMenu extends JMenu
 				return super.isEnabled();
 			}
 		}; // $NON-NLS-1$
+		jmiPlafSystem.setName(BaseMenuId.LOOK_AND_FEEL_SYSTEM.propertiesKey());
 		MenuExtensions.setCtrlAccelerator(jmiPlafSystem, 'W');
 		jmiPlafSystem
 			.addActionListener(new LookAndFeelSystemAction("System", this.applicationFrame));

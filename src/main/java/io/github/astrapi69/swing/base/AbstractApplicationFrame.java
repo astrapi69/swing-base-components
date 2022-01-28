@@ -133,7 +133,6 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 			setIconImage(icon = optionalIcon.get());
 		}
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		ScreenSizeExtensions.setDefaultFrameSize(this);
 	}
 
 	/**

@@ -68,9 +68,51 @@ public enum BaseMenuId
 	/**
 	 * The id for the help information menu
 	 */
-	HELP_INFO(BaseMenuId.HELP_INFO_KEY);
+	HELP_INFO(BaseMenuId.HELP_INFO_KEY),
+
+	/**
+	 * The id for the main look and feel menu
+	 */
+	LOOK_AND_FEEL(BaseMenuId.LOOK_AND_FEEL_KEY),
+
+	/**
+	 * The id for the gtk look and feel menu
+	 */
+	LOOK_AND_FEEL_GTK(BaseMenuId.LOOK_AND_FEEL_GTK_KEY),
+
+	/**
+	 * The id for the metal look and feel menu
+	 */
+	LOOK_AND_FEEL_METAL(BaseMenuId.LOOK_AND_FEEL_METAL_KEY),
+
+	/**
+	 * The id for the ocean look and feel menu
+	 */
+	LOOK_AND_FEEL_OCEAN(BaseMenuId.LOOK_AND_FEEL_OCEAN_KEY),
+
+	/**
+	 * The id for the motif look and feel menu
+	 */
+	LOOK_AND_FEEL_MOTIF(BaseMenuId.LOOK_AND_FEEL_MOTIF_KEY),
+
+	/**
+	 * The id for the nimbus look and feel menu
+	 */
+	LOOK_AND_FEEL_NIMBUS(BaseMenuId.LOOK_AND_FEEL_NIMBUS_KEY),
+
+	/**
+	 * The id for the system look and feel menu
+	 */
+	LOOK_AND_FEEL_SYSTEM(BaseMenuId.LOOK_AND_FEEL_SYSTEM_KEY);
 
 	public static final String EDIT_KEY = "global.menu.edit";
+	public static final String LOOK_AND_FEEL_KEY = "global.menu.look.and.feel";
+	public static final String LOOK_AND_FEEL_GTK_KEY = "global.menu.look.and.feel.gtk";
+	public static final String LOOK_AND_FEEL_METAL_KEY = "global.menu.look.and.feel.metal";
+	public static final String LOOK_AND_FEEL_OCEAN_KEY = "global.menu.look.and.feel.ocean";
+	public static final String LOOK_AND_FEEL_MOTIF_KEY = "global.menu.look.and.feel.motif";
+	public static final String LOOK_AND_FEEL_NIMBUS_KEY = "global.menu.look.and.feel.nimbus";
+	public static final String LOOK_AND_FEEL_SYSTEM_KEY = "global.menu.look.and.feel.system";
 	public static final String FILE_KEY = "global.menu.file";
 	public static final String HELP_KEY = "global.menu.help";
 	public static final String HELP_CONTENT_KEY = "global.menu.help.content";
