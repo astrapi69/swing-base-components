@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2021 Asterios Raptis
+ * Copyright (C) 2015 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -22,31 +22,34 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.base;
+package io.github.astrapi69.swing.panel.splitpane;
 
-import lombok.AllArgsConstructor;
-import lombok.Builder;
-import lombok.EqualsAndHashCode;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
-import lombok.ToString;
+import java.awt.*;
 
-/**
- * The class {@link ApplicationTestModel} for unit testing
- */
-@Getter
-@Setter
-@EqualsAndHashCode
-@ToString
-@NoArgsConstructor
-@AllArgsConstructor
-@Builder(toBuilder = true)
-public class ApplicationTestModel<T>
+import io.github.astrapi69.test.objects.ApplicationTestModel;
+import io.github.astrapi69.window.adapter.CloseWindow;
+
+public class JXMultiSplitPanePanelTest
 {
-
 	/**
-	 * The model.
+	 * The main method.
+	 *
+	 * @param args
+	 *            the arguments
 	 */
-	T model;
+	public static void main(final String[] args)
+	{
+		final Frame frame = new Frame("JXMultiSplitPanePanel");
+		frame.addWindowListener(new CloseWindow());
+		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel =
+			// TestComponentFactory.newJXMultiSplitPanePanelDefault();
+				TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
+		TestComponentFactory.createMultiSplitPaneDemo();
+		// TestComponentFactory.newJXMultiSplitPanePanelCustomLayout2();
+
+		frame.add(multiSplitPanePanel);
+		frame.pack();
+		frame.setVisible(true);
+	}
+
 }

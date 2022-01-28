@@ -33,6 +33,7 @@ import javax.swing.*;
 
 import lombok.experimental.UtilityClass;
 import io.github.astrapi69.lang.ClassExtensions;
+import org.jdesktop.swingx.JXFrame;
 
 /**
  * The class {@link JComponentFactory} provides factory methods for create swing Component objects
@@ -44,6 +45,18 @@ public class JComponentFactory
 	public static Frame newFrame(String title)
 	{
 		final Frame frame = new Frame(title);
+		return frame;
+	}
+
+	public static JFrame newJFrame(String title)
+	{
+		final JFrame frame = new JFrame(title);
+		return frame;
+	}
+
+	public static JXFrame newJXFrame(String title)
+	{
+		final JXFrame frame = new JXFrame(title);
 		return frame;
 	}
 

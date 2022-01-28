@@ -29,6 +29,7 @@ import java.awt.*;
 import javax.swing.*;
 import javax.swing.border.Border;
 
+import io.github.astrapi69.test.objects.ApplicationTestModel;
 import org.jdesktop.swingx.MultiSplitLayout;
 
 import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;

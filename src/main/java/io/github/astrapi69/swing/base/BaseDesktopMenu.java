@@ -36,6 +36,8 @@ import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
 import javax.swing.*;
 
+import io.github.astrapi69.swing.action.OpenBrowserToDonateAction;
+import io.github.astrapi69.swing.menu.builder.JMenuItemInfo;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -101,11 +103,11 @@ public class BaseDesktopMenu extends JMenu
 		menubar = newJMenuBar();
 		fileMenu = newFileMenu();
 		fileMenu = menubar.add(fileMenu);
-		editMenu = newEditMenu(null);
+		editMenu = newEditMenu();
 		editMenu = menubar.add(editMenu);
-		lookAndFeelMenu = newLookAndFeelMenu(null);
+		lookAndFeelMenu = newLookAndFeelMenu();
 		lookAndFeelMenu = menubar.add(lookAndFeelMenu);
-		helpMenu = newHelpMenu(null);
+		helpMenu = newHelpMenu();
 		helpMenu = menubar.add(helpMenu);
 		onRefreshMenus(fileMenu, editMenu, lookAndFeelMenu, helpMenu);
 	}
@@ -140,14 +142,15 @@ public class BaseDesktopMenu extends JMenu
 	/**
 	 * Creates the file menu.
 	 *
-	 * @param listener
-	 *            the listener
-	 *
 	 * @return the j menu
 	 */
-	protected JMenu newEditMenu(final ActionListener listener)
+	protected JMenu newEditMenu()
 	{
-		return MenuFactory.newJMenu("Edit", 'E');
+		return JMenuItemInfo.builder()
+				.text("Edit")
+				.mnemonic(MenuExtensions.toMnemonic('E'))
+				.name(BaseMenuId.EDIT.propertiesKey())
+				.build().toJMenu();
 	}
 
 	/**
@@ -157,7 +160,10 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenu newFileMenu()
 	{
-		return MenuFactory.newJMenu("File", KeyEvent.VK_F);
+		return JMenuItemInfo.builder().text("File")
+				.mnemonic(MenuExtensions.toMnemonic('F'))
+				.name(BaseMenuId.FILE.propertiesKey()).build()
+				.toJMenu();
 	}
 
 	protected DefaultHelpBroker newHelpBroker()
@@ -170,19 +176,26 @@ public class BaseDesktopMenu extends JMenu
 
 	/**
 	 * Creates the help menu.
-	 *
-	 * @param listener
-	 *            the listener
 	 * @return the j menu
 	 */
-	protected JMenu newHelpMenu(final ActionListener listener)
+	protected JMenu newHelpMenu()
 	{
+		// @formatter:on
 		// Help menu
-		final JMenu menuHelp = MenuFactory.newJMenu(newLabelTextHelp(), 'H');
+		final JMenu menuHelp = JMenuItemInfo.builder().text(newLabelTextHelp())
+						.mnemonic(MenuExtensions.toMnemonic('H'))
+						.name(BaseMenuId.HELP.propertiesKey())
+				.build()
+						.toJMenu();
 
 		// Help JMenuItems
 		// Help content
-		final JMenuItem mihHelpContent = MenuFactory.newJMenuItem(newLabelTextContent(), 'c', 'H');
+		final JMenuItem mihHelpContent = JMenuItemInfo.builder()
+				.text(newLabelTextContent())
+				.mnemonic(MenuExtensions.toMnemonic('c'))
+				.keyStroke(KeyStroke.getKeyStroke('H', Event.CTRL_MASK))
+				.name(BaseMenuId.HELP_CONTENT.propertiesKey())
+				.build().toJMenuItem();
 		menuHelp.add(mihHelpContent);
 
 		// 2. assign help to components
@@ -192,24 +205,31 @@ public class BaseDesktopMenu extends JMenu
 			helpBroker);
 		mihHelpContent.addActionListener(displayHelpFromSource);
 		// Donate
-		final JMenuItem mihDonate = new JMenuItem(newLabelTextDonate());
-		mihDonate.addActionListener(
-			newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame));
+		final JMenuItem mihDonate = JMenuItemInfo.builder()
+				.text(newLabelTextDonate())
+				.actionListener(newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame))
+				.name(BaseMenuId.HELP_DONATE.propertiesKey())
+				.build().toJMenuItem();
 		menuHelp.add(mihDonate);
 		// Licence
-		final JMenuItem mihLicence = new JMenuItem(newLabelTextLicence());
-		mihLicence.addActionListener(
-			newShowLicenseFrameAction(newLabelTextLicence() + "Action", newLabelTextLicence()));
+		final JMenuItem mihLicence = JMenuItemInfo.builder()
+				.text(newLabelTextLicence())
+				.actionListener(newShowLicenseFrameAction(newLabelTextLicence() + "Action", newLabelTextLicence()))
+				.name(BaseMenuId.HELP_LICENSE.propertiesKey())
+				.build().toJMenuItem();
 		menuHelp.add(mihLicence);
 		// Info
-		final JMenuItem mihInfo = new JMenuItem(newLabelTextInfo(), 'i'); // $NON-NLS-1$
-		MenuExtensions.setCtrlAccelerator(mihInfo, 'I');
+		final JMenuItem mihInfo = JMenuItemInfo.builder()
+				.text(newLabelTextInfo())
+				.mnemonic(MenuExtensions.toMnemonic('i'))
+				.keyStroke(KeyStroke.getKeyStroke('I', Event.CTRL_MASK))
+				.actionListener(newShowInfoDialogAction(newLabelTextInfo(),
+						(Frame)getApplicationFrame(), newLabelTextInfo()))
+				.name(BaseMenuId.HELP_INFO.propertiesKey())
+				.build().toJMenuItem();
 
-		mihInfo.addActionListener(newShowInfoDialogAction(newLabelTextInfo(),
-			(Frame)getApplicationFrame(), newLabelTextInfo()));
 		menuHelp.add(mihInfo);
-
-
+		// @formatter:off
 		return menuHelp;
 	}
 
@@ -231,11 +251,10 @@ public class BaseDesktopMenu extends JMenu
 	protected OpenBrowserAction newOpenBrowserToDonateAction(final String name,
 		final @NonNull Component component)
 	{
-		return null;
+		return new OpenBrowserToDonateAction(name, component);
 	}
 
-	@SuppressWarnings("serial")
-	protected ShowDialogAction newShowInfoDialogAction(final String name,
+	protected ShowInfoDialogAction newShowInfoDialogAction(final String name,
 		final @NonNull Frame owner, final @NonNull String title)
 	{
 		return new ShowInfoDialogAction(name, owner, title)
@@ -248,7 +267,6 @@ public class BaseDesktopMenu extends JMenu
 		};
 	}
 
-	@SuppressWarnings("serial")
 	protected InfoDialog onNewInfoDialog(Frame owner, String title)
 	{
 		return new InfoDialog(owner, title)
@@ -422,13 +440,11 @@ public class BaseDesktopMenu extends JMenu
 	}
 
 	/**
-	 * Creates the look and feel menu.
+	 * Creates the look and feel menu
 	 *
-	 * @param listener
-	 *            the listener
 	 * @return the j menu
 	 */
-	protected JMenu newLookAndFeelMenu(final ActionListener listener)
+	protected JMenu newLookAndFeelMenu()
 	{
 
 		final JMenu menuLookAndFeel = MenuFactory.newJMenu("Look and Feel", 'L');

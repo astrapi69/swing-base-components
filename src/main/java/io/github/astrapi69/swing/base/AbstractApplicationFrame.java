@@ -24,7 +24,8 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Window;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -32,7 +33,13 @@ import java.util.Optional;
 import java.util.logging.Level;
 
 import javax.imageio.ImageIO;
-import javax.swing.*;
+import javax.swing.JComponent;
+import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JOptionPane;
+import javax.swing.JToolBar;
+import javax.swing.UnsupportedLookAndFeelException;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
@@ -43,10 +50,6 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
-import io.github.astrapi69.swing.action.OpenBrowserAction;
-import io.github.astrapi69.swing.action.ShowDialogAction;
-import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
@@ -206,31 +209,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	 */
 	protected JMenu newDesktopMenu(@NonNull Component applicationFrame)
 	{
-		return new BaseDesktopMenu(applicationFrame)
-		{
-			protected OpenBrowserAction newOpenBrowserToDonateAction(String name,
-				@NonNull Component component)
-			{
-				return null;
-			}
-
-			protected ShowDialogAction newShowInfoDialogAction(String name, @NonNull Frame owner,
-				@NonNull String title)
-			{
-				return null;
-			}
-
-			protected ShowLicenseFrameAction newShowLicenseFrameAction(String name,
-				@NonNull String title)
-			{
-				return null;
-			}
-
-			protected InfoDialog onNewInfoDialog(Frame owner, String title)
-			{
-				return null;
-			}
-		};
+		return new BaseDesktopMenu(applicationFrame);
 	}
 
 	/**

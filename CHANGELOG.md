@@ -9,6 +9,7 @@ ADDED:
 - new method in class DialogExtensions for confirm messages
 - new class ComponentExtensions for provide extension methods for components
 - new method getComponentByName in class ComponentExtensions for resolve a component with a name
+- new enum class BaseMenuId for add a unique id to a menu or menu item
 
 CHANGED:
 
