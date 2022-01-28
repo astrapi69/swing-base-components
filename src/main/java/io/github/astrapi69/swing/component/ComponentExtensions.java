@@ -24,7 +24,8 @@
  */
 package io.github.astrapi69.swing.component;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Container;
 import java.util.Optional;
 
 import lombok.NonNull;

@@ -24,9 +24,15 @@
  */
 package io.github.astrapi69.swing.dialog.info;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Frame;
+import java.awt.HeadlessException;
+import java.awt.Panel;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
 
 import io.github.astrapi69.awt.action.DisposeWindowAction;
 

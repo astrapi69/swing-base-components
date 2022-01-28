@@ -24,9 +24,10 @@
  */
 package io.github.astrapi69.swing.panel.splitpane;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
 
 import lombok.Getter;
 

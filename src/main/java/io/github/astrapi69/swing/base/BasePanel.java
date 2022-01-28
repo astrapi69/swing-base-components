@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.*;
+import java.awt.LayoutManager;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;

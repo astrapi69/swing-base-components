@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.panel.help;
 import static io.github.astrapi69.model.typesafe.TypeSafeModel.from;
 import static io.github.astrapi69.model.typesafe.TypeSafeModel.model;
 
-import java.awt.*;
+import java.awt.Frame;
 
 import io.github.astrapi69.random.object.RandomStringFactory;
 import io.github.astrapi69.window.adapter.CloseWindow;

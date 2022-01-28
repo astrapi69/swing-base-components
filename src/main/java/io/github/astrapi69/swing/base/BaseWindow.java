@@ -24,9 +24,11 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.*;
+import java.awt.Frame;
+import java.awt.GraphicsConfiguration;
+import java.awt.Window;
 
-import javax.swing.*;
+import javax.swing.JWindow;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;

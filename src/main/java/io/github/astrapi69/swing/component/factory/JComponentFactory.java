@@ -24,16 +24,22 @@
  */
 package io.github.astrapi69.swing.component.factory;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Frame;
 import java.net.URL;
 
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
-import javax.swing.*;
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JInternalFrame;
+import javax.swing.JSplitPane;
 
 import lombok.experimental.UtilityClass;
-import io.github.astrapi69.lang.ClassExtensions;
+
 import org.jdesktop.swingx.JXFrame;
+
+import io.github.astrapi69.lang.ClassExtensions;
 
 /**
  * The class {@link JComponentFactory} provides factory methods for create swing Component objects

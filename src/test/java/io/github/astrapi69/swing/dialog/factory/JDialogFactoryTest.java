@@ -24,9 +24,15 @@
  */
 package io.github.astrapi69.swing.dialog.factory;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Frame;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPasswordField;
 
 import net.miginfocom.swing.MigLayout;
 

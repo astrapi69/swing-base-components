@@ -24,9 +24,10 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.*;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyEvent;
+import java.awt.Component;
+import java.awt.Event;
+import java.awt.Frame;
+import java.awt.Window;
 import java.util.logging.Level;
 
 import javax.help.CSH;
@@ -34,25 +35,32 @@ import javax.help.DefaultHelpBroker;
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
 import javax.help.WindowPresentation;
-import javax.swing.*;
+import javax.swing.JDialog;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.KeyStroke;
+import javax.swing.LookAndFeel;
+import javax.swing.MenuElement;
+import javax.swing.UIManager;
 
-import io.github.astrapi69.swing.action.OpenBrowserToDonateAction;
-import io.github.astrapi69.swing.menu.builder.JMenuItemInfo;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
-import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
 import io.github.astrapi69.swing.action.OpenBrowserAction;
-import io.github.astrapi69.swing.action.ShowDialogAction;
+import io.github.astrapi69.swing.action.OpenBrowserToDonateAction;
 import io.github.astrapi69.swing.action.ShowInfoDialogAction;
+import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
 import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
+import io.github.astrapi69.swing.menu.builder.JMenuItemInfo;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelGTKAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMetalAction;
 import io.github.astrapi69.swing.plaf.actions.LookAndFeelMotifAction;
@@ -146,11 +154,8 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenu newEditMenu()
 	{
-		return JMenuItemInfo.builder()
-				.text("Edit")
-				.mnemonic(MenuExtensions.toMnemonic('E'))
-				.name(BaseMenuId.EDIT.propertiesKey())
-				.build().toJMenu();
+		return JMenuItemInfo.builder().text("Edit").mnemonic(MenuExtensions.toMnemonic('E'))
+			.name(BaseMenuId.EDIT.propertiesKey()).build().toJMenu();
 	}
 
 	/**
@@ -160,10 +165,8 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenu newFileMenu()
 	{
-		return JMenuItemInfo.builder().text("File")
-				.mnemonic(MenuExtensions.toMnemonic('F'))
-				.name(BaseMenuId.FILE.propertiesKey()).build()
-				.toJMenu();
+		return JMenuItemInfo.builder().text("File").mnemonic(MenuExtensions.toMnemonic('F'))
+			.name(BaseMenuId.FILE.propertiesKey()).build().toJMenu();
 	}
 
 	protected DefaultHelpBroker newHelpBroker()
@@ -176,6 +179,7 @@ public class BaseDesktopMenu extends JMenu
 
 	/**
 	 * Creates the help menu.
+	 * 
 	 * @return the j menu
 	 */
 	protected JMenu newHelpMenu()
@@ -183,19 +187,15 @@ public class BaseDesktopMenu extends JMenu
 		// @formatter:on
 		// Help menu
 		final JMenu menuHelp = JMenuItemInfo.builder().text(newLabelTextHelp())
-						.mnemonic(MenuExtensions.toMnemonic('H'))
-						.name(BaseMenuId.HELP.propertiesKey())
-				.build()
-						.toJMenu();
+			.mnemonic(MenuExtensions.toMnemonic('H')).name(BaseMenuId.HELP.propertiesKey()).build()
+			.toJMenu();
 
 		// Help JMenuItems
 		// Help content
-		final JMenuItem mihHelpContent = JMenuItemInfo.builder()
-				.text(newLabelTextContent())
-				.mnemonic(MenuExtensions.toMnemonic('c'))
-				.keyStroke(KeyStroke.getKeyStroke('H', Event.CTRL_MASK))
-				.name(BaseMenuId.HELP_CONTENT.propertiesKey())
-				.build().toJMenuItem();
+		final JMenuItem mihHelpContent = JMenuItemInfo.builder().text(newLabelTextContent())
+			.mnemonic(MenuExtensions.toMnemonic('c'))
+			.keyStroke(KeyStroke.getKeyStroke('H', Event.CTRL_MASK))
+			.name(BaseMenuId.HELP_CONTENT.propertiesKey()).build().toJMenuItem();
 		menuHelp.add(mihHelpContent);
 
 		// 2. assign help to components
@@ -205,28 +205,23 @@ public class BaseDesktopMenu extends JMenu
 			helpBroker);
 		mihHelpContent.addActionListener(displayHelpFromSource);
 		// Donate
-		final JMenuItem mihDonate = JMenuItemInfo.builder()
-				.text(newLabelTextDonate())
-				.actionListener(newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame))
-				.name(BaseMenuId.HELP_DONATE.propertiesKey())
-				.build().toJMenuItem();
+		final JMenuItem mihDonate = JMenuItemInfo.builder().text(newLabelTextDonate())
+			.actionListener(newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame))
+			.name(BaseMenuId.HELP_DONATE.propertiesKey()).build().toJMenuItem();
 		menuHelp.add(mihDonate);
 		// Licence
-		final JMenuItem mihLicence = JMenuItemInfo.builder()
-				.text(newLabelTextLicence())
-				.actionListener(newShowLicenseFrameAction(newLabelTextLicence() + "Action", newLabelTextLicence()))
-				.name(BaseMenuId.HELP_LICENSE.propertiesKey())
-				.build().toJMenuItem();
+		final JMenuItem mihLicence = JMenuItemInfo.builder().text(newLabelTextLicence())
+			.actionListener(
+				newShowLicenseFrameAction(newLabelTextLicence() + "Action", newLabelTextLicence()))
+			.name(BaseMenuId.HELP_LICENSE.propertiesKey()).build().toJMenuItem();
 		menuHelp.add(mihLicence);
 		// Info
-		final JMenuItem mihInfo = JMenuItemInfo.builder()
-				.text(newLabelTextInfo())
-				.mnemonic(MenuExtensions.toMnemonic('i'))
-				.keyStroke(KeyStroke.getKeyStroke('I', Event.CTRL_MASK))
-				.actionListener(newShowInfoDialogAction(newLabelTextInfo(),
-						(Frame)getApplicationFrame(), newLabelTextInfo()))
-				.name(BaseMenuId.HELP_INFO.propertiesKey())
-				.build().toJMenuItem();
+		final JMenuItem mihInfo = JMenuItemInfo.builder().text(newLabelTextInfo())
+			.mnemonic(MenuExtensions.toMnemonic('i'))
+			.keyStroke(KeyStroke.getKeyStroke('I', Event.CTRL_MASK))
+			.actionListener(newShowInfoDialogAction(newLabelTextInfo(),
+				(Frame)getApplicationFrame(), newLabelTextInfo()))
+			.name(BaseMenuId.HELP_INFO.propertiesKey()).build().toJMenuItem();
 
 		menuHelp.add(mihInfo);
 		// @formatter:off

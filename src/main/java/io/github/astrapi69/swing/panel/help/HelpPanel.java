@@ -24,7 +24,9 @@
  */
 package io.github.astrapi69.swing.panel.help;
 
-import javax.swing.*;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 import lombok.Getter;
 import io.github.astrapi69.model.BaseModel;

@@ -24,9 +24,11 @@
  */
 package io.github.astrapi69.swing.utils;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Component;
 
-import javax.swing.*;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 
 import lombok.experimental.UtilityClass;
 

@@ -24,7 +24,9 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.*;
+import java.awt.CardLayout;
+import java.awt.Color;
+import java.awt.LayoutManager;
 
 import javax.swing.border.LineBorder;
 

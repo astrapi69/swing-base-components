@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.dialog.factory;
 
-import java.awt.*;
+import java.awt.Frame;
 
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
 import io.github.astrapi69.swing.layout.ScreenSizeExtensions;

@@ -24,10 +24,12 @@
  */
 package io.github.astrapi69.swing.layout;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
 import java.util.Optional;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 /**
  * The class {@link GraphicsDeviceExtensions} helps you if the user have more than one screen to

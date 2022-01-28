@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2015 Asterios Raptis
+ * Copyright (C) 2021 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.panel.splitpane;
 
-import java.awt.*;
+import java.awt.Frame;
 
 import io.github.astrapi69.test.objects.ApplicationTestModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
@@ -43,7 +43,7 @@ public class JXMultiSplitPanePanelTest
 		frame.addWindowListener(new CloseWindow());
 		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel =
 			// TestComponentFactory.newJXMultiSplitPanePanelDefault();
-				TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
+			TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
 		TestComponentFactory.createMultiSplitPaneDemo();
 		// TestComponentFactory.newJXMultiSplitPanePanelCustomLayout2();
 

@@ -26,7 +26,8 @@ package io.github.astrapi69.swing.layout;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import java.awt.*;
+import java.awt.Point;
+import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 

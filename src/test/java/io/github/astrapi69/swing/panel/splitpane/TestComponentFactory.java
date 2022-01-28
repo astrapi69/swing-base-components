@@ -1,7 +1,7 @@
 /**
  * The MIT License
  *
- * Copyright (C) 2015 Asterios Raptis
+ * Copyright (C) 2021 Asterios Raptis
  *
  * Permission is hereby granted, free of charge, to any person obtaining
  * a copy of this software and associated documentation files (the
@@ -24,15 +24,18 @@
  */
 package io.github.astrapi69.swing.panel.splitpane;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.IOException;
 import java.net.URL;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JComponent;
+import javax.swing.JEditorPane;
 
-import io.github.astrapi69.test.objects.ApplicationTestModel;
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.JXPanel;
 import org.jdesktop.swingx.JXTaskPane;
@@ -42,6 +45,7 @@ import org.jdesktop.swingx.SwingXUtilities;
 
 import io.github.astrapi69.swing.action.ActionFactory;
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
+import io.github.astrapi69.test.objects.ApplicationTestModel;
 
 public class TestComponentFactory
 {
@@ -189,8 +193,8 @@ public class TestComponentFactory
 	{
 		JXMultiSplitPane msp = new JXMultiSplitPane();
 		String layoutDef = "(COLUMN (ROW weight=0.8 (COLUMN weight=0.25 "
-				+ "(LEAF name=left.top weight=0.5) (LEAF name=left.middle weight=0.5))"
-				+ "(LEAF name=editor weight=0.75)) (LEAF name=bottom weight=0.2))";
+			+ "(LEAF name=left.top weight=0.5) (LEAF name=left.middle weight=0.5))"
+			+ "(LEAF name=editor weight=0.75)) (LEAF name=bottom weight=0.2))";
 
 		MultiSplitLayout.Node modelRoot = MultiSplitLayout.parseModel(layoutDef);
 		msp.getMultiSplitLayout().setModel(modelRoot);

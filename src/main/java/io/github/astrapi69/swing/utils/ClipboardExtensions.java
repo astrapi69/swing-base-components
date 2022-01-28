@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.utils;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 
-import javax.swing.*;
+import javax.swing.JTextArea;
 
 /**
  * The class {@link ClipboardExtensions}

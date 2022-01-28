@@ -24,9 +24,15 @@
  */
 package io.github.astrapi69.swing.help;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Panel;
+import java.awt.Point;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
 
 import io.github.astrapi69.awt.action.DisposeWindowAction;
 import io.github.astrapi69.window.adapter.DisposeWindow;

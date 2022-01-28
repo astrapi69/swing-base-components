@@ -24,10 +24,11 @@
  */
 package io.github.astrapi69.swing.dialog;
 
-import java.awt.*;
+import java.awt.Component;
 import java.util.stream.Stream;
 
-import javax.swing.*;
+import javax.swing.Icon;
+import javax.swing.JOptionPane;
 
 import lombok.experimental.UtilityClass;
 import io.github.astrapi69.throwable.ExceptionExtensions;

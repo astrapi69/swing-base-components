@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.component.factory;
 
-import javax.swing.*;
+import javax.swing.JScrollPane;
 
 import lombok.experimental.UtilityClass;
 

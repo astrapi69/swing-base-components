@@ -24,16 +24,20 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.*;
+import java.awt.Color;
+import java.awt.Frame;
 
-import javax.swing.*;
+import javax.swing.BorderFactory;
+import javax.swing.JComponent;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
 import javax.swing.border.Border;
 
-import io.github.astrapi69.test.objects.ApplicationTestModel;
 import org.jdesktop.swingx.MultiSplitLayout;
 
 import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
 import io.github.astrapi69.swing.panel.splitpane.SplitFactory;
+import io.github.astrapi69.test.objects.ApplicationTestModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class ApplicationSplitPaneFrameExample

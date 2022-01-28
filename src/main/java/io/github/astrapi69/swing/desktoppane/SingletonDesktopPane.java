@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.desktoppane;
 
-import javax.swing.*;
+import javax.swing.JDesktopPane;
 
 /**
  * The class {@link SingletonDesktopPane}.

@@ -24,7 +24,7 @@
  */
 package io.github.astrapi69.swing.dialog;
 
-import javax.swing.*;
+import javax.swing.JOptionPane;
 
 import lombok.NonNull;
 

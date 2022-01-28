@@ -24,9 +24,10 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.*;
+import java.awt.Component;
 
-import javax.swing.*;
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
 
 import lombok.AccessLevel;
 import lombok.Getter;

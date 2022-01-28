@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.utils;
 
 import java.awt.event.KeyEvent;
 
-import javax.swing.*;
+import javax.swing.KeyStroke;
 
 /**
  * The interface {@link Keystrokes}

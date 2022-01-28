@@ -24,9 +24,9 @@
  */
 package io.github.astrapi69.swing.component.factory;
 
-import java.awt.*;
+import java.awt.Dimension;
 
-import javax.swing.*;
+import javax.swing.JComponent;
 
 import lombok.experimental.UtilityClass;
 

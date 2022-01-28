@@ -24,9 +24,11 @@
  */
 package io.github.astrapi69.swing.dialog;
 
-import java.awt.*;
+import java.awt.BorderLayout;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 
 import io.github.astrapi69.window.adapter.CloseWindow;
 

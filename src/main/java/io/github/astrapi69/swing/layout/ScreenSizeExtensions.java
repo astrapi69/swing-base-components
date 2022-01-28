@@ -24,13 +24,22 @@
  */
 package io.github.astrapi69.swing.layout;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Point;
+import java.awt.Rectangle;
+import java.awt.Toolkit;
+import java.awt.Window;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.atomic.AtomicInteger;
 import java.util.stream.Stream;
 
-import javax.swing.*;
+import javax.swing.JFrame;
 
 import lombok.NonNull;
 import io.github.astrapi69.collections.array.ArrayExtensions;

@@ -24,9 +24,12 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Container;
+import java.awt.Frame;
+import java.awt.Window;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;

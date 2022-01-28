@@ -24,9 +24,14 @@
  */
 package io.github.astrapi69.swing.dialog.factory;
 
-import java.awt.*;
+import java.awt.Component;
+import java.awt.Dialog;
+import java.awt.Frame;
+import java.awt.GraphicsConfiguration;
+import java.awt.Window;
 
-import javax.swing.*;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
 
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
