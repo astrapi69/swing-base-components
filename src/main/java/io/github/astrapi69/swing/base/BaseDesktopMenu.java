@@ -34,7 +34,6 @@ import javax.help.CSH;
 import javax.help.DefaultHelpBroker;
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
-import javax.help.WindowPresentation;
 import javax.swing.JDialog;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
@@ -130,13 +129,13 @@ public class BaseDesktopMenu extends JMenu
 		HelpSet hs = null;
 		final String filename = "simple-hs.xml";
 		String directory = "help";
-		final String path = directory + "/" + filename;
 		try
 		{
 			hs = HelpFactory.newHelpSet(directory, filename);
 		}
 		catch (final HelpSetException e)
 		{
+			final String path = directory + "/" + filename;
 			String title = e.getLocalizedMessage();
 			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
 				+ e.getMessage() + "\n" + path;
@@ -171,10 +170,7 @@ public class BaseDesktopMenu extends JMenu
 
 	protected DefaultHelpBroker newHelpBroker()
 	{
-		final HelpSet hs = getHelpSet();
-		final DefaultHelpBroker helpBroker = (DefaultHelpBroker)hs.createHelpBroker();
-
-		return helpBroker;
+		return (DefaultHelpBroker)getHelpSet().createHelpBroker();
 	}
 
 	/**
@@ -330,31 +326,7 @@ public class BaseDesktopMenu extends JMenu
 
 	protected Window newHelpWindow(final DefaultHelpBroker helpBroker)
 	{
-		// found bug with the javax.help
-		// Exception in thread "main" java.lang.SecurityException: no manifiest
-		// section for signature file entry
-		// com/sun/java/help/impl/TagProperties.class
-		// Solution is to remove the rsa files from the jar
-		final WindowPresentation pres = helpBroker.getWindowPresentation();
-		pres.createHelpWindow();
-		Window helpWindow = pres.getHelpWindow();
-
-		helpWindow.setLocationRelativeTo(null);
-
-		try
-		{
-			UIManager.setLookAndFeel(UIManager.getSystemLookAndFeelClassName());
-		}
-		catch (final Exception e)
-		{
-			String title = e.getLocalizedMessage();
-			String htmlMessage = "<html><body width='650'>" + "<h2>" + title + "</h2>" + "<p>"
-				+ e.getMessage();
-			JOptionPane.showMessageDialog(this.getParent(), htmlMessage, title,
-				JOptionPane.ERROR_MESSAGE);
-			log.log(Level.SEVERE, e.getMessage(), e);
-		}
-		return helpWindow;
+		return HelpFactory.newHelpWindow(helpBroker);
 	}
 
 	/**

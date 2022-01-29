@@ -24,6 +24,9 @@
  */
 package io.github.astrapi69.swing.base;
 
+import java.util.LinkedHashMap;
+import java.util.Map;
+
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.Accessors;
@@ -126,5 +129,26 @@ public enum BaseMenuId
 	BaseMenuId(final String propertiesKey)
 	{
 		this.propertiesKey = propertiesKey;
+	}
+
+	public static Map<String, Boolean> getBaseMenuIdsAsMap()
+	{
+		Map<String, Boolean> menuIds = new LinkedHashMap<>();
+		menuIds.put(BaseMenuId.EDIT.propertiesKey(), true);
+		menuIds.put(BaseMenuId.FILE.propertiesKey(), true);
+		menuIds.put(BaseMenuId.HELP.propertiesKey(), true);
+		menuIds.put(BaseMenuId.HELP_CONTENT.propertiesKey(), true);
+		menuIds.put(BaseMenuId.HELP_DONATE.propertiesKey(), true);
+		menuIds.put(BaseMenuId.HELP_LICENSE.propertiesKey(), true);
+		menuIds.put(BaseMenuId.HELP_INFO.propertiesKey(), true);
+		menuIds.put(BaseMenuId.LOOK_AND_FEEL.propertiesKey(), true);
+		menuIds.put(BaseMenuId.LOOK_AND_FEEL_GTK.propertiesKey(), true);
+		menuIds.put(BaseMenuId.LOOK_AND_FEEL_METAL.propertiesKey(), true);
+		menuIds.put(BaseMenuId.LOOK_AND_FEEL_OCEAN.propertiesKey(), true);
+		menuIds.put(BaseMenuId.LOOK_AND_FEEL_MOTIF.propertiesKey(), true);
+		menuIds.put(BaseMenuId.LOOK_AND_FEEL_NIMBUS.propertiesKey(), true);
+		menuIds.put(BaseMenuId.LOOK_AND_FEEL_SYSTEM.propertiesKey(), true);
+		menuIds.put(BaseMenuId.LOOK_AND_FEEL_SYSTEM.propertiesKey(), true);
+		return menuIds;
 	}
 }
