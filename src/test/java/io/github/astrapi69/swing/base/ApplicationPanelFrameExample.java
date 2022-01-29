@@ -36,7 +36,6 @@ import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
-import io.github.astrapi69.swing.plaf.LookAndFeels;
 import org.jdesktop.swingx.MultiSplitLayout;
 
 import io.github.astrapi69.swing.button.IconButtonFactory;
@@ -62,7 +61,7 @@ public class ApplicationPanelFrameExample
 	public ApplicationPanelFrameExample(String title)
 	{
 		super(title);
-//		 setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
+		// setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
 	}
 
 	/**
