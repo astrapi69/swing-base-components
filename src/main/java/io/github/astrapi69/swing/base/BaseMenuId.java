@@ -106,7 +106,17 @@ public enum BaseMenuId
 	/**
 	 * The id for the system look and feel menu
 	 */
-	LOOK_AND_FEEL_SYSTEM(BaseMenuId.LOOK_AND_FEEL_SYSTEM_KEY);
+	LOOK_AND_FEEL_SYSTEM(BaseMenuId.LOOK_AND_FEEL_SYSTEM_KEY),
+
+	/**
+	 * The id for the toggle to fullscreen menu
+	 */
+	TOGGLE_FULLSCREEN(BaseMenuId.TOGGLE_FULLSCREEN_KEY),
+
+	/**
+	 * The id for the exit application menu
+	 */
+	EXIT(BaseMenuId.EXIT_KEY);
 
 	public static final String EDIT_KEY = "global.menu.edit";
 	public static final String LOOK_AND_FEEL_KEY = "global.menu.look.and.feel";
@@ -122,6 +132,8 @@ public enum BaseMenuId
 	public static final String HELP_DONATE_KEY = "global.menu.help.donate";
 	public static final String HELP_LICENSE_KEY = "global.menu.help.license";
 	public static final String HELP_INFO_KEY = "global.menu.help.info";
+	public static final String TOGGLE_FULLSCREEN_KEY = "global.menu.file.toggle.fullscreen";
+	public static final String EXIT_KEY = "global.menu.file.exit";
 
 	/** the properties key from the current menu */
 	String propertiesKey;
@@ -149,6 +161,8 @@ public enum BaseMenuId
 		menuIds.put(BaseMenuId.LOOK_AND_FEEL_NIMBUS.propertiesKey(), true);
 		menuIds.put(BaseMenuId.LOOK_AND_FEEL_SYSTEM.propertiesKey(), true);
 		menuIds.put(BaseMenuId.LOOK_AND_FEEL_SYSTEM.propertiesKey(), true);
+		menuIds.put(BaseMenuId.TOGGLE_FULLSCREEN.propertiesKey(), true);
+		menuIds.put(BaseMenuId.EXIT.propertiesKey(), true);
 		return menuIds;
 	}
 }

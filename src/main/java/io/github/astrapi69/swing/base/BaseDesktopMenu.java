@@ -28,6 +28,8 @@ import java.awt.Component;
 import java.awt.Event;
 import java.awt.Frame;
 import java.awt.Window;
+import java.awt.event.InputEvent;
+import java.awt.event.KeyEvent;
 import java.util.logging.Level;
 
 import javax.help.CSH;
@@ -35,6 +37,7 @@ import javax.help.DefaultHelpBroker;
 import javax.help.HelpSet;
 import javax.help.HelpSetException;
 import javax.swing.JDialog;
+import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -44,6 +47,8 @@ import javax.swing.LookAndFeel;
 import javax.swing.MenuElement;
 import javax.swing.UIManager;
 
+import io.github.astrapi69.swing.action.ExitApplicationAction;
+import io.github.astrapi69.swing.action.ToggleFullScreenAction;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -164,8 +169,30 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenu newFileMenu()
 	{
-		return JMenuItemInfo.builder().text("File").mnemonic(MenuExtensions.toMnemonic('F'))
-			.name(BaseMenuId.FILE.propertiesKey()).build().toJMenu();
+
+		// File
+		final JMenu fileMenu = JMenuItemInfo.builder().text("File")
+				.mnemonic(MenuExtensions.toMnemonic('F')).name(BaseMenuId.FILE.propertiesKey()).build()
+				.toJMenu();
+
+		// Fullscreen
+		JMenuItem toggleFullscreenMenuItem = JMenuItemInfo.builder().text("Toggle Fullscreen")
+				.mnemonic(MenuExtensions.toMnemonic('T'))
+				.keyStroke(KeyStroke.getKeyStroke(KeyEvent.VK_F11, InputEvent.ALT_DOWN_MASK))
+				.actionListener(new ToggleFullScreenAction("Fullscreen",
+						(JFrame) getApplicationFrame()))
+				.name(BaseMenuId.TOGGLE_FULLSCREEN.propertiesKey()).build().toJMenuItem();
+		fileMenu.add(toggleFullscreenMenuItem);
+
+		// Exit
+		JMenuItem exitMenuItem = JMenuItemInfo.builder().text("Exit")
+				.mnemonic(MenuExtensions.toMnemonic('E'))
+				.keyStroke(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK))
+				.actionListener(new ExitApplicationAction("Exit"))
+				.name(BaseMenuId.EXIT.propertiesKey())
+				.build().toJMenuItem();
+		fileMenu.add(exitMenuItem);
+		return fileMenu;
 	}
 
 	protected DefaultHelpBroker newHelpBroker()

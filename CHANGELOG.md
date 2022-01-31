@@ -11,6 +11,7 @@ ADDED:
 - new method getComponentByName in class ComponentExtensions for resolve a component with a name
 - new enum class BaseMenuId for add a unique id to a menu or menu item
 - new helper method for get a map with all ids from enum BaseMenuId
+- new menu items 'toggle to fullscreen' and 'exit' to the file menu
 
 CHANGED:
 
