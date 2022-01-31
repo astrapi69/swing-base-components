@@ -47,18 +47,18 @@ import javax.swing.LookAndFeel;
 import javax.swing.MenuElement;
 import javax.swing.UIManager;
 
-import io.github.astrapi69.swing.action.ExitApplicationAction;
-import io.github.astrapi69.swing.action.ToggleFullScreenAction;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
+import io.github.astrapi69.swing.action.ExitApplicationAction;
 import io.github.astrapi69.swing.action.OpenBrowserAction;
 import io.github.astrapi69.swing.action.OpenBrowserToDonateAction;
 import io.github.astrapi69.swing.action.ShowInfoDialogAction;
 import io.github.astrapi69.swing.action.ShowLicenseFrameAction;
+import io.github.astrapi69.swing.action.ToggleFullScreenAction;
 import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import io.github.astrapi69.swing.help.HelpFactory;
@@ -172,25 +172,23 @@ public class BaseDesktopMenu extends JMenu
 
 		// File
 		final JMenu fileMenu = JMenuItemInfo.builder().text("File")
-				.mnemonic(MenuExtensions.toMnemonic('F')).name(BaseMenuId.FILE.propertiesKey()).build()
-				.toJMenu();
+			.mnemonic(MenuExtensions.toMnemonic('F')).name(BaseMenuId.FILE.propertiesKey()).build()
+			.toJMenu();
 
 		// Fullscreen
 		JMenuItem toggleFullscreenMenuItem = JMenuItemInfo.builder().text("Toggle Fullscreen")
-				.mnemonic(MenuExtensions.toMnemonic('T'))
-				.keyStroke(KeyStroke.getKeyStroke(KeyEvent.VK_F11, InputEvent.ALT_DOWN_MASK))
-				.actionListener(new ToggleFullScreenAction("Fullscreen",
-						(JFrame) getApplicationFrame()))
-				.name(BaseMenuId.TOGGLE_FULLSCREEN.propertiesKey()).build().toJMenuItem();
+			.mnemonic(MenuExtensions.toMnemonic('T'))
+			.keyStroke(KeyStroke.getKeyStroke(KeyEvent.VK_F11, InputEvent.ALT_DOWN_MASK))
+			.actionListener(new ToggleFullScreenAction("Fullscreen", (JFrame)getApplicationFrame()))
+			.name(BaseMenuId.TOGGLE_FULLSCREEN.propertiesKey()).build().toJMenuItem();
 		fileMenu.add(toggleFullscreenMenuItem);
 
 		// Exit
 		JMenuItem exitMenuItem = JMenuItemInfo.builder().text("Exit")
-				.mnemonic(MenuExtensions.toMnemonic('E'))
-				.keyStroke(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK))
-				.actionListener(new ExitApplicationAction("Exit"))
-				.name(BaseMenuId.EXIT.propertiesKey())
-				.build().toJMenuItem();
+			.mnemonic(MenuExtensions.toMnemonic('E'))
+			.keyStroke(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK))
+			.actionListener(new ExitApplicationAction("Exit")).name(BaseMenuId.EXIT.propertiesKey())
+			.build().toJMenuItem();
 		fileMenu.add(exitMenuItem);
 		return fileMenu;
 	}
