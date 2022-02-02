@@ -65,11 +65,11 @@ import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.menu.builder.JMenuItemInfo;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelGTKAction;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelMetalAction;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelMotifAction;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelNimbusAction;
-import io.github.astrapi69.swing.plaf.actions.LookAndFeelSystemAction;
+import io.github.astrapi69.swing.plaf.action.LookAndFeelGTKAction;
+import io.github.astrapi69.swing.plaf.action.LookAndFeelMetalAction;
+import io.github.astrapi69.swing.plaf.action.LookAndFeelMotifAction;
+import io.github.astrapi69.swing.plaf.action.LookAndFeelNimbusAction;
+import io.github.astrapi69.swing.plaf.action.LookAndFeelSystemAction;
 
 /**
  * The class {@link BaseDesktopMenu} holds the base menu items for an application
