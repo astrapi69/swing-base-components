@@ -49,23 +49,23 @@ functionality of swing-base-components:
 
 Than you can add the dependency to your dependencies:
 
-	<properties>
-			...
-		<!-- swing-base-components version -->
-		<swing-base-components.version>1.1</swing-base-components.version>
-			...
-	</properties>
-			...
-		<dependencies>
-			...
-			<!-- swing-base-components DEPENDENCY -->
-			<dependency>
-				<groupId>io.github.astrapi69</groupId>
-				<artifactId>swing-base-components</artifactId>
-				<version>${swing-base-components.version}</version>
-			</dependency>
-			...
-		</dependencies>
+    <properties>
+            ...
+        <!-- swing-base-components version -->
+        <swing-base-components.version>1.1</swing-base-components.version>
+            ...
+    </properties>
+            ...
+        <dependencies>
+            ...
+            <!-- swing-base-components DEPENDENCY -->
+            <dependency>
+                <groupId>io.github.astrapi69</groupId>
+                <artifactId>swing-base-components</artifactId>
+                <version>${swing-base-components.version}</version>
+            </dependency>
+            ...
+        </dependencies>
 
 ## gradle dependency
 
@@ -81,21 +81,13 @@ swingBaseComponentsVersion=1.1
 or in build.gradle ext area
 
 ```
-ext {
-			...
     swingBaseComponentsVersion = "1.1"
-			...
-}
 ```
 
 then add the dependency to the dependencies area
 
 ```
-dependencies {
-			...
     implementation("io.github.astrapi69:swing-base-components:$swingBaseComponentsVersion")
-			...
-}
 ```
 
 # Donations
@@ -200,4 +192,3 @@ comments, bug reports, or feature requests.
 ## Similar projects
 
 ## Credits
-
