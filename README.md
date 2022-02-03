@@ -1,6 +1,7 @@
 # Overview
 
 <div style="text-align: center">
+
 [![Java CI with Gradle](https://github.com/astrapi69/swing-base-components/actions/workflows/gradle.yml/badge.svg)](https://github.com/astrapi69/swing-base-components/actions/workflows/gradle.yml)
 [![Coverage Status](https://codecov.io/gh/astrapi69/swing-base-components/branch/develop/graph/badge.svg)](https://codecov.io/gh/astrapi69/swing-base-components)
 [![Open Issues](https://img.shields.io/github/issues/astrapi69/swing-base-components.svg?style=flat)](https://github.com/astrapi69/swing-base-components/issues)
