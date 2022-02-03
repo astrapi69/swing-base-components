@@ -3,13 +3,12 @@
 <div style="text-align: center">
 
 [![Java CI with Gradle](https://github.com/astrapi69/swing-base-components/actions/workflows/gradle.yml/badge.svg)](https://github.com/astrapi69/swing-base-components/actions/workflows/gradle.yml)
-[![Coverage Status](https://codecov.io/gh/astrapi69/swing-base-components/branch/develop/graph/badge.svg)](https://codecov.io/gh/astrapi69/swing-base-components)
 [![Open Issues](https://img.shields.io/github/issues/astrapi69/swing-base-components.svg?style=flat)](https://github.com/astrapi69/swing-base-components/issues)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-base-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-base-components)
 [![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/swing-base-components.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-base-components)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
-[![Hits Of Code](https://hitsofcode.com/github/astrapi69/swing-base-components?branch=main)](https://hitsofcode.com/github/astrapi69/swing-base-components/view?branch=main)
+[![Hits Of Code](https://hitsofcode.com/github/astrapi69/swing-base-components?branch=develop)](https://hitsofcode.com/github/astrapi69/swing-base-components/view?branch=develop)
 [![Lines Of Code](https://tokei.rs/b1/github/astrapi69/swing-base-components)](https://github.com/astrapi69/swing-base-components)
 
 </div>
