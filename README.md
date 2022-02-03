@@ -1,8 +1,7 @@
 # Overview
 
 <div style="text-align: center">
-
-[![Build Status](https://travis-ci.com/astrapi69/swing-base-components.svg?branch=master)](https://travis-ci.com/github/astrapi69/swing-base-components)
+[![Java CI with Gradle](https://github.com/astrapi69/swing-base-components/actions/workflows/gradle.yml/badge.svg)](https://github.com/astrapi69/swing-base-components/actions/workflows/gradle.yml)
 [![Coverage Status](https://codecov.io/gh/astrapi69/swing-base-components/branch/develop/graph/badge.svg)](https://codecov.io/gh/astrapi69/swing-base-components)
 [![Open Issues](https://img.shields.io/github/issues/astrapi69/swing-base-components.svg?style=flat)](https://github.com/astrapi69/swing-base-components/issues)
 [![Maven Central](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-base-components/badge.svg)](https://maven-badges.herokuapp.com/maven-central/io.github.astrapi69/swing-base-components)
