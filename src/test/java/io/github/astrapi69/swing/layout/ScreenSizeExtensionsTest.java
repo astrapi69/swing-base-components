@@ -31,6 +31,7 @@ import java.awt.Toolkit;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 
@@ -42,6 +43,16 @@ import org.junit.jupiter.api.Test;
  */
 public class ScreenSizeExtensionsTest
 {
+	@BeforeEach
+	public void setup()
+	{
+		System.setProperty("java.awt.headless", "false");
+	}
+
+	public void tearDown()
+	{
+		System.setProperty("java.awt.headless", "true");
+	}
 
 
 	/**
@@ -61,7 +72,7 @@ public class ScreenSizeExtensionsTest
 			dialogHeight);
 		actual = listSize == dialogPositions.size();
 		assertTrue(actual);
-		int dotWidth = 0;
+		int dotWidth;
 		int dotHeight = 0;
 
 		for (int y = 0; y < windowBelow; y++)
