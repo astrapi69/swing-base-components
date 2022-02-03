@@ -38,6 +38,29 @@ No animals were harmed in the making of this library.
 The source code comes under the liberal MIT License, making swing-base-components great for all
 types of applications.
 
+## gradle dependency
+
+You can first define the version in the ext section and add than the following gradle dependency to
+your project `build.gradle` if you want to import the core functionality of swing-base-components:
+
+define version in file gradle.properties
+
+```
+swingBaseComponentsVersion=1.2
+```
+
+or in build.gradle ext area
+
+```
+    swingBaseComponentsVersion = "1.2"
+```
+
+then add the dependency to the dependencies area
+
+```
+    implementation("io.github.astrapi69:swing-base-components:$swingBaseComponentsVersion")
+```
+
 ## Maven dependency
 
 Maven dependency is now on sonatype. Check
@@ -52,7 +75,7 @@ Than you can add the dependency to your dependencies:
     <properties>
             ...
         <!-- swing-base-components version -->
-        <swing-base-components.version>1.1</swing-base-components.version>
+        <swing-base-components.version>1.2</swing-base-components.version>
             ...
     </properties>
             ...
@@ -67,28 +90,6 @@ Than you can add the dependency to your dependencies:
             ...
         </dependencies>
 
-## gradle dependency
-
-You can first define the version in the ext section and add than the following gradle dependency to
-your project `build.gradle` if you want to import the core functionality of swing-base-components:
-
-define version in file gradle.properties
-
-```
-swingBaseComponentsVersion=1.1
-```
-
-or in build.gradle ext area
-
-```
-    swingBaseComponentsVersion = "1.1"
-```
-
-then add the dependency to the dependencies area
-
-```
-    implementation("io.github.astrapi69:swing-base-components:$swingBaseComponentsVersion")
-```
 
 # Donations
 
