@@ -22,12 +22,6 @@ This project holds generic base components for create swing applications.
 >
 > If you love this project [![donation](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 
-# Template from this project
-
-You can derive your java library project from this you can easily and adapt to your specific project
-if you follow the instruction from
-this [medium blog](https://asterios-raptis.medium.com/new-github-template-repository-feature-ec09afe261b8)
-
 ## Note
 
 No animals were harmed in the making of this library.
