@@ -75,7 +75,6 @@ public class HelpFrame extends JFrame
 		setLocation(parloc.x + 30, parloc.y + 30);
 		setSize(580, 600);
 		createLayout();
-
 	}
 
 	/**
@@ -94,9 +93,7 @@ public class HelpFrame extends JFrame
 		final Panel unten = new Panel();
 		unten.add(buttonClose, BorderLayout.WEST);
 		getContentPane().add(unten, BorderLayout.SOUTH);
-
 	}
-
 
 	protected String newLabelCloseText()
 	{
