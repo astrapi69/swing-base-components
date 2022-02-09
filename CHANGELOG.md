@@ -8,6 +8,13 @@ ADDED:
 
 - new factory method in class AbstractApplicationFrame for set the application name
 
+CHANGED:
+
+- update gradle to new version 7.4
+- update of gradle plugin dependency com.github.ben-manes.versions.gradle.plugin to new version 0.42.0
+- update of gradle plugin dependency com.diffplug.spotless:spotless-plugin-gradle to new version 6.2.2
+- update of test dependency file-worker version to 8.2
+
 Version 1.2
 -------------
 
@@ -19,6 +26,7 @@ ADDED:
 - new enum class BaseMenuId for add a unique id to a menu or menu item
 - new helper method for get a map with all ids from enum BaseMenuId
 - new menu items 'toggle to fullscreen' and 'exit' to the file menu
+- update of test dependency test-objects version to 5.7
 
 CHANGED:
 
