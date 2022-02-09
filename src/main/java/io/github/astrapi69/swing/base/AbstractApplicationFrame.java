@@ -67,10 +67,10 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 {
 
 	/**
-	 * Constant for the default configuration directory from the current user. current
+	 * Constant for the default configuration directory name from the current application. current
 	 * value:".config"
 	 */
-	public static final String DEFAULT_USER_CONFIGURATION_DIRECTORY_NAME = ".config";
+	public static final String DEFAULT_APPLICATION_CONFIGURATION_DIRECTORY_NAME = ".config";
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	/** The configuration directory for configuration files. */
@@ -115,8 +115,9 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	protected void onBeforeInitialize()
 	{
 		super.onBeforeInitialize();
+		applicationName = newApplicationName();
 		configurationDirectory = newConfigurationDirectory(System.getProperty("user.home"),
-			AbstractApplicationFrame.DEFAULT_USER_CONFIGURATION_DIRECTORY_NAME);
+			newApplicationConfigurationDirectoryName());
 	}
 
 	/**
@@ -127,7 +128,6 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	{
 		super.onInitializeComponents();
 		menu = newDesktopMenu(this);
-		applicationName = newApplicationName();
 		setJMenuBar(newJMenuBar());
 		setToolBar(toolbar = newJToolBar());
 		getContentPane().add(mainComponent = newMainComponent());
@@ -211,6 +211,18 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 			configurationDir.mkdir();
 		}
 		return configurationDir;
+	}
+
+	/**
+	 * Factory method for create the new application configuration directory name. This method is
+	 * invoked in the constructor and should be overridden from the derived classes for set the
+	 * actual application name
+	 *
+	 * @return the new application configuration directory name
+	 */
+	protected String newApplicationConfigurationDirectoryName()
+	{
+		return DEFAULT_APPLICATION_CONFIGURATION_DIRECTORY_NAME;
 	}
 
 	/**
