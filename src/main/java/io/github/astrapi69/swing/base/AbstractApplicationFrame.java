@@ -96,6 +96,10 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	@Getter
 	JToolBar toolbar;
 
+	/** The application name */
+	@Getter
+	String applicationName;
+
 	/**
 	 * Instantiates a new {@link AbstractApplicationFrame}
 	 *
@@ -123,14 +127,14 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	{
 		super.onInitializeComponents();
 		menu = newDesktopMenu(this);
+		applicationName = newApplicationName();
 		setJMenuBar(newJMenuBar());
 		setToolBar(toolbar = newJToolBar());
 		getContentPane().add(mainComponent = newMainComponent());
-		Optional<BufferedImage> optionalIcon = getIcon(newIconPath());
-		if (optionalIcon.isPresent())
-		{
-			setIconImage(icon = optionalIcon.get());
-		}
+		getIcon(newIconPath()).ifPresent(i -> {
+			AbstractApplicationFrame.this.icon = i;
+			setIconImage(i);
+		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
@@ -146,6 +150,17 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 			return ((BaseDesktopMenu)menu).getMenubar();
 		}
 		return MenuFactory.newJMenuBar();
+	}
+
+	/**
+	 * Factory method for create the new application name. This method is invoked in the constructor
+	 * and should be overridden from the derived classes for set the actual application name
+	 *
+	 * @return the new application name
+	 */
+	protected String newApplicationName()
+	{
+		return "";
 	}
 
 	/**

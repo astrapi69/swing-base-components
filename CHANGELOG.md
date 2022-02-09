@@ -4,7 +4,9 @@
 Version 1.3-SNAPSHOT
 -------------
 
+ADDED:
 
+- new factory method in class AbstractApplicationFrame for set the application name
 
 Version 1.2
 -------------
