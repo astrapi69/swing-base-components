@@ -92,10 +92,6 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	@Getter
 	JMenu menu;
 
-	/** The toolbar. */
-	@Getter
-	JToolBar toolbar;
-
 	/** The application name */
 	@Getter
 	String applicationName;
@@ -127,9 +123,9 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
+		setToolBar(newJToolBar());
 		menu = newDesktopMenu(this);
 		setJMenuBar(newJMenuBar());
-		setToolBar(toolbar = newJToolBar());
 		getContentPane().add(mainComponent = newMainComponent());
 		getIcon(newIconPath()).ifPresent(i -> {
 			AbstractApplicationFrame.this.icon = i;
