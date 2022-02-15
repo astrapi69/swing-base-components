@@ -8,6 +8,7 @@ ADDED:
 
 - new factory method in class AbstractApplicationFrame for set the application name
 - new factory method in class AbstractApplicationFrame for set the application configuration directory name
+- new enum RenderMode created that indicates in which render mode a component is
 
 CHANGED:
 
