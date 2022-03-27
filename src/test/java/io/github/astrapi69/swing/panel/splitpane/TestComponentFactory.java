@@ -45,7 +45,7 @@ import org.jdesktop.swingx.SwingXUtilities;
 
 import io.github.astrapi69.swing.action.ActionFactory;
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
-import io.github.astrapi69.test.objects.ApplicationTestModel;
+import io.github.astrapi69.test.object.ApplicationTestModel;
 
 public class TestComponentFactory
 {

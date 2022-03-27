@@ -41,7 +41,7 @@ import org.jdesktop.swingx.MultiSplitLayout;
 import io.github.astrapi69.swing.button.IconButtonFactory;
 import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
 import io.github.astrapi69.swing.panel.splitpane.SplitFactory;
-import io.github.astrapi69.test.objects.ApplicationTestModel;
+import io.github.astrapi69.test.object.ApplicationTestModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class ApplicationPanelFrameExample

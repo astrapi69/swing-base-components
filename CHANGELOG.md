@@ -12,10 +12,14 @@ ADDED:
 
 CHANGED:
 
-- update gradle to new version 7.4
+- update gradle to new version 7.4.1
 - update of gradle plugin dependency com.github.ben-manes.versions.gradle.plugin to new version 0.42.0
-- update of gradle plugin dependency com.diffplug.spotless:spotless-plugin-gradle to new version 6.2.2
+- update of gradle plugin dependency com.diffplug.spotless:spotless-plugin-gradle to new version 6.3.0
+- update of gradle plugin dependency io.freefair.gradle:lombok-plugin to new version 6.4.1
 - update of test dependency file-worker version to 8.2
+- update of test dependency test-objects version to 6
+- update of test dependency silly-io version to 1.9
+- update of test dependency icon-img-extensions version to 1.2
 
 Version 1.2
 -------------
