@@ -13,7 +13,7 @@ ADDED:
 - update gradle to new version 7.4.2
 - update of lombok dependency to new patch version 1.18.24
 - update of gradle plugin dependency io.freefair.gradle:lombok-plugin to new version 6.4.3
-- update of gradle plugin dependency com.diffplug.spotless:spotless-plugin-gradle to new version 6.5.2
+- update of gradle plugin dependency com.diffplug.spotless:spotless-plugin-gradle to new version 6.6.1
 - update of test dependency randomizer to new minor version 8.6
 - update of dependency silly-collections to new minor version 18.2
 - removed enum RenderMode, is now in new module repository component-model
