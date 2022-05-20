@@ -39,13 +39,13 @@ your project `build.gradle` if you want to import the core functionality of swin
 define version in file gradle.properties
 
 ```
-swingBaseComponentsVersion=1.3
+swingBaseComponentsVersion=1.4
 ```
 
 or in build.gradle ext area
 
 ```
-    swingBaseComponentsVersion = "1.3"
+    swingBaseComponentsVersion = "1.4"
 ```
 
 then add the dependency to the dependencies area
@@ -68,7 +68,7 @@ Than you can add the dependency to your dependencies:
     <properties>
             ...
         <!-- swing-base-components version -->
-        <swing-base-components.version>1.3</swing-base-components.version>
+        <swing-base-components.version>1.4</swing-base-components.version>
             ...
     </properties>
             ...
