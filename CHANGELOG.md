@@ -4,6 +4,10 @@
 Version 1.5-SNAPSHOT
 -------------
 
+ADDED:
+
+- new method for create a Dialog component from the given JPanel object with title and focus component
+
 Version 1.4
 -------------
 

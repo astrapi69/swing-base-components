@@ -43,7 +43,7 @@ public class JOptionPaneExtensions
 	/**
 	 * Creates a {@link JDialog} from the given {@link JPanel} object and other related parameters
 	 * for the initialization of the {@link JDialog} object
-	 * 
+	 *
 	 * @param panel
 	 *            the {@link JPanel} object that will be embedded to the {@link JDialog} object
 	 * @param messageType
@@ -60,7 +60,8 @@ public class JOptionPaneExtensions
 	 * @return the selected option
 	 */
 	public static int getSelectedOption(final @NonNull JPanel panel, int messageType,
-		int optionType, Component parentComponent, String title, JComponent focusedComponent)
+		int optionType, Component parentComponent, String title,
+		final JComponent focusedComponent)
 	{
 		JOptionPane pane = new JOptionPane(panel, messageType, optionType);
 		JDialog dialog = pane.createDialog(parentComponent, title);
@@ -73,6 +74,26 @@ public class JOptionPaneExtensions
 		dialog.setVisible(true);
 		int option = JOptionPaneExtensions.getSelectedOption(pane);
 		return option;
+	}
+
+	/**
+	 * Creates a {@link JDialog} from the given {@link JPanel} object and other related parameters
+	 * for the initialization of the {@link JDialog} object
+	 *
+	 * @param panel
+	 *            the {@link JPanel} object that will be embedded to the {@link JDialog} object
+	 * @param title
+	 *            the title of the {@link JDialog} object
+	 * @param focusedComponent
+	 *            the optional component that will have the focus. Should be one child component of
+	 *            the given {@link JPanel} object
+	 * @return the selected option
+	 */
+	public static int getInfoDialogWithOkCancelButton(final @NonNull JPanel panel,
+		final String title, final JComponent focusedComponent)
+	{
+		return getSelectedOption(panel, JOptionPane.INFORMATION_MESSAGE,
+			JOptionPane.OK_CANCEL_OPTION, null, title, focusedComponent);
 	}
 
 	/**

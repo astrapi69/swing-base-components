@@ -22,8 +22,17 @@ class JOptionPaneExtensionsTest
 
 		// option = getSelectionOptionWithPane(panel, pane);
 
-		option = getSelectionOptionWithJPanel(panel);
+		// option = getSelectionOptionWithJPanel(panel);
+
+		option = getInfoDialogWithOkCancelButton(panel);
+
 		System.exit(0);
+	}
+
+	private static int getInfoDialogWithOkCancelButton(HelpPanel panel)
+	{
+		return JOptionPaneExtensions.getInfoDialogWithOkCancelButton(panel, "Help",
+			panel.getTxtHelpContent());
 	}
 
 	private static int getSelectionOptionWithJPanel(HelpPanel panel)
