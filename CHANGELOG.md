@@ -4,7 +4,11 @@
 Version 1.4-SNAPSHOT
 -------------
 
-CHANGED:
+ADDED:
+
+- new method for create a Dialog component from the given JPanel object and other related parameters
+
+  CHANGED:
 
 - update gradle to new version 7.4.2
 - update of lombok dependency to new patch version 1.18.24

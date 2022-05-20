@@ -41,7 +41,8 @@ public class JOptionPaneExtensions
 {
 
 	/**
-	 * Creates a {@link JDialog} from the given {@link JPanel} object
+	 * Creates a {@link JDialog} from the given {@link JPanel} object and other related parameters
+	 * for the initialization of the {@link JDialog} object
 	 * 
 	 * @param panel
 	 *            the {@link JPanel} object that will be embedded to the {@link JDialog} object
