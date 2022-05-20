@@ -24,15 +24,55 @@
  */
 package io.github.astrapi69.swing.dialog;
 
+import java.awt.Component;
+
+import javax.swing.JComponent;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import lombok.NonNull;
+import io.github.astrapi69.swing.listener.RequestFocusListener;
 
 /**
  * The class {@link JOptionPaneExtensions} provides extension methods for the {@link JOptionPane}
  */
 public class JOptionPaneExtensions
 {
+
+	/**
+	 * Creates a {@link JDialog} from the given {@link JPanel} object
+	 * 
+	 * @param panel
+	 *            the {@link JPanel} object that will be embedded to the {@link JDialog} object
+	 * @param messageType
+	 *            the type of message that will be displayed in the {@link JOptionPane} object
+	 * @param optionType
+	 *            the options that will be displayed in the {@link JOptionPane} object
+	 * @param parentComponent
+	 *            the optional parent component that will be used for the {@link JDialog} object
+	 * @param title
+	 *            the title of the {@link JDialog} object
+	 * @param focusedComponent
+	 *            the optional component that will have the focus. Should be one child component of
+	 *            the given {@link JPanel} object
+	 * @return the selected option
+	 */
+	public static int getSelectedOption(final @NonNull JPanel panel, int messageType,
+		int optionType, Component parentComponent, String title, JComponent focusedComponent)
+	{
+		JOptionPane pane = new JOptionPane(panel, messageType, optionType);
+		JDialog dialog = pane.createDialog(parentComponent, title);
+		if (focusedComponent != null)
+		{
+			dialog.addWindowFocusListener(new RequestFocusListener(focusedComponent));
+		}
+		dialog.pack();
+		dialog.setLocationRelativeTo(null);
+		dialog.setVisible(true);
+		int option = JOptionPaneExtensions.getSelectedOption(pane);
+		return option;
+	}
 
 	/**
 	 * Gets the selected option from the {@link JOptionPane}
