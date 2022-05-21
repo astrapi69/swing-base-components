@@ -60,8 +60,7 @@ public class JOptionPaneExtensions
 	 * @return the selected option
 	 */
 	public static int getSelectedOption(final @NonNull JPanel panel, int messageType,
-		int optionType, Component parentComponent, String title,
-		final JComponent focusedComponent)
+		int optionType, Component parentComponent, String title, final JComponent focusedComponent)
 	{
 		JOptionPane pane = new JOptionPane(panel, messageType, optionType);
 		JDialog dialog = pane.createDialog(parentComponent, title);
@@ -72,8 +71,7 @@ public class JOptionPaneExtensions
 		dialog.pack();
 		dialog.setLocationRelativeTo(null);
 		dialog.setVisible(true);
-		int option = JOptionPaneExtensions.getSelectedOption(pane);
-		return option;
+		return JOptionPaneExtensions.getSelectedOption(pane);
 	}
 
 	/**
@@ -112,7 +110,7 @@ public class JOptionPaneExtensions
 		if (options == null)
 		{
 			if (selectedOption instanceof Integer)
-				return ((Integer)selectedOption).intValue();
+				return ((Integer)selectedOption);
 			return -1;
 		}
 		for (int counter = 0, maxCounter = options.length; counter < maxCounter; counter++)
