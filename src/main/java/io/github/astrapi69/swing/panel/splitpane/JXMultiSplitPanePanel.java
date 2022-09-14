@@ -134,6 +134,7 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 		super.onInitializeComponents();
 
 		multiSplitPane = newJXMultiSplitPane(newLayoutDefinition());
+		multiSplitPane.setName("JXMultiSplitPanePanel.JXMultiSplitPane");
 		int screenHeight = (int)(ScreenSizeExtensions.getScreenHeight() / 1.1d);
 		int screenWidth = (int)(ScreenSizeExtensions.getScreenWidth() / 1.1d);
 		setPreferredSize(newPreferredSize(screenWidth, screenHeight));

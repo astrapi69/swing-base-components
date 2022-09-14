@@ -27,14 +27,17 @@ package io.github.astrapi69.swing.component;
 import java.awt.Component;
 import java.awt.Container;
 import java.util.Optional;
+import java.util.logging.Level;
 
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
+import lombok.extern.java.Log;
 
 /**
  * The class {@link ComponentExtensions} provides extension methods for components
  */
 @UtilityClass
+@Log
 public class ComponentExtensions
 {
 
@@ -67,5 +70,30 @@ public class ComponentExtensions
 			}
 		}
 		return Optional.empty();
+	}
+
+	/**
+	 * Enables or disables the given {@link Component} object from the given enable flag
+	 *
+	 * @param container
+	 *            the {@link Component} object to enable or disable
+	 * @param enable
+	 *            the flag for enable or disable
+	 */
+	public static void setComponentEnabled(Component container, boolean enable)
+	{
+		container.setEnabled(enable);
+		try
+		{
+			Component[] components = ((Container)container).getComponents();
+			for (Component component : components)
+			{
+				setComponentEnabled(component, enable);
+			}
+		}
+		catch (ClassCastException exception)
+		{
+			log.log(Level.INFO, exception.getMessage(), exception);
+		}
 	}
 }

@@ -1,12 +1,31 @@
 ## Change log
 ----------------------
 
-Version 1.5-SNAPSHOT
+Version 2-SNAPSHOT
 -------------
 
 ADDED:
 
 - new method for create a Dialog component from the given JPanel object with title and focus component
+- new method that can enable or disable a component and all it descendants
+- new dependency io.github.astrapi69:jobj-reflect in version 1
+- new test dependency org.assertj:assertj-swing in version 3.17.1
+- new test dependency io.github.astrapi69:junit-jupiter-extensions in version 1.1
+
+CHANGED:
+
+- update of JDK to newer version 11
+- update gradle to new version 7.5.1
+- update of gradle plugin dependency io.freefair.gradle:lombok-plugin to new version 6.5.1
+- update of gradle plugin dependency com.diffplug.spotless:spotless-plugin-gradle to new version 6.11.0
+- update of dependency silly-collection to new major version 20
+- update of dependency jobj-core version to 7
+- update of dependency throwable to new minor version 2.3
+- update of test dependency file-worker version to 11.2
+- update of test dependency test-objects version to 7.1
+- update of test dependency silly-io version to 2.1
+- update of test dependency junit-jupiter-api version to 5.9.0
+- update of test dependency miglayout-swing version to 11.0
 
 Version 1.4
 -------------
