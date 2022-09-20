@@ -4,6 +4,10 @@
 Version 2.1-SNAPSHOT
 -------------
 
+CHANGED:
+
+- update of test dependency file-worker version to 11.3
+
 Version 2
 -------------
 
