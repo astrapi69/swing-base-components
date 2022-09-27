@@ -71,9 +71,12 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 	/**
 	 * Replace the given old component with the new component in the given constrains
 	 * 
-	 * @param toBeReplaced the component to replace
-	 * @param withThisComponent the new component
-	 * @param constraints the constraints where to replace
+	 * @param toBeReplaced
+	 *            the component to replace
+	 * @param withThisComponent
+	 *            the new component
+	 * @param constraints
+	 *            the constraints where to replace
 	 */
 	public JComponent replaceComponent(JComponent toBeReplaced, JComponent withThisComponent,
 		Object constraints)
