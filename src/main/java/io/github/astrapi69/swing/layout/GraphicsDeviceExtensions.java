@@ -81,16 +81,18 @@ public class GraphicsDeviceExtensions
 	 */
 	public static int getGraphicsDeviceIndexIsShowingOn(final Component component)
 	{
+		int graphicsDeviceIndex = -1;
 		final GraphicsDevice graphicsDevice = getGraphicsDeviceIsShowingOn(component);
 		final GraphicsDevice[] graphicsDevices = getAvailableScreens();
 		for (int i = 0; i < graphicsDevices.length; i++)
 		{
 			if (graphicsDevices[i].equals(graphicsDevice))
 			{
-				return i;
+				graphicsDeviceIndex = i;
+				break;
 			}
 		}
-		return 0;
+		return graphicsDeviceIndex;
 	}
 
 
@@ -118,9 +120,7 @@ public class GraphicsDeviceExtensions
 	public static boolean isScreenAvailableToShow(final int screen)
 	{
 		final GraphicsDevice[] graphicsDevices = getAvailableScreens();
-		boolean screenAvailableToShow = (screen > -1 && screen < graphicsDevices.length)
-			|| (graphicsDevices.length > 0);
-		return screenAvailableToShow;
+		return graphicsDevices.length > 0 && screen > -1 && screen < graphicsDevices.length;
 	}
 
 	/**

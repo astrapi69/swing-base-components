@@ -36,14 +36,11 @@ import java.awt.Toolkit;
 import java.awt.Window;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.atomic.AtomicInteger;
-import java.util.stream.Stream;
 
 import javax.swing.JFrame;
 
 import lombok.NonNull;
 import io.github.astrapi69.collection.array.ArrayExtensions;
-import io.github.astrapi69.reflection.ReflectionExtensions;
 import io.github.astrapi69.swing.utils.AwtExtensions;
 
 /**
@@ -337,29 +334,7 @@ public class ScreenSizeExtensions
 	 */
 	public static int getScreenID(Component component)
 	{
-		int screenID;
-		final AtomicInteger counter = new AtomicInteger(-1);
-		Stream.of(getScreenDevices()).forEach(graphicsDevice -> {
-
-			GraphicsConfiguration gc = graphicsDevice.getDefaultConfiguration();
-			Rectangle rectangle = gc.getBounds();
-			if (rectangle.contains(component.getLocation()))
-			{
-				try
-				{
-					Object object = ReflectionExtensions.getFieldValue(graphicsDevice, "screen");
-					Integer sid = (Integer)object;
-					counter.set(sid);
-				}
-				catch (NoSuchFieldException | SecurityException | IllegalArgumentException
-					| IllegalAccessException e)
-				{
-					e.printStackTrace();
-				}
-			}
-		});
-		screenID = counter.get();
-		return screenID;
+		return GraphicsDeviceExtensions.getGraphicsDeviceIndexIsShowingOn(component);
 	}
 
 	/**
@@ -398,8 +373,7 @@ public class ScreenSizeExtensions
 	public static double getScreenWidth(final GraphicsConfiguration graphicsConfiguration)
 	{
 		final Rectangle bounds = graphicsConfiguration.getBounds();
-		final double width = bounds.getWidth();
-		return width;
+		return bounds.getWidth();
 	}
 
 	/**

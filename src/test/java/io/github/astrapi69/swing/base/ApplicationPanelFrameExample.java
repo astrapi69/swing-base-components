@@ -36,6 +36,11 @@ import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
+import io.github.astrapi69.random.object.RandomStringFactory;
+import io.github.astrapi69.swing.button.builder.JButtonInfo;
+import io.github.astrapi69.swing.plaf.LookAndFeels;
+import lombok.Getter;
+import lombok.Setter;
 import org.jdesktop.swingx.MultiSplitLayout;
 
 import io.github.astrapi69.swing.button.IconButtonFactory;
@@ -52,6 +57,17 @@ public class ApplicationPanelFrameExample
 
 	private static final long serialVersionUID = 1L;
 
+	@Getter
+	@Setter
+	JComponent topComponent;
+	@Getter
+	@Setter
+	JComponent leftComponent;
+
+	@Getter
+	@Setter
+	JComponent bottomComponent;
+
 	/**
 	 * Instantiates a new {@link ApplicationSplitPaneFrame}
 	 *
@@ -61,7 +77,7 @@ public class ApplicationPanelFrameExample
 	public ApplicationPanelFrameExample(String title)
 	{
 		super(title);
-		// setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
+		setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
 	}
 
 	/**
@@ -105,7 +121,7 @@ public class ApplicationPanelFrameExample
 	@Override
 	protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent()
 	{
-		final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
+		final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<>()
 		{
 			@Override
 			protected MultiSplitLayout.Node newRootNode(String layoutDefinition)
@@ -113,9 +129,12 @@ public class ApplicationPanelFrameExample
 				return ApplicationPanelFrameExample.this.newRootNode();
 			}
 		};
-		multiSplitPanePanel.getMultiSplitPane().add(newTopComponent(), "content");
-		multiSplitPanePanel.getMultiSplitPane().add(newBottomComponent(), "bottom");
-		multiSplitPanePanel.getMultiSplitPane().add(newLeftComponent(), "left");
+		topComponent = newTopComponent();
+		leftComponent = newLeftComponent();
+		bottomComponent = newBottomComponent();
+		multiSplitPanePanel.getMultiSplitPane().add(topComponent, "content");
+		multiSplitPanePanel.getMultiSplitPane().add(bottomComponent, "bottom");
+		multiSplitPanePanel.getMultiSplitPane().add(leftComponent, "left");
 		return multiSplitPanePanel;
 	}
 
@@ -163,9 +182,48 @@ public class ApplicationPanelFrameExample
 		// .newJButton(directoryIcon, "Dir"));
 		// toolBar.add(JComponentFactory
 		// .newJButton(fileIcon, "File"));
-		toolBar.add(new JButton(computerIcon));
-		toolBar.add(IconButtonFactory.newIconButton(hardDriveIcon));
-		toolBar.add(IconButtonFactory.newIconButton(floppyDriveIcon));
+		JButton computerToolButton = IconButtonFactory.newIconButton(computerIcon);
+		computerToolButton.addActionListener(event -> {
+			JLabel label = new JLabel(
+				"New Left Component ::" + RandomStringFactory.newRandomString(10) + "::");
+			Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
+			label.setBorder(border);
+
+			final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
+
+			multiSplitPanePanel.getMultiSplitPane().remove(leftComponent);
+			leftComponent = label;
+			multiSplitPanePanel.getMultiSplitPane().add(leftComponent, "left");
+			multiSplitPanePanel.getMultiSplitPane().revalidate();
+		});
+		toolBar.add(computerToolButton);
+		JButton hardDriveToolButton = IconButtonFactory.newIconButton(hardDriveIcon);
+		hardDriveToolButton.addActionListener(event -> {
+			JLabel label = new JLabel(
+				"New Top Component ::" + RandomStringFactory.newRandomString(10) + "::");
+			Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
+			label.setBorder(border);
+
+			final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
+
+			multiSplitPanePanel.getMultiSplitPane().remove(topComponent);
+			topComponent = label;
+			multiSplitPanePanel.getMultiSplitPane().add(topComponent, "content");
+			multiSplitPanePanel.getMultiSplitPane().revalidate();
+		});
+		toolBar.add(hardDriveToolButton);
+		JButton floppyDriveToolButton = JButtonInfo.builder().icon(floppyDriveIcon)
+			.actionListener(event -> {
+				JLabel label = new JLabel(
+					"New Bottom Component ::" + RandomStringFactory.newRandomString(10) + "::");
+				Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
+				label.setBorder(border);
+
+				final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
+				bottomComponent = multiSplitPanePanel.replaceComponent(bottomComponent, label,
+					"bottom");
+			}).build().toJButton();
+		toolBar.add(floppyDriveToolButton);
 		toolBar.add(IconButtonFactory.newIconButton(newFolderIcon));
 		return toolBar;
 	}

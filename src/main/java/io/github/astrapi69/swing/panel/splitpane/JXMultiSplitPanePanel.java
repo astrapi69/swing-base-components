@@ -28,6 +28,7 @@ import java.awt.BorderLayout;
 import java.awt.Dimension;
 
 import javax.swing.BorderFactory;
+import javax.swing.JComponent;
 
 import lombok.Getter;
 
@@ -65,6 +66,22 @@ public class JXMultiSplitPanePanel<T> extends BasePanel<T>
 	public JXMultiSplitPanePanel(final IModel<T> model)
 	{
 		super(model);
+	}
+
+	/**
+	 * Replace the given old component with the new component in the given constrains
+	 * 
+	 * @param toBeReplaced the component to replace
+	 * @param withThisComponent the new component
+	 * @param constraints the constraints where to replace
+	 */
+	public JComponent replaceComponent(JComponent toBeReplaced, JComponent withThisComponent,
+		Object constraints)
+	{
+		multiSplitPane.remove(toBeReplaced);
+		multiSplitPane.add(withThisComponent, constraints);
+		multiSplitPane.revalidate();
+		return withThisComponent;
 	}
 
 	/**

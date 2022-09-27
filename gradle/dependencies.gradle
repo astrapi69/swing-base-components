@@ -7,7 +7,6 @@ dependencies {
     implementation("io.github.astrapi69:menu-actions:$menuActionsVersion")
     implementation("io.github.astrapi69:silly-collection:$sillyCollectionVersion")
     implementation("io.github.astrapi69:jobj-core:$jobjCoreVersion")
-    implementation("io.github.astrapi69:jobj-reflect:$jobjReflectVersion")
     implementation("io.github.astrapi69:throwable:$throwableVersion")
     testCompileOnly("org.projectlombok:lombok:$lombokVersion")
     testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")

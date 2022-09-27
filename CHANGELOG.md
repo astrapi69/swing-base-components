@@ -7,6 +7,10 @@ Version 2.1-SNAPSHOT
 CHANGED:
 
 - update of test dependency file-worker version to 11.3
+- update of dependency model-data to new major version 2
+- removed dependency io.github.astrapi69:jobj-reflect
+- update of test dependency junit-jupiter-api to new patch version 5.9.1
+- update of test dependency icon-img-extensions to new major version 2
 
 Version 2
 -------------
