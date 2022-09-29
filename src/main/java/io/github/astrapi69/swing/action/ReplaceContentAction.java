@@ -64,7 +64,7 @@ public class ReplaceContentAction extends AbstractAction
 	@Override
 	public void actionPerformed(final ActionEvent e)
 	{
-		ReplaceContentExtensions.replaceContent(container, content, scrollable);
+		ReplaceContentExtensions.replaceContentInMultiSplitPane(container, content, scrollable);
 	}
 
 }

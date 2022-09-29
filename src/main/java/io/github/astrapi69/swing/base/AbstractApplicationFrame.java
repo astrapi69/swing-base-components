@@ -41,6 +41,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import io.github.astrapi69.swing.action.ReplaceContentExtensions;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -132,6 +133,11 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 			setIconImage(i);
 		});
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+	}
+
+	public void replaceMainComponent(@NonNull C newMainComponent) {
+		ReplaceContentExtensions.replaceContentAndRevalidate(getContentPane(), mainComponent, newMainComponent);
+		mainComponent = newMainComponent;
 	}
 
 	/**

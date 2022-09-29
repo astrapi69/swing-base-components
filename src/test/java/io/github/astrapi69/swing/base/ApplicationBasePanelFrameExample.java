@@ -56,11 +56,7 @@ public class ApplicationBasePanelFrameExample
 		ApplicationPanelFrame<ApplicationTestModel<String>>
 {
 
-
 	private static final long serialVersionUID = 1L;
-
-	@Setter
-	JComponent mainComponent;
 
 	/**
 	 * Instantiates a new {@link ApplicationSplitPaneFrame}
@@ -88,27 +84,10 @@ public class ApplicationBasePanelFrameExample
 		frame.setVisible(true);
 	}
 
-	protected JComponent newBottomComponent()
-	{
-		JLabel label = new JLabel("Bottom Component");
-		Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
-		label.setBorder(border);
-		return label;
-	}
-
-
 	@Override
 	protected String newIconPath()
 	{
 		return "img/xmas/bell.png";
-	}
-
-	protected JComponent newLeftComponent()
-	{
-		JLabel label = new JLabel("Left Component");
-		Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
-		label.setBorder(border);
-		return label;
 	}
 
 	@SuppressWarnings("serial")
@@ -116,7 +95,7 @@ public class ApplicationBasePanelFrameExample
 	protected BasePanel<ApplicationTestModel<String>> newMainComponent()
 	{
 		ApplicationTestModel<String> applicationTestModel = ApplicationTestModel.<String> builder()
-			.model("foo").build();
+			.model("click on the toolbar button to replace the main component").build();
 
 		return new LabelBasePanel(BaseModel.of(applicationTestModel));
 	}
@@ -145,48 +124,41 @@ public class ApplicationBasePanelFrameExample
 		// toolBar.add(JComponentFactory
 		// .newJButton(fileIcon, "File"));
 		JButton computerToolButton = IconButtonFactory.newIconButton(computerIcon);
-//		computerToolButton.addActionListener(event -> {
-//			JLabel label = new JLabel(
-//				"New Left Component ::" + RandomStringFactory.newRandomString(10) + "::");
-//			Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
-//			label.setBorder(border);
-//
-//			final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
-//
-//			multiSplitPanePanel.getMultiSplitPane().remove(leftComponent);
-//			leftComponent = label;
-//			multiSplitPanePanel.getMultiSplitPane().add(leftComponent, "left");
-//			multiSplitPanePanel.getMultiSplitPane().revalidate();
-//		});
-//		toolBar.add(computerToolButton);
-//		JButton hardDriveToolButton = IconButtonFactory.newIconButton(hardDriveIcon);
-//		hardDriveToolButton.addActionListener(event -> {
-//			JLabel label = new JLabel(
-//				"New Top Component ::" + RandomStringFactory.newRandomString(10) + "::");
-//			Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
-//			label.setBorder(border);
-//
-//			final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
-//
-//			multiSplitPanePanel.getMultiSplitPane().remove(topComponent);
-//			topComponent = label;
-//			multiSplitPanePanel.getMultiSplitPane().add(topComponent, "content");
-//			multiSplitPanePanel.getMultiSplitPane().revalidate();
-//		});
-//		toolBar.add(hardDriveToolButton);
-//		JButton floppyDriveToolButton = JButtonInfo.builder().icon(floppyDriveIcon)
-//			.actionListener(event -> {
-//				JLabel label = new JLabel(
-//					"New Bottom Component ::" + RandomStringFactory.newRandomString(10) + "::");
-//				Border border = BorderFactory.createLineBorder(Color.lightGray, 1);
-//				label.setBorder(border);
-//
-//				final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
-//				bottomComponent = multiSplitPanePanel.replaceComponent(bottomComponent, label,
-//					"bottom");
-//			}).build().toJButton();
-//		toolBar.add(floppyDriveToolButton);
-		toolBar.add(IconButtonFactory.newIconButton(newFolderIcon));
+		computerToolButton.addActionListener(event -> {
+			System.out.println("computerToolButton ....");
+			ApplicationTestModel<String> applicationTestModel = ApplicationTestModel.<String> builder()
+					.model("bar").build();
+			LabelBasePanel labelBasePanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
+			replaceMainComponent(labelBasePanel);
+		});
+		toolBar.add(computerToolButton);
+		JButton hardDriveToolButton = IconButtonFactory.newIconButton(hardDriveIcon);
+		hardDriveToolButton.addActionListener(event -> {
+			System.out.println("hardDriveToolButton ....");
+			ApplicationTestModel<String> applicationTestModel = ApplicationTestModel.<String> builder()
+					.model("bla").build();
+			LabelBasePanel labelBasePanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
+			replaceMainComponent(labelBasePanel);
+		});
+		toolBar.add(hardDriveToolButton);
+		JButton floppyDriveToolButton = JButtonInfo.builder().icon(floppyDriveIcon)
+			.actionListener(event -> {
+				System.out.println("hardDriveToolButton ....");
+				ApplicationTestModel<String> applicationTestModel = ApplicationTestModel.<String> builder()
+						.model("fasel").build();
+				LabelBasePanel labelBasePanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
+				replaceMainComponent(labelBasePanel);
+			}).build().toJButton();
+		toolBar.add(floppyDriveToolButton);
+		JButton newFolderToolButton = JButtonInfo.builder().icon(floppyDriveIcon)
+				.actionListener(event -> {
+					System.out.println("newFolderToolButton ....");
+					ApplicationTestModel<String> applicationTestModel = ApplicationTestModel.<String> builder()
+							.model("new folder").build();
+					LabelBasePanel labelBasePanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
+					replaceMainComponent(labelBasePanel);
+				}).build().toJButton();
+		toolBar.add(newFolderToolButton);
 		return toolBar;
 	}
 }
