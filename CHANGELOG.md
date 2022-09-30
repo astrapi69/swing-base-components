@@ -4,6 +4,10 @@
 Version 2.2-SNAPSHOT
 -------------
 
+ADDED:
+
+- new panel class with JDesktopPane
+
 Version 2.1
 -------------
 

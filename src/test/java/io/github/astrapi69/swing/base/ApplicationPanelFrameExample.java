@@ -36,16 +36,18 @@ import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
-import io.github.astrapi69.random.object.RandomStringFactory;
-import io.github.astrapi69.swing.button.builder.JButtonInfo;
-import io.github.astrapi69.swing.plaf.LookAndFeels;
 import lombok.Getter;
 import lombok.Setter;
+
 import org.jdesktop.swingx.MultiSplitLayout;
 
+import io.github.astrapi69.random.object.RandomStringFactory;
 import io.github.astrapi69.swing.button.IconButtonFactory;
+import io.github.astrapi69.swing.button.builder.JButtonInfo;
+import io.github.astrapi69.swing.panel.desktoppane.JDesktopPanePanel;
 import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
 import io.github.astrapi69.swing.panel.splitpane.SplitFactory;
+import io.github.astrapi69.swing.plaf.LookAndFeels;
 import io.github.astrapi69.test.object.ApplicationTestModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
@@ -68,8 +70,12 @@ public class ApplicationPanelFrameExample
 	@Setter
 	JComponent bottomComponent;
 
+	JDesktopPanePanel<ApplicationTestModel<String>> desktopPanePanel;
+
+	JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel;
+
 	/**
-	 * Instantiates a new {@link ApplicationSplitPaneFrame}
+	 * Instantiates a new {@link ApplicationPanelFrameExample}
 	 *
 	 * @param title
 	 *            the title
@@ -78,6 +84,14 @@ public class ApplicationPanelFrameExample
 	{
 		super(title);
 		setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
+	}
+
+	@Override
+	protected void onInitializeComponents()
+	{
+		super.onInitializeComponents();
+		multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
+		desktopPanePanel = new JDesktopPanePanel<>();
 	}
 
 	/**
@@ -119,7 +133,7 @@ public class ApplicationPanelFrameExample
 
 	@SuppressWarnings("serial")
 	@Override
-	protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent()
+	protected BasePanel<ApplicationTestModel<String>> newMainComponent()
 	{
 		final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<>()
 		{
@@ -178,10 +192,17 @@ public class ApplicationPanelFrameExample
 		Icon detailsViewIcon = UIManager.getIcon("FileChooser.detailsViewIcon");
 		Icon listViewIcon = UIManager.getIcon("FileChooser.listViewIcon");
 
-		// toolBar.add(JComponentFactory
-		// .newJButton(directoryIcon, "Dir"));
-		// toolBar.add(JComponentFactory
-		// .newJButton(fileIcon, "File"));
+
+		JButton listViewToolButton = IconButtonFactory.newIconButton(listViewIcon);
+		listViewToolButton.addActionListener(event -> {
+			replaceMainComponent(desktopPanePanel);
+		});
+		toolBar.add(listViewToolButton);
+		JButton detailsViewToolButton = IconButtonFactory.newIconButton(detailsViewIcon);
+		detailsViewToolButton.addActionListener(event -> {
+			replaceMainComponent(multiSplitPanePanel);
+		});
+		toolBar.add(detailsViewToolButton);
 		JButton computerToolButton = IconButtonFactory.newIconButton(computerIcon);
 		computerToolButton.addActionListener(event -> {
 			JLabel label = new JLabel(
@@ -224,7 +245,19 @@ public class ApplicationPanelFrameExample
 					"bottom");
 			}).build().toJButton();
 		toolBar.add(floppyDriveToolButton);
-		toolBar.add(IconButtonFactory.newIconButton(newFolderIcon));
+
+		JButton newFolderToolButton = JButtonInfo.builder().icon(newFolderIcon)
+			.actionListener(event -> {
+				final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
+				topComponent = multiSplitPanePanel.replaceComponent(topComponent, newTopComponent(),
+					"content");
+				leftComponent = multiSplitPanePanel.replaceComponent(leftComponent,
+					newLeftComponent(), "left");
+				bottomComponent = multiSplitPanePanel.replaceComponent(bottomComponent,
+					newBottomComponent(), "bottom");
+			}).build().toJButton();
+		toolBar.add(newFolderToolButton);
+
 		return toolBar;
 	}
 }

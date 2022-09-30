@@ -22,53 +22,33 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.base;
+package io.github.astrapi69.swing.panel.desktoppane;
 
-import lombok.AccessLevel;
-import lombok.experimental.FieldDefaults;
+import java.awt.Frame;
+
 import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
+import io.github.astrapi69.swing.panel.splitpane.TestComponentFactory;
+import io.github.astrapi69.test.object.ApplicationTestModel;
+import io.github.astrapi69.window.adapter.CloseWindow;
 
-/**
- * The class {@link ApplicationSplitPaneFrame}
- *
- * @param <T>
- *            the generic type of the model object
- */
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public abstract class ApplicationSplitPaneFrame<T>
-	extends
-		AbstractApplicationFrame<T, JXMultiSplitPanePanel<T>>
+public class JDesktopPanePanelTest
 {
 
-	/** The Constant serialVersionUID. */
-	private static final long serialVersionUID = 1L;
-
-
 	/**
-	 * Instantiates a new {@link ApplicationSplitPaneFrame}
+	 * The main method.
 	 *
-	 * @param title
-	 *            the title
+	 * @param args
+	 *            the arguments
 	 */
-	public ApplicationSplitPaneFrame(String title)
+	public static void main(final String[] args)
 	{
-		super(title);
-	}
+		final Frame frame = new Frame("JDesktopPanePanel");
 
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected abstract JXMultiSplitPanePanel<T> newMainComponent();
-
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override
-	protected void onInitializeComponents()
-	{
-		super.onInitializeComponents();
+		JDesktopPanePanel<ApplicationTestModel<String>> desktopPanePanel = new JDesktopPanePanel<>();
+		frame.add(desktopPanePanel);
+		frame.addWindowListener(new CloseWindow());
+		frame.setSize(300, 200);
+		frame.setVisible(true);
 	}
 
 }

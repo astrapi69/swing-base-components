@@ -52,7 +52,8 @@ public class ReplaceContentExtensions
 	 * @param scrollable
 	 *            the flag if true the new content will be embedded in a {@link JScrollPane}
 	 */
-	public static void replaceContent(Container container, JComponent content, boolean scrollable) {
+	public static void replaceContent(Container container, JComponent content, boolean scrollable)
+	{
 		container.removeAll();
 		if (scrollable)
 		{
@@ -74,10 +75,13 @@ public class ReplaceContentExtensions
 	 * @param content
 	 *            the new component
 	 */
-	public static void replaceContent(Container container, JComponent oldContent, JComponent content) {
+	public static void replaceContent(Container container, JComponent oldContent,
+		JComponent content)
+	{
 		container.remove(oldContent);
 		container.add(content);
 	}
+
 	/**
 	 * Replace the content of the given container without a call to the method revalidate
 	 *
@@ -88,7 +92,9 @@ public class ReplaceContentExtensions
 	 * @param content
 	 *            the new component
 	 */
-	public static void replaceContentAndRevalidate(Container container, JComponent oldContent, JComponent content) {
+	public static void replaceContentAndRevalidate(Container container, JComponent oldContent,
+		JComponent content)
+	{
 		replaceContent(container, oldContent, content);
 		container.revalidate();
 	}
@@ -103,12 +109,13 @@ public class ReplaceContentExtensions
 	 * @param scrollable
 	 *            the flag if true the new content will be embedded in a {@link JScrollPane}
 	 */
-	public static void replaceContentInMultiSplitPane(final JComponent container, final JComponent content,
-									  boolean scrollable)
+	public static void replaceContentInMultiSplitPane(final JComponent container,
+		final JComponent content, boolean scrollable)
 	{
 		replaceContentAndRevalidate(container, content, scrollable);
 		replaceContentAndCreateJXMultiSplitPane(container, content, scrollable);
 	}
+
 	/**
 	 * Replace the content of the given container with a call to the method revalidate
 	 *
@@ -119,7 +126,9 @@ public class ReplaceContentExtensions
 	 * @param scrollable
 	 *            the flag if true the new content will be embedded in a {@link JScrollPane}
 	 */
-	public static void replaceContentAndRevalidate(Container container, JComponent content, boolean scrollable) {
+	public static void replaceContentAndRevalidate(Container container, JComponent content,
+		boolean scrollable)
+	{
 		replaceContent(container, content, scrollable);
 		container.revalidate();
 	}

@@ -41,7 +41,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.UnsupportedLookAndFeelException;
 
-import io.github.astrapi69.swing.action.ReplaceContentExtensions;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -51,6 +50,7 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
+import io.github.astrapi69.swing.action.ReplaceContentExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 
@@ -135,9 +135,19 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 	}
 
-	public void replaceMainComponent(@NonNull C newMainComponent) {
-		ReplaceContentExtensions.replaceContentAndRevalidate(getContentPane(), mainComponent, newMainComponent);
+	/**
+	 * Replace the old main component with the given component
+	 * 
+	 * @param newMainComponent
+	 *            the new main component
+	 */
+	public void replaceMainComponent(@NonNull C newMainComponent)
+	{
+		ReplaceContentExtensions.replaceContentAndRevalidate(getContentPane(), mainComponent,
+			newMainComponent);
 		mainComponent = newMainComponent;
+		repaint();
+		revalidate();
 	}
 
 	/**

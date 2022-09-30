@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.panel.splitpane;
+package io.github.astrapi69.swing.panel.desktoppane;
 
 import static org.junit.jupiter.api.Assertions.assertNotNull;
 
@@ -37,25 +37,25 @@ import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExce
 import io.github.astrapi69.test.object.ApplicationTestModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 
-public class JXMultiSplitPanePanelAssertjSwingTest
+public class JDesktopPanePanelAssertjSwingTest
 {
 	private FrameFixture underTest;
 
-	private JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel;
+	private JDesktopPanePanel<ApplicationTestModel<String>> desktopPanePanel;
 
 	@ExtendWith(IgnoreHeadlessExceptionExtension.class)
 	@Test
 	public void test()
 	{
-		final Frame frame = new Frame("JXMultiSplitPanePanel");
+		final Frame frame = new Frame("JDesktopPanePanel");
 
-		multiSplitPanePanel = TestComponentFactory.newJXMultiSplitPanePanelCustomLayout();
-		frame.add(multiSplitPanePanel);
+		desktopPanePanel = new JDesktopPanePanel<>();
+		frame.add(desktopPanePanel);
 		frame.addWindowListener(new CloseWindow());
 		frame.setSize(300, 200);
 		frame.setVisible(true);
 		underTest = new FrameFixture(frame);
-		JPanelFixture focus = underTest.panel("JXMultiSplitPanePanel.JXMultiSplitPane").focus();
+		JPanelFixture focus = underTest.panel().click();
 		// check target is set
 		assertNotNull(focus.target());
 		frame.setVisible(false);

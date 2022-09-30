@@ -42,13 +42,13 @@ import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class ApplicationSplitPaneFrameExample
 	extends
-		ApplicationSplitPaneFrame<ApplicationTestModel<String>>
+		ApplicationPanelFrame<ApplicationTestModel<String>>
 {
 
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Instantiates a new {@link ApplicationSplitPaneFrame}
+	 * Instantiates a new {@link ApplicationSplitPaneFrameExample}
 	 *
 	 * @param title
 	 *            the title
@@ -96,7 +96,7 @@ public class ApplicationSplitPaneFrameExample
 
 	@SuppressWarnings("serial")
 	@Override
-	protected JXMultiSplitPanePanel<ApplicationTestModel<String>> newMainComponent()
+	protected BasePanel<ApplicationTestModel<String>> newMainComponent()
 	{
 		final JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
 		{

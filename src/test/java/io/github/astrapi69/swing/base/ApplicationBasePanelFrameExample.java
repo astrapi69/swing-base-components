@@ -24,29 +24,17 @@
  */
 package io.github.astrapi69.swing.base;
 
-import java.awt.Color;
 import java.awt.Frame;
 
-import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JButton;
-import javax.swing.JComponent;
-import javax.swing.JLabel;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
-import javax.swing.border.Border;
-
-import lombok.Getter;
-import lombok.Setter;
-
-import org.jdesktop.swingx.MultiSplitLayout;
 
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.random.object.RandomStringFactory;
 import io.github.astrapi69.swing.button.IconButtonFactory;
 import io.github.astrapi69.swing.button.builder.JButtonInfo;
-import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
-import io.github.astrapi69.swing.panel.splitpane.SplitFactory;
+import io.github.astrapi69.swing.panel.label.LabelPanel;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 import io.github.astrapi69.test.object.ApplicationTestModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
@@ -59,7 +47,7 @@ public class ApplicationBasePanelFrameExample
 	private static final long serialVersionUID = 1L;
 
 	/**
-	 * Instantiates a new {@link ApplicationSplitPaneFrame}
+	 * Instantiates a new {@link ApplicationPanelFrame}
 	 *
 	 * @param title
 	 *            the title
@@ -126,38 +114,38 @@ public class ApplicationBasePanelFrameExample
 		JButton computerToolButton = IconButtonFactory.newIconButton(computerIcon);
 		computerToolButton.addActionListener(event -> {
 			System.out.println("computerToolButton ....");
-			ApplicationTestModel<String> applicationTestModel = ApplicationTestModel.<String> builder()
-					.model("bar").build();
-			LabelBasePanel labelBasePanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
-			replaceMainComponent(labelBasePanel);
+			ApplicationTestModel<String> applicationTestModel = ApplicationTestModel
+				.<String> builder().model("bar").build();
+			LabelBasePanel labelPanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
+			replaceMainComponent(labelPanel);
 		});
 		toolBar.add(computerToolButton);
 		JButton hardDriveToolButton = IconButtonFactory.newIconButton(hardDriveIcon);
 		hardDriveToolButton.addActionListener(event -> {
 			System.out.println("hardDriveToolButton ....");
-			ApplicationTestModel<String> applicationTestModel = ApplicationTestModel.<String> builder()
-					.model("bla").build();
-			LabelBasePanel labelBasePanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
-			replaceMainComponent(labelBasePanel);
+			ApplicationTestModel<String> applicationTestModel = ApplicationTestModel
+				.<String> builder().model("bla").build();
+			LabelBasePanel labelPanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
+			replaceMainComponent(labelPanel);
 		});
 		toolBar.add(hardDriveToolButton);
 		JButton floppyDriveToolButton = JButtonInfo.builder().icon(floppyDriveIcon)
 			.actionListener(event -> {
 				System.out.println("hardDriveToolButton ....");
-				ApplicationTestModel<String> applicationTestModel = ApplicationTestModel.<String> builder()
-						.model("fasel").build();
-				LabelBasePanel labelBasePanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
-				replaceMainComponent(labelBasePanel);
+				ApplicationTestModel<String> applicationTestModel = ApplicationTestModel
+					.<String> builder().model("fasel").build();
+				LabelBasePanel labelPanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
+				replaceMainComponent(labelPanel);
 			}).build().toJButton();
 		toolBar.add(floppyDriveToolButton);
 		JButton newFolderToolButton = JButtonInfo.builder().icon(floppyDriveIcon)
-				.actionListener(event -> {
-					System.out.println("newFolderToolButton ....");
-					ApplicationTestModel<String> applicationTestModel = ApplicationTestModel.<String> builder()
-							.model("new folder").build();
-					LabelBasePanel labelBasePanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
-					replaceMainComponent(labelBasePanel);
-				}).build().toJButton();
+			.actionListener(event -> {
+				System.out.println("newFolderToolButton ....");
+				ApplicationTestModel<String> applicationTestModel = ApplicationTestModel
+					.<String> builder().model("new folder").build();
+				LabelBasePanel labelPanel = new LabelBasePanel(BaseModel.of(applicationTestModel));
+				replaceMainComponent(labelPanel);
+			}).build().toJButton();
 		toolBar.add(newFolderToolButton);
 		return toolBar;
 	}
