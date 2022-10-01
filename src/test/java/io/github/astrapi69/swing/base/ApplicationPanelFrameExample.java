@@ -86,14 +86,6 @@ public class ApplicationPanelFrameExample
 		setDefaultLookAndFeel(LookAndFeels.NIMBUS, this);
 	}
 
-	@Override
-	protected void onInitializeComponents()
-	{
-		super.onInitializeComponents();
-		multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
-		desktopPanePanel = new JDesktopPanePanel<>();
-	}
-
 	/**
 	 * Test init layout.
 	 *
@@ -106,6 +98,14 @@ public class ApplicationPanelFrameExample
 		frame.addWindowListener(new CloseWindow());
 		frame.pack();
 		frame.setVisible(true);
+	}
+
+	@Override
+	protected void onInitializeComponents()
+	{
+		super.onInitializeComponents();
+		multiSplitPanePanel = (JXMultiSplitPanePanel<ApplicationTestModel<String>>)getMainComponent();
+		desktopPanePanel = new JDesktopPanePanel<>();
 	}
 
 	protected JComponent newBottomComponent()

@@ -26,8 +26,6 @@ package io.github.astrapi69.swing.panel.desktoppane;
 
 import java.awt.Frame;
 
-import io.github.astrapi69.swing.panel.splitpane.JXMultiSplitPanePanel;
-import io.github.astrapi69.swing.panel.splitpane.TestComponentFactory;
 import io.github.astrapi69.test.object.ApplicationTestModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
 

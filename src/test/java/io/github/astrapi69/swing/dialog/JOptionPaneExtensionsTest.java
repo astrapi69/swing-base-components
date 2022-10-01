@@ -24,13 +24,13 @@
  */
 package io.github.astrapi69.swing.dialog;
 
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.swing.listener.RequestFocusListener;
 import io.github.astrapi69.swing.panel.help.HelpModelBean;
 import io.github.astrapi69.swing.panel.help.HelpPanel;
-
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
 
 class JOptionPaneExtensionsTest
 {

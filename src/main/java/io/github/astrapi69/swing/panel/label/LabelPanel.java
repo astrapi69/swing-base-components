@@ -24,13 +24,13 @@
  */
 package io.github.astrapi69.swing.panel.label;
 
+import java.awt.BorderLayout;
+
 import javax.swing.JLabel;
 
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
-
-import java.awt.BorderLayout;
 
 public class LabelPanel extends BasePanel<String>
 {
