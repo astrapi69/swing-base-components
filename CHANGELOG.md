@@ -6,7 +6,15 @@ Version 2.2-SNAPSHOT
 
 ADDED:
 
-- new panel class with JDesktopPane
+- new panel class with a JDesktopPane
+- new panel class with a JLabel
+- new methods for replace Components in extension class ReplaceContentExtensions
+- new method replaceMainComponent in class AbstractApplicationFrame that replaces the main component in the frame
+
+CHANGED:
+
+- removed unused test dependency commons-text
+- moved class ReplaceContentExtensions to a more appropriate package 'io.github.astrapi69.swing.component.replace'
 
 Version 2.1
 -------------

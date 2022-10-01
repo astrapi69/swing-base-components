@@ -27,16 +27,16 @@ package io.github.astrapi69.swing.desktoppane;
 import javax.swing.JDesktopPane;
 
 /**
- * The class {@link SingletonDesktopPane}.
+ * The class {@link SingletonDesktopPane}
  */
 public class SingletonDesktopPane
 {
 
-	/** The instance. */
+	/** The instance */
 	private static final JDesktopPane instance = new JDesktopPane();
 
 	/**
-	 * Instantiates a new singleton desktop pane.
+	 * Instantiates a new {@link SingletonDesktopPane} object
 	 */
 	private SingletonDesktopPane()
 	{

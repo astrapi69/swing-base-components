@@ -22,7 +22,10 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.action;
+package io.github.astrapi69.swing.component.replace;
+
+import java.awt.Container;
+import java.util.Objects;
 
 import javax.swing.JComponent;
 import javax.swing.JScrollPane;
@@ -32,11 +35,9 @@ import lombok.experimental.UtilityClass;
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.SwingXUtilities;
 
-import java.awt.Component;
-import java.awt.Container;
-
 /**
- * The class {@link ReplaceContentExtensions}
+ * The class {@link ReplaceContentExtensions} provides algorithms for replace components in the
+ * given containers
  */
 @UtilityClass
 public class ReplaceContentExtensions
@@ -47,39 +48,43 @@ public class ReplaceContentExtensions
 	 *
 	 * @param container
 	 *            the container
-	 * @param content
-	 *            the content
+	 * @param newComponent
+	 *            the new component to add to the given container
 	 * @param scrollable
 	 *            the flag if true the new content will be embedded in a {@link JScrollPane}
 	 */
-	public static void replaceContent(Container container, JComponent content, boolean scrollable)
+	public static void replaceContent(final Container container, final JComponent newComponent,
+		final boolean scrollable)
 	{
 		container.removeAll();
 		if (scrollable)
 		{
-			container.add(new JScrollPane(content));
+			container.add(new JScrollPane(newComponent));
 		}
 		else
 		{
-			container.add(content);
+			container.add(newComponent);
 		}
 	}
 
 	/**
-	 * Replace the content of the given container without a call to the method revalidate
+	 * Replace the content of the given container without a call to the method revalidate. <br>
+	 * <br>
+	 * Note: only the given old component will be removed from the given container and the new
+	 * component will be added without a call to the method revalidate
 	 *
 	 * @param container
 	 *            the container
-	 * @param oldContent
-	 *            the component to remove
-	 * @param content
-	 *            the new component
+	 * @param oldComponent
+	 *            the component to remove from the given container
+	 * @param newComponent
+	 *            the new component to add to the given container
 	 */
-	public static void replaceContent(Container container, JComponent oldContent,
-		JComponent content)
+	public static void replaceContent(final Container container, final JComponent oldComponent,
+		final JComponent newComponent)
 	{
-		container.remove(oldContent);
-		container.add(content);
+		container.remove(oldComponent);
+		container.add(newComponent);
 	}
 
 	/**
@@ -87,15 +92,15 @@ public class ReplaceContentExtensions
 	 *
 	 * @param container
 	 *            the container
-	 * @param oldContent
-	 *            the component to remove
-	 * @param content
-	 *            the new component
+	 * @param oldComponent
+	 *            the component to remove from the given container
+	 * @param newComponent
+	 *            the new component to add to the given container
 	 */
-	public static void replaceContentAndRevalidate(Container container, JComponent oldContent,
-		JComponent content)
+	public static void replaceContentAndRevalidate(final Container container,
+		final JComponent oldComponent, final JComponent newComponent)
 	{
-		replaceContent(container, oldContent, content);
+		replaceContent(container, oldComponent, newComponent);
 		container.revalidate();
 	}
 
@@ -104,16 +109,16 @@ public class ReplaceContentExtensions
 	 *
 	 * @param container
 	 *            the container
-	 * @param content
-	 *            the content
+	 * @param newComponent
+	 *            the new component to add to the given container
 	 * @param scrollable
 	 *            the flag if true the new content will be embedded in a {@link JScrollPane}
 	 */
 	public static void replaceContentInMultiSplitPane(final JComponent container,
-		final JComponent content, boolean scrollable)
+		final JComponent newComponent, final boolean scrollable)
 	{
-		replaceContentAndRevalidate(container, content, scrollable);
-		replaceContentAndCreateJXMultiSplitPane(container, content, scrollable);
+		replaceContentAndRevalidate(container, newComponent, scrollable);
+		replaceContentAndCreateJXMultiSplitPane(container, newComponent, scrollable);
 	}
 
 	/**
@@ -121,15 +126,15 @@ public class ReplaceContentExtensions
 	 *
 	 * @param container
 	 *            the container
-	 * @param content
-	 *            the content
+	 * @param newComponent
+	 *            the new component to add to the given container
 	 * @param scrollable
 	 *            the flag if true the new content will be embedded in a {@link JScrollPane}
 	 */
-	public static void replaceContentAndRevalidate(Container container, JComponent content,
-		boolean scrollable)
+	public static void replaceContentAndRevalidate(final Container container,
+		final JComponent newComponent, final boolean scrollable)
 	{
-		replaceContent(container, content, scrollable);
+		replaceContent(container, newComponent, scrollable);
 		container.revalidate();
 	}
 
@@ -138,23 +143,17 @@ public class ReplaceContentExtensions
 	 *
 	 * @param container
 	 *            the container
-	 * @param content
-	 *            the content
+	 * @param newComponent
+	 *            the new component to add to the given container
 	 * @param scrollable
 	 *            the flag if true the new content will be embedded in a {@link JScrollPane}
 	 */
 	public static void replaceContentAndCreateJXMultiSplitPane(final JComponent container,
-		final JComponent content, boolean scrollable)
+		final JComponent newComponent, final boolean scrollable)
 	{
-		replaceContent(container, content, scrollable);
+		replaceContent(container, newComponent, scrollable);
 		JXMultiSplitPane pane = SwingXUtilities.getAncestor(JXMultiSplitPane.class, container);
-		if (pane != null)
-		{
-			pane.revalidate();
-		}
-		else
-		{
-			container.revalidate();
-		}
+		Objects.requireNonNullElse(pane, container).revalidate();
 	}
+
 }

@@ -50,7 +50,7 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.swing.action.ReplaceContentExtensions;
+import io.github.astrapi69.swing.component.replace.ReplaceContentExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 

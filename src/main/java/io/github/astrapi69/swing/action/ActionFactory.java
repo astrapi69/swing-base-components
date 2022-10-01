@@ -30,6 +30,7 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
 
+import io.github.astrapi69.swing.component.replace.ReplaceContentExtensions;
 import lombok.experimental.UtilityClass;
 
 @UtilityClass

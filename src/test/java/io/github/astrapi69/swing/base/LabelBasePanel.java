@@ -28,7 +28,7 @@ public class LabelBasePanel extends BasePanel<ApplicationTestModel<String>>
 	@Override
 	protected void onInitializeComponents()
 	{
-        lblText = new JLabel();
+		lblText = new JLabel();
 		lblText.setText(getModelObject().getModel());
 		add(lblText);
 	}
@@ -36,8 +36,8 @@ public class LabelBasePanel extends BasePanel<ApplicationTestModel<String>>
 	@Override
 	protected void onInitializeLayout()
 	{
-        MigLayout migLayout = new MigLayout("");
-        setLayout(migLayout);
-    }
+		MigLayout migLayout = new MigLayout("");
+		setLayout(migLayout);
+	}
 
 }
