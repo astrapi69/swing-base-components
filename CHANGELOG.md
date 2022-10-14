@@ -15,6 +15,8 @@ CHANGED:
 
 - removed unused test dependency commons-text
 - moved class ReplaceContentExtensions to a more appropriate package 'io.github.astrapi69.swing.component.replace'
+- update of dependency model-data to new minor module version 2.1
+- update of test dependency file-worker module version to 11.4
 
 Version 2.1
 -------------
