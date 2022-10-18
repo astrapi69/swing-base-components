@@ -4,6 +4,10 @@
 Version 2.3-SNAPSHOT
 -------------
 
+ADDED:
+
+- new enum for represent the frame mode
+
 CHANGED:
 
 - update of gradle plugin dependency com.github.ben-manes.versions.gradle.plugin to new version 0.43.0
