@@ -4,7 +4,9 @@
 Version 2.3-SNAPSHOT
 -------------
 
+CHANGED:
 
+- update of gradle plugin dependency com.github.ben-manes.versions.gradle.plugin to new version 0.43.0
 
 Version 2.2
 -------------
