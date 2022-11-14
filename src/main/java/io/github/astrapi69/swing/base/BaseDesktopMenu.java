@@ -62,6 +62,7 @@ import io.github.astrapi69.swing.action.ToggleFullScreenAction;
 import io.github.astrapi69.swing.dialog.info.InfoDialog;
 import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import io.github.astrapi69.swing.help.HelpFactory;
+import io.github.astrapi69.swing.menu.KeyStrokeExtensions;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.menu.builder.JMenuItemInfo;
@@ -186,7 +187,7 @@ public class BaseDesktopMenu extends JMenu
 		// Exit
 		JMenuItem exitMenuItem = JMenuItemInfo.builder().text("Exit")
 			.mnemonic(MenuExtensions.toMnemonic('E'))
-			.keyStroke(KeyStroke.getKeyStroke(KeyEvent.VK_F4, InputEvent.ALT_DOWN_MASK))
+			.keyStroke(KeyStrokeExtensions.getKeyStroke("alt pressed F4"))
 			.actionListener(new ExitApplicationAction("Exit")).name(BaseMenuId.EXIT.propertiesKey())
 			.build().toJMenuItem();
 		fileMenu.add(exitMenuItem);

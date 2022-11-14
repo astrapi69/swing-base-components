@@ -10,7 +10,7 @@ ADDED:
 
 CHANGED:
 
-- update of gradle plugin dependency com.github.ben-manes.versions.gradle.plugin to new version 0.43.0
+- update of gradle plugin dependency com.github.ben-manes.versions.gradle.plugin to new version 0.44.0
 
 Version 2.2
 -------------
