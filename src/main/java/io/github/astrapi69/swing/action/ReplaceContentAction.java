@@ -31,9 +31,10 @@ import javax.swing.JComponent;
 
 import lombok.NonNull;
 import io.github.astrapi69.swing.component.replace.ReplaceContentExtensions;
+import org.jdesktop.swingx.JXMultiSplitPane;
 
 /**
- * The class {@link ReplaceContentAction} finish the application
+ * The class {@link ReplaceContentAction} replaces the content in an {@link JXMultiSplitPane} object
  */
 public class ReplaceContentAction extends AbstractAction
 {
