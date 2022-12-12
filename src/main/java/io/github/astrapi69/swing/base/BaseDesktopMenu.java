@@ -65,7 +65,7 @@ import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.KeyStrokeExtensions;
 import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.MenuFactory;
-import io.github.astrapi69.swing.menu.model.JMenuItemInfo;
+import io.github.astrapi69.swing.menu.model.MenuItemInfo;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelGTKAction;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelMetalAction;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelMotifAction;
@@ -159,7 +159,7 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenu newEditMenu()
 	{
-		return JMenuItemInfo.builder().text("Edit").mnemonic(MenuExtensions.toMnemonic('E'))
+		return MenuItemInfo.builder().text("Edit").mnemonic(MenuExtensions.toMnemonic('E'))
 			.name(BaseMenuId.EDIT.propertiesKey()).build().toJMenu();
 	}
 
@@ -172,12 +172,12 @@ public class BaseDesktopMenu extends JMenu
 	{
 
 		// File
-		final JMenu fileMenu = JMenuItemInfo.builder().text("File")
+		final JMenu fileMenu = MenuItemInfo.builder().text("File")
 			.mnemonic(MenuExtensions.toMnemonic('F')).name(BaseMenuId.FILE.propertiesKey()).build()
 			.toJMenu();
 
 		// Fullscreen
-		JMenuItem toggleFullscreenMenuItem = JMenuItemInfo.builder().text("Toggle Fullscreen")
+		JMenuItem toggleFullscreenMenuItem = MenuItemInfo.builder().text("Toggle Fullscreen")
 			.mnemonic(MenuExtensions.toMnemonic('T'))
 			.keyStroke(KeyStroke.getKeyStroke(KeyEvent.VK_F11, InputEvent.ALT_DOWN_MASK))
 			.actionListener(new ToggleFullScreenAction("Fullscreen", (JFrame)getApplicationFrame()))
@@ -185,7 +185,7 @@ public class BaseDesktopMenu extends JMenu
 		fileMenu.add(toggleFullscreenMenuItem);
 
 		// Exit
-		JMenuItem exitMenuItem = JMenuItemInfo.builder().text("Exit")
+		JMenuItem exitMenuItem = MenuItemInfo.builder().text("Exit")
 			.mnemonic(MenuExtensions.toMnemonic('E'))
 			.keyStroke(KeyStrokeExtensions.getKeyStroke("alt pressed F4"))
 			.actionListener(new ExitApplicationAction("Exit")).name(BaseMenuId.EXIT.propertiesKey())
@@ -208,13 +208,13 @@ public class BaseDesktopMenu extends JMenu
 	{
 		// @formatter:on
 		// Help menu
-		final JMenu menuHelp = JMenuItemInfo.builder().text(newLabelTextHelp())
+		final JMenu menuHelp = MenuItemInfo.builder().text(newLabelTextHelp())
 			.mnemonic(MenuExtensions.toMnemonic('H')).name(BaseMenuId.HELP.propertiesKey()).build()
 			.toJMenu();
 
 		// Help JMenuItems
 		// Help content
-		final JMenuItem mihHelpContent = JMenuItemInfo.builder().text(newLabelTextContent())
+		final JMenuItem mihHelpContent = MenuItemInfo.builder().text(newLabelTextContent())
 			.mnemonic(MenuExtensions.toMnemonic('c'))
 			.keyStroke(KeyStroke.getKeyStroke('H', Event.CTRL_MASK))
 			.name(BaseMenuId.HELP_CONTENT.propertiesKey()).build().toJMenuItem();
@@ -227,18 +227,18 @@ public class BaseDesktopMenu extends JMenu
 			helpBroker);
 		mihHelpContent.addActionListener(displayHelpFromSource);
 		// Donate
-		final JMenuItem mihDonate = JMenuItemInfo.builder().text(newLabelTextDonate())
+		final JMenuItem mihDonate = MenuItemInfo.builder().text(newLabelTextDonate())
 			.actionListener(newOpenBrowserToDonateAction(newLabelTextDonate(), applicationFrame))
 			.name(BaseMenuId.HELP_DONATE.propertiesKey()).build().toJMenuItem();
 		menuHelp.add(mihDonate);
 		// Licence
-		final JMenuItem mihLicence = JMenuItemInfo.builder().text(newLabelTextLicence())
+		final JMenuItem mihLicence = MenuItemInfo.builder().text(newLabelTextLicence())
 			.actionListener(
 				newShowLicenseFrameAction(newLabelTextLicence() + "Action", newLabelTextLicence()))
 			.name(BaseMenuId.HELP_LICENSE.propertiesKey()).build().toJMenuItem();
 		menuHelp.add(mihLicence);
 		// Info
-		final JMenuItem mihInfo = JMenuItemInfo.builder().text(newLabelTextInfo())
+		final JMenuItem mihInfo = MenuItemInfo.builder().text(newLabelTextInfo())
 			.mnemonic(MenuExtensions.toMnemonic('i'))
 			.keyStroke(KeyStroke.getKeyStroke('I', Event.CTRL_MASK))
 			.actionListener(newShowInfoDialogAction(newLabelTextInfo(),
@@ -439,7 +439,7 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenu newLookAndFeelMenu()
 	{
-		final JMenu menuLookAndFeel = JMenuItemInfo.builder().text("Look and Feel")
+		final JMenu menuLookAndFeel = MenuItemInfo.builder().text("Look and Feel")
 				.mnemonic(MenuExtensions.toMnemonic('L'))
 				.name(BaseMenuId.LOOK_AND_FEEL.propertiesKey())
 				.build().toJMenu();
