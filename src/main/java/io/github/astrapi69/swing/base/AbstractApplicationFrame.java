@@ -41,6 +41,8 @@ import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import io.github.astrapi69.swing.menu.factory.JMenuBarFactory;
+import io.github.astrapi69.swing.menu.factory.JToolBarFactory;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -51,7 +53,6 @@ import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
 import io.github.astrapi69.lang.ClassExtensions;
 import io.github.astrapi69.swing.component.replace.ReplaceContentExtensions;
-import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 
 /**
@@ -161,7 +162,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 		{
 			return ((BaseDesktopMenu)menu).getMenubar();
 		}
-		return MenuFactory.newJMenuBar();
+		return JMenuBarFactory.newJMenuBar();
 	}
 
 	/**
@@ -263,7 +264,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	 */
 	protected JToolBar newJToolBar()
 	{
-		return MenuFactory.newJToolBar();
+		return JToolBarFactory.newJToolBar();
 	}
 
 	/**

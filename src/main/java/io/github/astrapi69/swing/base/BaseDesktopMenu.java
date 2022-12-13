@@ -47,6 +47,8 @@ import javax.swing.LookAndFeel;
 import javax.swing.MenuElement;
 import javax.swing.UIManager;
 
+import io.github.astrapi69.swing.menu.factory.JMenuBarFactory;
+import io.github.astrapi69.swing.menu.factory.JMenuItemFactory;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.NonNull;
@@ -64,7 +66,6 @@ import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.KeyStrokeExtensions;
 import io.github.astrapi69.swing.menu.MenuExtensions;
-import io.github.astrapi69.swing.menu.MenuFactory;
 import io.github.astrapi69.swing.menu.model.MenuItemInfo;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelGTKAction;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelMetalAction;
@@ -362,7 +363,7 @@ public class BaseDesktopMenu extends JMenu
 	 */
 	protected JMenuBar newJMenuBar()
 	{
-		return MenuFactory.newJMenuBar();
+		return JMenuBarFactory.newJMenuBar();
 	}
 
 	protected String newLabelTextApplicationName()
@@ -465,13 +466,13 @@ public class BaseDesktopMenu extends JMenu
 		jmiPlafGTK.addActionListener(new LookAndFeelGTKAction("GTK", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafGTK);
 		// Metal default Metal theme
-		JMenuItem jmiPlafMetal = MenuFactory.newJMenuItem("Metal", 'm', 'M');
+		JMenuItem jmiPlafMetal = JMenuItemFactory.newJMenuItem("Metal", 'm', 'M');
 
 		jmiPlafMetal.setName(BaseMenuId.LOOK_AND_FEEL_METAL.propertiesKey());
 		jmiPlafMetal.addActionListener(new LookAndFeelMetalAction("Metal", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafMetal);
 		// Metal Ocean theme
-		JMenuItem jmiPlafOcean = MenuFactory.newJMenuItem("Ocean", 'o', 'O');
+		JMenuItem jmiPlafOcean = JMenuItemFactory.newJMenuItem("Ocean", 'o', 'O');
 		jmiPlafOcean.setName(BaseMenuId.LOOK_AND_FEEL_OCEAN.propertiesKey());
 		jmiPlafOcean.addActionListener(new LookAndFeelMetalAction("Ocean", this.applicationFrame));
 		menuLookAndFeel.add(jmiPlafOcean);
