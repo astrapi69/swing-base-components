@@ -15,7 +15,7 @@ CHANGED:
 - update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 6.6
 - update of dependency menu-action version to 2.5
 - update of test dependency file-worker version to 11.6
-- update of test dependency test-objects version to 7.2
+- update of test dependency test-object version to 7.2
 
 Version 2.2
 -------------
