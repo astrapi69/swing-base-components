@@ -4,7 +4,9 @@
 Version 2.4-SNAPSHOT
 -------------
 
+CHANGED:
 
+- update of dependency silly-collection to new minor version 20.3
 
 Version 2.3
 -------------
