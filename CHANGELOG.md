@@ -11,9 +11,11 @@ ADDED:
 CHANGED:
 
 - update gradle to new version 7.6
-- update of gradle plugin dependency com.github.ben-manes.versions.gradle.plugin to new version 0.44.0
-- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 6.6
-- update of dependency menu-action version to 2.5
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.12.1
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.44.0
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 6.6.1
+- update of dependency menu-action version to 2.6
+- update of dependency silly-collection to new minor version 20.2
 - update of test dependency file-worker version to 11.6
 - update of test dependency test-object version to 7.2
 
