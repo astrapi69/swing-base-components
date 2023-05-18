@@ -67,7 +67,7 @@ public class AppInfoDialog extends BaseDialog<InfoModelBean>
 	}
 
 
-	protected AppInfoPanel newHelpPanel(final IModel<InfoModelBean> model)
+	protected AppInfoPanel newAppInfoPanel(final IModel<InfoModelBean> model)
 	{
 		return new AppInfoPanel(model);
 	}
@@ -84,7 +84,7 @@ public class AppInfoDialog extends BaseDialog<InfoModelBean>
 		super.onInitializeComponents();
 		setModal(isModal());
 
-		infoPanel = newHelpPanel(getModel());
+		infoPanel = newAppInfoPanel(getModel());
 		buttonClose = newButtonClose();
 		buttons = newButtons(getModel());
 	}

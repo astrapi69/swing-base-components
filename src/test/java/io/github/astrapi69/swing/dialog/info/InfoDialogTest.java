@@ -36,12 +36,12 @@ public class InfoDialogTest
 
 	public static void main(final String[] a)
 	{
-		InfoModelBean helpModelBean = InfoModelBean.builder().applicationName("silent mouse")
+		InfoModelBean infoModelBean = InfoModelBean.builder().applicationName("silent mouse")
 			.labelApplicationName("Application name:").labelCopyright("Copyright:")
 			.copyright("Asterios Raptis").labelVersion("Version:").version("1.0")
 			.licence("This Software is licensed under the MIT Licence").build();
 		final AppInfoDialog dialog = new AppInfoDialog(null, "About Dialog", true,
-			BaseModel.of(helpModelBean))
+			BaseModel.of(infoModelBean))
 		{
 			@Override
 			protected void onClose(ActionEvent e)
