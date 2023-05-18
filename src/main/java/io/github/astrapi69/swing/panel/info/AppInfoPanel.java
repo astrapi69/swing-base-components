@@ -27,35 +27,40 @@ package io.github.astrapi69.swing.panel.info;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.experimental.FieldDefaults;
 
 import javax.swing.*;
 import java.awt.*;
 
+@Getter
+@FieldDefaults(level = AccessLevel.PRIVATE)
 public class AppInfoPanel extends BasePanel<InfoModelBean>
 {
 
 	private static final long serialVersionUID = 1L;
 
 	/** The application name. */
-	private JLabel applicationName;
+	JLabel applicationName;
 
 	/** The copyright. */
-	private JLabel copyright;
+	JLabel copyright;
 
 	/** The text area for the license text */
-	private JTextArea jtaLicense;
+	JTextArea jtaLicense;
 
 	/** The label application name. */
-	private JLabel labelApplicationName;
+	JLabel labelApplicationName;
 
 	/** The label copyright. */
-	private JLabel labelCopyright;
+	JLabel labelCopyright;
 
 	/** The labelversion number. */
-	private JLabel labelversionNumber;
+	JLabel labelversionNumber;
 
 	/** The version number. */
-	private JLabel versionNumber;
+	JLabel versionNumber;
 
 	public AppInfoPanel(final IModel<InfoModelBean> model)
 	{
@@ -87,6 +92,11 @@ public class AppInfoPanel extends BasePanel<InfoModelBean>
 
 	@Override
 	protected void onInitializeLayout()
+	{
+		onInitializeGridBagLayout();
+	}
+
+	protected void onInitializeGridBagLayout()
 	{
 		final Insets oneInsent = new Insets(1, 1, 1, 1);
 		final GridBagLayout gbl = new GridBagLayout();
@@ -177,4 +187,5 @@ public class AppInfoPanel extends BasePanel<InfoModelBean>
 		gbl.setConstraints(copyright, gbc);
 		add(copyright);
 	}
+
 }
