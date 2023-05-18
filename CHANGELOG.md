@@ -4,9 +4,24 @@
 Version 2.4-SNAPSHOT
 -------------
 
+ADDED:
+
+- new base panel for info or about dialogs with corresponding model object
+
 CHANGED:
 
-- update of dependency silly-collection to new minor version 20.3
+- update gradle to new version 8.1.1
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 8.0.1
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.46.0
+- update of gradle-plugin dependency 'org.ajoberstar.grgit:grgit-gradle' to new version 5.2.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.18.0
+- update of lombok dependency to new patch version 1.18.26
+- update of dependency menu-action version to 2.7
+- update of dependency jobj-core version to 7.1
+- update of dependency silly-collection to new major version 21
+- update of test dependency randomizer to new major version 9
+- update of test dependency silly-io version to 2.2
+- update of test dependency miglayout-swing version to 11.1
 
 Version 2.3
 -------------
