@@ -7,6 +7,7 @@ Version 2.4-SNAPSHOT
 ADDED:
 
 - new base panel for info or about dialogs with corresponding model object
+- new info or about dialog
 
 CHANGED:
 

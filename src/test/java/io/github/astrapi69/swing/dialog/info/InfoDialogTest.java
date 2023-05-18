@@ -22,23 +22,38 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.panel.info;
+package io.github.astrapi69.swing.dialog.info;
 
-import lombok.AccessLevel;
-import lombok.Data;
-import lombok.experimental.FieldDefaults;
-import lombok.experimental.SuperBuilder;
+import java.awt.event.ActionEvent;
 
-@Data
-@SuperBuilder
-@FieldDefaults(level = AccessLevel.PRIVATE)
-public class InfoModelBean
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
+import io.github.astrapi69.swing.panel.info.InfoModelBean;
+import io.github.astrapi69.window.adapter.CloseWindow;
+
+public class InfoDialogTest
 {
-	String applicationName;
-	String copyright;
-	String version;
-	String licence;
-	String labelApplicationName;
-	String labelCopyright;
-	String labelVersion;
+
+	public static void main(final String[] a)
+	{
+		InfoModelBean helpModelBean = InfoModelBean.builder().applicationName("silent mouse")
+			.labelApplicationName("Application name:").labelCopyright("Copyright:")
+			.copyright("Asterios Raptis").labelVersion("Version:").version("1.0")
+			.licence("This Software is licensed under the MIT Licence").build();
+		final AppInfoDialog dialog = new AppInfoDialog(null, "About Dialog", true,
+			BaseModel.of(helpModelBean))
+		{
+			@Override
+			protected void onClose(ActionEvent e)
+			{
+				super.onClose(e);
+				System.exit(0);
+			}
+		};
+		dialog.addWindowListener(new CloseWindow());
+		ScreenSizeExtensions.centralize(dialog, 3, 3);
+		dialog.setSize(800, 300);
+
+		dialog.setVisible(true);
+	}
 }
