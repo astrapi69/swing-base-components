@@ -36,7 +36,7 @@ import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
 import io.github.astrapi69.swing.desktoppane.SingletonDesktopPane;
-import io.github.astrapi69.swing.utils.JInternalFrameExtensions;
+import io.github.astrapi69.swing.util.JInternalFrameExtensions;
 
 /**
  * The class {@link ApplicationFrame}

@@ -41,7 +41,7 @@ import javax.swing.JFrame;
 
 import lombok.NonNull;
 import io.github.astrapi69.collection.array.ArrayExtensions;
-import io.github.astrapi69.swing.utils.AwtExtensions;
+import io.github.astrapi69.swing.util.AwtExtensions;
 
 /**
  * Utility class for handle with screensize.

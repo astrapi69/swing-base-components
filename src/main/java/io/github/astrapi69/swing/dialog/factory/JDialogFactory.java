@@ -35,7 +35,7 @@ import javax.swing.JOptionPane;
 
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
-import io.github.astrapi69.swing.utils.AwtExtensions;
+import io.github.astrapi69.swing.util.AwtExtensions;
 
 /**
  * The class {@link JDialogFactory} provides factory methods for create swing {@link JDialog}

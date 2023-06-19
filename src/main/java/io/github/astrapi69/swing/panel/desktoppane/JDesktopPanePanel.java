@@ -36,7 +36,7 @@ import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
 import io.github.astrapi69.swing.desktoppane.SingletonDesktopPane;
-import io.github.astrapi69.swing.utils.JInternalFrameExtensions;
+import io.github.astrapi69.swing.util.JInternalFrameExtensions;
 
 /**
  * Panel with a JDesktopPane

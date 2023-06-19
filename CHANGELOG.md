@@ -4,10 +4,15 @@
 Version 2.5-SNAPSHOT
 -------------
 
+ADDED:
+
+- new methods for add components to JInternalFrame and to ApplicationPanelFrame
 
 CHANGED:
 
-- 
+- update gradle to new version 8.2-rc-2
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.47.0
+- moved all classes from package utils to new package util
 
 Version 2.4
 -------------
