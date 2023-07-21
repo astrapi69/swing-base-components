@@ -4,6 +4,20 @@
 Version 2.6-SNAPSHOT
 -------------
 
+ADDED:
+
+- new dependency silly-math in version 2.2
+
+CHANGED:
+
+- update gradle to new version 8.3-rc-1
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 8.1.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.20.0
+- update of test dependencies junit-jupiter-* version to 5.10.0-RC2
+- moved document classes from swing-components repository to this repository
+- moved 'filechooser' classes from swing-components repository to this repository
+- moved model classes from swing-components repository to this repository
+
 Version 2.5
 -------------
 

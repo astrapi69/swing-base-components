@@ -6,6 +6,7 @@ dependencies {
     implementation("io.github.astrapi69:model-data:$modelDataVersion")
     implementation("io.github.astrapi69:menu-action:$menuActionVersion")
     implementation("io.github.astrapi69:silly-collection:$sillyCollectionVersion")
+    implementation("io.github.astrapi69:silly-math:$sillyMathVersion")
     implementation("io.github.astrapi69:jobj-core:$jobjCoreVersion")
     implementation("io.github.astrapi69:throwable:$throwableVersion")
     testCompileOnly("org.projectlombok:lombok:$lombokVersion")
