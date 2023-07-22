@@ -41,8 +41,11 @@ import javax.swing.JOptionPane;
 import javax.swing.JToolBar;
 import javax.swing.UnsupportedLookAndFeelException;
 
+import io.github.astrapi69.lang.ClassExtensions;
+import io.github.astrapi69.swing.component.replace.ReplaceContentExtensions;
 import io.github.astrapi69.swing.menu.factory.JMenuBarFactory;
 import io.github.astrapi69.swing.menu.factory.JToolBarFactory;
+import io.github.astrapi69.swing.plaf.LookAndFeels;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
@@ -51,9 +54,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 import lombok.extern.java.Log;
-import io.github.astrapi69.lang.ClassExtensions;
-import io.github.astrapi69.swing.component.replace.ReplaceContentExtensions;
-import io.github.astrapi69.swing.plaf.LookAndFeels;
 
 /**
  * The class {@link AbstractApplicationFrame}

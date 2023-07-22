@@ -30,13 +30,13 @@ import java.awt.LayoutManager;
 
 import javax.swing.border.LineBorder;
 
+import io.github.astrapi69.model.api.IModel;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.model.api.IModel;
 
 /**
  * The class {@link BaseCardLayoutPanel} is a {@link BasePanel} with an initialized

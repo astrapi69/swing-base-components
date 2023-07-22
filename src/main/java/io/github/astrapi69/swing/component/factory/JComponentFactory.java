@@ -35,11 +35,10 @@ import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JSplitPane;
 
-import lombok.experimental.UtilityClass;
-
 import org.jdesktop.swingx.JXFrame;
 
 import io.github.astrapi69.lang.ClassExtensions;
+import lombok.experimental.UtilityClass;
 
 /**
  * The class {@link JComponentFactory} provides factory methods for create swing Component objects

@@ -26,10 +26,10 @@ package io.github.astrapi69.swing.base;
 
 import javax.swing.JLabel;
 
-import net.miginfocom.swing.MigLayout;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.test.object.ApplicationTestModel;
+import net.miginfocom.swing.MigLayout;
 
 public class LabelBasePanel extends BasePanel<ApplicationTestModel<String>>
 {

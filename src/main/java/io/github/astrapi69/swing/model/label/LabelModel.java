@@ -24,15 +24,15 @@
  */
 package io.github.astrapi69.swing.model.label;
 
+import javax.swing.Icon;
+import javax.swing.JLabel;
+
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import lombok.experimental.FieldDefaults;
 import lombok.experimental.SuperBuilder;
-
-import javax.swing.Icon;
-import javax.swing.JLabel;
 
 /**
  * The class {@link LabelModel} represents a model object that can be used with {@link JLabel}

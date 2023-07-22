@@ -55,15 +55,48 @@ public class DialogExtensionsTest
 		informationMessage.addActionListener(e -> DialogExtensions.showInformationDialog(frame,
 			"Help", "<div width='650'>Help content<br>foo<br>foo</div>"
 				+ "<div>Help content<br>foo<br>foo</div>"));
-		JButton confirmMessage = new JButton("Confirm");
-		confirmMessage
-			.addActionListener(e -> DialogExtensions.showConfirmDialog(frame, "Confirm deletion",
-				"<div width='450'>Are you sure<br></div>"
+		JButton confirmDeleteMessage = new JButton("Confirm");
+		confirmDeleteMessage.addActionListener(e -> {
+			int option = DialogExtensions.showConfirmDialog(frame, "Confirm deletion",
+				"<div align='center' width='300'>Are you sure</div>"
 					+ "<div>The delete action is not recoverable</div>",
-				JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null));
+				JOptionPane.OK_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+
+			if (option == JOptionPane.OK_OPTION)
+			{
+				System.err.println("Yes button pushed, so deletion will be executed.");
+			}
+			if (option == JOptionPane.CANCEL_OPTION)
+			{
+				System.err.println("Cancel button pushed, so deletion will not be executed.");
+			}
+		});
+
+		JButton confirmSaveMessage = new JButton("Confirm");
+		confirmSaveMessage.addActionListener(e -> {
+			int option = DialogExtensions.showConfirmDialog(frame, "Save Database Before Close",
+				"<div align='center' width='300' height='25'>The current database file is modified.</div>"
+					+ "<div  align='center' width='300' height='25'>Store your changes before finish application</div>",
+				JOptionPane.YES_NO_CANCEL_OPTION, JOptionPane.QUESTION_MESSAGE, null);
+			if (option == JOptionPane.YES_OPTION)
+			{
+				System.err
+					.println("Yes button pushed, so the storage of the database will be executed.");
+			}
+			if (option == JOptionPane.NO_OPTION)
+			{
+				System.err.println(
+					"No button pushed, so the storage of the database will not be executed.");
+			}
+			if (option == JOptionPane.CANCEL_OPTION)
+			{
+				System.err.println(
+					"No button pushed, so the storage of the database will not be executed.");
+			}
+		});
 		frame.getContentPane().add(BorderLayout.WEST, informationMessage);
 		frame.getContentPane().add(BorderLayout.EAST, exceptionMessage);
-		frame.getContentPane().add(BorderLayout.NORTH, confirmMessage);
+		frame.getContentPane().add(BorderLayout.NORTH, confirmDeleteMessage);
 		frame.pack();
 		frame.setVisible(true);
 	}

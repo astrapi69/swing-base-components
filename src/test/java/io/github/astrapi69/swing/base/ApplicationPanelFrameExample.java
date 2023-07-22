@@ -36,9 +36,6 @@ import javax.swing.JToolBar;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import org.jdesktop.swingx.MultiSplitLayout;
 
 import io.github.astrapi69.random.object.RandomStringFactory;
@@ -50,6 +47,8 @@ import io.github.astrapi69.swing.panel.splitpane.SplitFactory;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 import io.github.astrapi69.test.object.ApplicationTestModel;
 import io.github.astrapi69.window.adapter.CloseWindow;
+import lombok.Getter;
+import lombok.Setter;
 
 public class ApplicationPanelFrameExample
 	extends

@@ -24,15 +24,16 @@
  */
 package io.github.astrapi69.swing.panel.info;
 
+import java.awt.*;
+
+import javax.swing.*;
+
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.experimental.FieldDefaults;
-
-import javax.swing.*;
-import java.awt.*;
 
 @Getter
 @FieldDefaults(level = AccessLevel.PRIVATE)

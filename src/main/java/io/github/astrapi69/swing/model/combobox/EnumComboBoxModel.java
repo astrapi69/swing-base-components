@@ -31,10 +31,10 @@ import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
 
-import lombok.Getter;
-import lombok.NonNull;
 import io.github.astrapi69.collection.list.ListExtensions;
 import io.github.astrapi69.collection.set.SetFactory;
+import lombok.Getter;
+import lombok.NonNull;
 
 /**
  * The class {@link EnumComboBoxModel} is an implementation that safely wraps an {@link Enum}

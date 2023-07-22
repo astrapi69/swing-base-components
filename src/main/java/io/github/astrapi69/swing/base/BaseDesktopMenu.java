@@ -47,14 +47,6 @@ import javax.swing.LookAndFeel;
 import javax.swing.MenuElement;
 import javax.swing.UIManager;
 
-import io.github.astrapi69.swing.menu.factory.JMenuBarFactory;
-import io.github.astrapi69.swing.menu.factory.JMenuItemFactory;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NonNull;
-import lombok.ToString;
-import lombok.experimental.FieldDefaults;
-import lombok.extern.java.Log;
 import io.github.astrapi69.swing.action.ExitApplicationAction;
 import io.github.astrapi69.swing.action.OpenBrowserAction;
 import io.github.astrapi69.swing.action.OpenBrowserToDonateAction;
@@ -66,12 +58,20 @@ import io.github.astrapi69.swing.dialog.info.InfoPanel;
 import io.github.astrapi69.swing.help.HelpFactory;
 import io.github.astrapi69.swing.menu.KeyStrokeExtensions;
 import io.github.astrapi69.swing.menu.MenuExtensions;
+import io.github.astrapi69.swing.menu.factory.JMenuBarFactory;
+import io.github.astrapi69.swing.menu.factory.JMenuItemFactory;
 import io.github.astrapi69.swing.menu.model.MenuItemInfo;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelGTKAction;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelMetalAction;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelMotifAction;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelNimbusAction;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelSystemAction;
+import lombok.AccessLevel;
+import lombok.Getter;
+import lombok.NonNull;
+import lombok.ToString;
+import lombok.experimental.FieldDefaults;
+import lombok.extern.java.Log;
 
 /**
  * The class {@link BaseDesktopMenu} holds the base menu items for an application

@@ -28,8 +28,8 @@ import java.awt.event.ActionEvent;
 
 import javax.swing.AbstractAction;
 
-import lombok.NonNull;
 import io.github.astrapi69.swing.help.HelpFrame;
+import lombok.NonNull;
 
 /**
  * The abstract class {@link ShowLicenseFrameAction}

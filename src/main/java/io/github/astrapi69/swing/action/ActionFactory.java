@@ -30,8 +30,8 @@ import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
 
-import lombok.experimental.UtilityClass;
 import io.github.astrapi69.swing.component.replace.ReplaceContentExtensions;
+import lombok.experimental.UtilityClass;
 
 @UtilityClass
 public class ActionFactory

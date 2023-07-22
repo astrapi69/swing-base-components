@@ -30,10 +30,10 @@ import java.util.Objects;
 import javax.swing.JComponent;
 import javax.swing.JScrollPane;
 
-import lombok.experimental.UtilityClass;
-
 import org.jdesktop.swingx.JXMultiSplitPane;
 import org.jdesktop.swingx.SwingXUtilities;
+
+import lombok.experimental.UtilityClass;
 
 /**
  * The class {@link ReplaceContentExtensions} provides algorithms for replace components in the

@@ -24,9 +24,12 @@
  */
 package io.github.astrapi69.swing.dialog;
 
-import javax.swing.JDialog;
-import javax.swing.JOptionPane;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 
+import javax.swing.*;
+
+import io.github.astrapi69.icon.IconExtensions;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.swing.listener.RequestFocusListener;
 import io.github.astrapi69.swing.panel.help.HelpModelBean;
@@ -46,9 +49,9 @@ class JOptionPaneExtensionsTest
 
 		// option = getSelectionOptionWithPane(panel, pane);
 
-		// option = getSelectionOptionWithJPanel(panel);
+		option = getSelectionOptionWithJPanel(panel);
 
-		option = getInfoDialogWithOkCancelButton(panel);
+		// option = getInfoDialogWithOkCancelButton(panel);
 
 		System.exit(option);
 	}
@@ -61,8 +64,13 @@ class JOptionPaneExtensionsTest
 
 	private static int getSelectionOptionWithJPanel(HelpPanel panel)
 	{
+
+		Icon fileIcon = UIManager.getIcon("FileView.fileIcon");
+		Icon computerIcon = UIManager.getIcon("FileView.computerIcon");
+		Image dialogImage = IconExtensions.toImage(computerIcon);
 		return JOptionPaneExtensions.getSelectedOption(panel, JOptionPane.INFORMATION_MESSAGE,
-			JOptionPane.OK_CANCEL_OPTION, null, "Help", panel.getTxtHelpContent());
+			JOptionPane.OK_CANCEL_OPTION, dialogImage, null, null, "Help",
+			panel.getTxtHelpContent());
 	}
 
 	private static int getSelectionOptionWithPane(HelpPanel panel, JOptionPane pane)
@@ -73,5 +81,18 @@ class JOptionPaneExtensionsTest
 		dialog.setLocationRelativeTo(null);
 		dialog.setVisible(true);
 		return JOptionPaneExtensions.getSelectedOption(pane);
+	}
+
+	public static BufferedImage toImage(Icon icon)
+	{
+		GraphicsEnvironment graphicsEnvironment = GraphicsEnvironment.getLocalGraphicsEnvironment();
+		GraphicsDevice graphicsDevice = graphicsEnvironment.getDefaultScreenDevice();
+		GraphicsConfiguration graphicsConfiguration = graphicsDevice.getDefaultConfiguration();
+		BufferedImage bufferedImage = graphicsConfiguration
+			.createCompatibleImage(icon.getIconWidth(), icon.getIconHeight());
+		Graphics2D g = bufferedImage.createGraphics();
+		icon.paintIcon(null, g, 0, 0);
+		g.dispose();
+		return bufferedImage;
 	}
 }

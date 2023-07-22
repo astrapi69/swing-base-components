@@ -28,9 +28,9 @@ import java.util.Map;
 
 import javax.swing.JRadioButton;
 
-import lombok.Data;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.model.api.IModel;
+import lombok.Data;
 
 /**
  * The class {@link EnumRadioButtonGroupBean} represents a model object that can be used with

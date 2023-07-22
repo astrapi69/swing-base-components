@@ -30,13 +30,13 @@ import java.awt.Component;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
-import lombok.Getter;
-import lombok.Setter;
 import io.github.astrapi69.model.api.IModel;
 import io.github.astrapi69.swing.base.BasePanel;
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
 import io.github.astrapi69.swing.desktoppane.SingletonDesktopPane;
 import io.github.astrapi69.swing.util.JInternalFrameExtensions;
+import lombok.Getter;
+import lombok.Setter;
 
 /**
  * Panel with a JDesktopPane

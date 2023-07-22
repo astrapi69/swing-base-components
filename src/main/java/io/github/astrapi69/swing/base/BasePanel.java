@@ -26,16 +26,15 @@ package io.github.astrapi69.swing.base;
 
 import java.awt.LayoutManager;
 
+import org.jdesktop.swingx.JXPanel;
+
+import io.github.astrapi69.model.api.IModel;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-
-import org.jdesktop.swingx.JXPanel;
-
-import io.github.astrapi69.model.api.IModel;
 
 /**
  * The class {@link BasePanel} for swing panels to provide an initialization cycle where the user

@@ -30,8 +30,8 @@ import java.util.stream.Stream;
 import javax.swing.Icon;
 import javax.swing.JOptionPane;
 
-import lombok.experimental.UtilityClass;
 import io.github.astrapi69.throwable.ExceptionExtensions;
+import lombok.experimental.UtilityClass;
 
 /**
  * The class {@link DialogExtensions} provides methods for show dialogs.

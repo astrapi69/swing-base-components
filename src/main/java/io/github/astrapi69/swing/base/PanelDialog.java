@@ -31,13 +31,13 @@ import java.awt.Window;
 
 import javax.swing.JPanel;
 
+import io.github.astrapi69.model.api.IModel;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.model.api.IModel;
 
 /**
  * The class {@link PanelDialog} contains a panel for the content and a panel for the buttons

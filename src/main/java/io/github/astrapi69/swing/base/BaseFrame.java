@@ -26,16 +26,15 @@ package io.github.astrapi69.swing.base;
 
 import java.awt.GraphicsConfiguration;
 
+import org.jdesktop.swingx.JXFrame;
+
+import io.github.astrapi69.model.api.IModel;
 import lombok.AccessLevel;
 import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-
-import org.jdesktop.swingx.JXFrame;
-
-import io.github.astrapi69.model.api.IModel;
 
 
 /**

@@ -29,14 +29,14 @@ import java.awt.Component;
 import javax.swing.JDesktopPane;
 import javax.swing.JInternalFrame;
 
+import io.github.astrapi69.swing.component.factory.JComponentFactory;
+import io.github.astrapi69.swing.desktoppane.SingletonDesktopPane;
+import io.github.astrapi69.swing.util.JInternalFrameExtensions;
 import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
-import io.github.astrapi69.swing.component.factory.JComponentFactory;
-import io.github.astrapi69.swing.desktoppane.SingletonDesktopPane;
-import io.github.astrapi69.swing.util.JInternalFrameExtensions;
 
 /**
  * The class {@link ApplicationFrame}

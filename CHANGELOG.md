@@ -4,6 +4,14 @@
 Version 2.7-SNAPSHOT
 -------------
 
+ADDED:
+
+- new extension method to extension class JOptionPaneExtensions for add a custom Icon to the JOptionPane and a custom Icon to the JDialog
+- new file importorder.properties for formatting issues with spotless
+
+CHANGED:
+
+- update of test dependency icon-img-extensions to new minor version 2.1
 
 Version 2.6
 -------------
