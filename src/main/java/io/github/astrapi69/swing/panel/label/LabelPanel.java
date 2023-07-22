@@ -53,9 +53,20 @@ public class LabelPanel extends BasePanel<String>
 	@Override
 	protected void onInitializeComponents()
 	{
-		lblText = new JLabel();
+		lblText = newJLabel();
 		lblText.setText(getModelObject());
 		add(lblText);
+	}
+
+	/**
+	 * Factory method that creates a new {@link JLabel} object. You can overwrite this method and
+	 * return your new custom {@link JLabel} object
+	 *
+	 * @return the {@link JLabel} object
+	 */
+	protected JLabel newJLabel()
+	{
+		return new JLabel();
 	}
 
 	@Override
