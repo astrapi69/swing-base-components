@@ -1,10 +1,20 @@
 ## Change log
 ----------------------
 
-Version 2.8-SNAPSHOT
+Version 3-SNAPSHOT
 -------------
 
+CHANGED:
 
+- update of JDK to newer version 17
+- update gradle to new version 8.3
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 8.3
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.48.0
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.21.0
+- update of dependency silly-collection to new major version 27
+- update of test dependency icon-img-extensions version to 3
+- update of test dependency file-worker version to 17
+- update of test dependencies junit-jupiter-* version to 5.10.0
 
 Version 2.7
 -------------
