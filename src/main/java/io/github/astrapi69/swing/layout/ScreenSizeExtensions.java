@@ -48,6 +48,7 @@ import lombok.NonNull;
  *
  * @author Asterios Raptis
  * @version 1.0
+ * @deprecated use instead the same name class in module awt-extensions
  */
 public class ScreenSizeExtensions
 {

@@ -77,6 +77,7 @@ public class ClipboardExtensions
 	 *
 	 * @param value
 	 *            the {@link String} object to the clipboard
+	 * @deprecated use instead the same name method in same name class in module awt-extensions
 	 */
 	public static void copyToClipboard(String value)
 	{

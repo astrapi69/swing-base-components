@@ -47,6 +47,7 @@ import io.github.astrapi69.lang.ClassExtensions;
 
 /**
  * The class {@link AwtExtensions}
+ * @deprecated use instead the same name class in module awt-extensions
  */
 public final class AwtExtensions
 {

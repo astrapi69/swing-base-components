@@ -34,6 +34,7 @@ import javax.swing.JFrame;
 /**
  * The class {@link GraphicsDeviceExtensions} helps you if the user have more than one screen to
  * determine which screen is currently shown.
+ * @deprecated use instead the same name class in module awt-extensions
  */
 public class GraphicsDeviceExtensions
 {
