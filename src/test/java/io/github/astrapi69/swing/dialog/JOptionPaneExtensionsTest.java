@@ -24,10 +24,17 @@
  */
 package io.github.astrapi69.swing.dialog;
 
-import java.awt.*;
+import java.awt.Graphics2D;
+import java.awt.GraphicsConfiguration;
+import java.awt.GraphicsDevice;
+import java.awt.GraphicsEnvironment;
+import java.awt.Image;
 import java.awt.image.BufferedImage;
 
-import javax.swing.*;
+import javax.swing.Icon;
+import javax.swing.JDialog;
+import javax.swing.JOptionPane;
+import javax.swing.UIManager;
 
 import io.github.astrapi69.icon.IconExtensions;
 import io.github.astrapi69.model.BaseModel;

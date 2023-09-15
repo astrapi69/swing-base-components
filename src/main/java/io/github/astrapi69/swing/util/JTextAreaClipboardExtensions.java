@@ -24,9 +24,6 @@
  */
 package io.github.astrapi69.swing.util;
 
-import java.awt.datatransfer.Clipboard;
-import java.awt.datatransfer.StringSelection;
-
 import javax.swing.JTextArea;
 
 import io.github.astrapi69.awt.extension.ClipboardExtensions;

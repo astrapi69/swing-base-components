@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.base;
 
 import java.awt.LayoutManager;
 
-import javax.swing.*;
+import javax.swing.JPanel;
 
 import io.github.astrapi69.model.api.IModel;
 import lombok.AccessLevel;

@@ -24,11 +24,7 @@
  */
 package io.github.astrapi69.swing.dialog.factory;
 
-import java.awt.Dimension;
 import java.awt.Frame;
-import java.awt.Rectangle;
-
-import javax.swing.JComponent;
 
 import io.github.astrapi69.awt.screen.ScreenSizeExtensions;
 import io.github.astrapi69.awt.window.adapter.CloseWindow;

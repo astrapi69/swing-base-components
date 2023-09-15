@@ -25,7 +25,6 @@
 package io.github.astrapi69.swing.component.replace;
 
 import java.awt.Container;
-import java.util.Objects;
 
 import javax.swing.JComponent;
 import javax.swing.JScrollPane;

@@ -24,6 +24,7 @@
  */
 package io.github.astrapi69.swing.base;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Window;
 import java.awt.image.BufferedImage;
@@ -125,6 +126,8 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
+		this.setLayout(new BorderLayout());
+		add(newJToolBar(), BorderLayout.NORTH);
 		// setToolBar(newJToolBar());
 		menu = newDesktopMenu(this);
 		setJMenuBar(newJMenuBar());
