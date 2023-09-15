@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.base;
 
 import java.awt.LayoutManager;
 
-import org.jdesktop.swingx.JXPanel;
+import javax.swing.*;
 
 import io.github.astrapi69.model.api.IModel;
 import lombok.AccessLevel;
@@ -48,7 +48,7 @@ import lombok.experimental.FieldDefaults;
 @ToString
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class BasePanel<T> extends JXPanel
+public class BasePanel<T> extends JPanel
 {
 
 	/** The Constant serialVersionUID. */

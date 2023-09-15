@@ -26,18 +26,12 @@ package io.github.astrapi69.swing.component.factory;
 
 import java.awt.Component;
 import java.awt.Frame;
-import java.net.URL;
 
-import javax.help.HelpSet;
-import javax.help.HelpSetException;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JInternalFrame;
 import javax.swing.JSplitPane;
 
-import org.jdesktop.swingx.JXFrame;
-
-import io.github.astrapi69.lang.ClassExtensions;
 import lombok.experimental.UtilityClass;
 
 /**
@@ -56,12 +50,6 @@ public class JComponentFactory
 	public static JFrame newJFrame(String title)
 	{
 		final JFrame frame = new JFrame(title);
-		return frame;
-	}
-
-	public static JXFrame newJXFrame(String title)
-	{
-		final JXFrame frame = new JXFrame(title);
 		return frame;
 	}
 
@@ -130,26 +118,6 @@ public class JComponentFactory
 	{
 		return new JSplitPane(newOrientation, newContinuousLayout, newLeftComponent,
 			newRightComponent);
-	}
-
-	/**
-	 * Factory method for create new {@link HelpSet} object.
-	 *
-	 * @param directoryPath
-	 *            the directory path
-	 * @param filename
-	 *            the filename
-	 * @return the new {@link HelpSet} object
-	 * @throws HelpSetException
-	 *             is thrown if there are problems parsing the {@link HelpSet} object.
-	 */
-	public static HelpSet newHelpSet(final String directoryPath, final String filename)
-		throws HelpSetException
-	{
-		String absolutePath = directoryPath + filename;
-		URL hsURL = ClassExtensions.getResource(absolutePath);
-		HelpSet hs = new HelpSet(ClassExtensions.getClassLoader(), hsURL);
-		return hs;
 	}
 
 	/**

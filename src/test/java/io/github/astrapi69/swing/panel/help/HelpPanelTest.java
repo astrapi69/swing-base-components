@@ -26,9 +26,9 @@ package io.github.astrapi69.swing.panel.help;
 
 import java.awt.Frame;
 
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.random.object.RandomStringFactory;
-import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class HelpPanelTest
 {

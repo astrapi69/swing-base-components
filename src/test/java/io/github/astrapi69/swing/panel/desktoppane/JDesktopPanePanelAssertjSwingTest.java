@@ -33,9 +33,9 @@ import org.assertj.swing.fixture.JPanelFixture;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
 import io.github.astrapi69.test.object.ApplicationTestModel;
-import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class JDesktopPanePanelAssertjSwingTest
 {

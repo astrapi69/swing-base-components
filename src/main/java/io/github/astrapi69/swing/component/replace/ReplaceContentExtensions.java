@@ -30,9 +30,6 @@ import java.util.Objects;
 import javax.swing.JComponent;
 import javax.swing.JScrollPane;
 
-import org.jdesktop.swingx.JXMultiSplitPane;
-import org.jdesktop.swingx.SwingXUtilities;
-
 import lombok.experimental.UtilityClass;
 
 /**
@@ -105,23 +102,6 @@ public class ReplaceContentExtensions
 	}
 
 	/**
-	 * Replace the content of the given container.
-	 *
-	 * @param container
-	 *            the container
-	 * @param newComponent
-	 *            the new component to add to the given container
-	 * @param scrollable
-	 *            the flag if true the new content will be embedded in a {@link JScrollPane}
-	 */
-	public static void replaceContentInMultiSplitPane(final JComponent container,
-		final JComponent newComponent, final boolean scrollable)
-	{
-		replaceContentAndRevalidate(container, newComponent, scrollable);
-		replaceContentAndCreateJXMultiSplitPane(container, newComponent, scrollable);
-	}
-
-	/**
 	 * Replace the content of the given container with a call to the method revalidate
 	 *
 	 * @param container
@@ -136,24 +116,6 @@ public class ReplaceContentExtensions
 	{
 		replaceContent(container, newComponent, scrollable);
 		container.revalidate();
-	}
-
-	/**
-	 * Replace the content of the given container.
-	 *
-	 * @param container
-	 *            the container
-	 * @param newComponent
-	 *            the new component to add to the given container
-	 * @param scrollable
-	 *            the flag if true the new content will be embedded in a {@link JScrollPane}
-	 */
-	public static void replaceContentAndCreateJXMultiSplitPane(final JComponent container,
-		final JComponent newComponent, final boolean scrollable)
-	{
-		replaceContent(container, newComponent, scrollable);
-		JXMultiSplitPane pane = SwingXUtilities.getAncestor(JXMultiSplitPane.class, container);
-		Objects.requireNonNullElse(pane, container).revalidate();
 	}
 
 }

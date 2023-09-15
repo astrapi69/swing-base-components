@@ -22,33 +22,66 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.action;
+package io.github.astrapi69.swing.base.action;
 
-import java.awt.Component;
+import java.awt.event.ActionEvent;
 
+import javax.swing.AbstractAction;
+
+import io.github.astrapi69.swing.help.HelpFrame;
 import lombok.NonNull;
 
 /**
- * The class {@link OpenBrowserToDonateAction} is the action class for this project donation
+ * The abstract class {@link ShowLicenseFrameAction}
  */
-public class OpenBrowserToDonateAction extends BaseOpenBrowserAction
+public abstract class ShowLicenseFrameAction extends AbstractAction
 {
+
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
-	/** The Constant URL_TO_DONATE. */
-	private static final String URL_TO_DONATE = "http://sourceforge.net/donate/index.php?group_id=207406";
+
+	final String title;
 
 	/**
-	 * Instantiates a new {@link OpenBrowserToDonateAction}.
+	 * Instantiates a new show license frame action.
 	 *
 	 * @param name
 	 *            the name
-	 * @param component
-	 *            the component
 	 */
-	public OpenBrowserToDonateAction(final String name, final @NonNull Component component)
+	public ShowLicenseFrameAction(final @NonNull String name)
 	{
-		super(name, component, URL_TO_DONATE);
+		this(name, name);
 	}
+
+	/**
+	 * Instantiates a new show license frame action.
+	 *
+	 * @param name
+	 *            the name
+	 * @param title
+	 *            the title
+	 */
+	public ShowLicenseFrameAction(final String name, final @NonNull String title)
+	{
+		super(name);
+		this.title = title;
+	}
+
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void actionPerformed(final ActionEvent e)
+	{
+		final HelpFrame frame = new HelpFrame(this.title, newLicenseText());
+		frame.setVisible(true);
+	}
+
+	/**
+	 * Load license.
+	 *
+	 * @return the string
+	 */
+	protected abstract String newLicenseText();
 
 }

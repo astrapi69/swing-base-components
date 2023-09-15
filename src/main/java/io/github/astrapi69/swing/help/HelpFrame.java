@@ -35,7 +35,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
 import io.github.astrapi69.awt.action.DisposeWindowAction;
-import io.github.astrapi69.window.adapter.DisposeWindow;
+import io.github.astrapi69.awt.window.adapter.DisposeWindow;
 
 /**
  * The class {@link HelpFrame}

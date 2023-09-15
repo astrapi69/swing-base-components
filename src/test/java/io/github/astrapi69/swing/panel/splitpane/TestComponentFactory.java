@@ -24,28 +24,10 @@
  */
 package io.github.astrapi69.swing.panel.splitpane;
 
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.beans.PropertyChangeEvent;
-import java.beans.PropertyChangeListener;
-import java.io.IOException;
-import java.net.URL;
-
-import javax.swing.BorderFactory;
-import javax.swing.JButton;
 import javax.swing.JComponent;
 import javax.swing.JEditorPane;
 
-import org.jdesktop.swingx.JXMultiSplitPane;
-import org.jdesktop.swingx.JXPanel;
-import org.jdesktop.swingx.JXTaskPane;
-import org.jdesktop.swingx.JXTaskPaneContainer;
-import org.jdesktop.swingx.MultiSplitLayout;
-import org.jdesktop.swingx.SwingXUtilities;
-
-import io.github.astrapi69.swing.action.ActionFactory;
 import io.github.astrapi69.swing.component.factory.JComponentFactory;
-import io.github.astrapi69.test.object.ApplicationTestModel;
 
 public class TestComponentFactory
 {
@@ -71,50 +53,6 @@ public class TestComponentFactory
 
 	private static final String htmlURL = "MultiSplitPaneDemo.html";
 
-	public static JComponent createButtonStack(JComponent demoContainer)
-	{
-		JComponent buttonStack = new JXTaskPaneContainer();
-		JXTaskPane taskPane = new JXTaskPane();
-		taskPane.setTitle("demo");
-		taskPane.add(ActionFactory.newTextAction("add editor - setText", demoContainer,
-			createEditorSetText()));
-		taskPane.add(ActionFactory.newPageAction("add editor - setPage", demoContainer,
-			createEditorSetPage()));
-		buttonStack.add(taskPane);
-		return buttonStack;
-	}
-
-	public static JComponent createEditorSetPage()
-	{
-		final JEditorPane editor = JComponentFactory.newJEditorPane("text/html", false);
-		URL descriptionURL = getHTMLDescription();
-		try
-		{
-			editor.setPage(descriptionURL);
-		}
-		catch (IOException e)
-		{
-			System.err.println("couldn't load description from URL:" + descriptionURL);
-		}
-		PropertyChangeListener l = new PropertyChangeListener()
-		{
-
-			@Override
-			public void propertyChange(PropertyChangeEvent evt)
-			{
-				JXMultiSplitPane pane = SwingXUtilities.getAncestor(JXMultiSplitPane.class, editor);
-				if (pane != null)
-				{
-					MultiSplitLayout layout = pane.getMultiSplitLayout();
-					layout.layoutByWeight(pane.getParent());
-				}
-
-			}
-		};
-		editor.addPropertyChangeListener("page", l);
-		return editor;
-	}
-
 
 	public static JComponent createEditorSetText()
 	{
@@ -123,89 +61,4 @@ public class TestComponentFactory
 		return editor;
 	}
 
-	public static URL getHTMLDescription()
-	{
-		// by default look for an html file with the same name as the demo class
-		return JXMultiSplitPanePanel.class.getResource(htmlURL);
-	}
-
-	@SuppressWarnings("serial")
-	public static JXMultiSplitPanePanel<ApplicationTestModel<String>> newJXMultiSplitPanePanelCustomLayout()
-	{
-		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
-		{
-
-			@Override
-			protected String newLayoutDefinition()
-			{
-				String layoutDefinition = "(ROW " + "(LEAF name=selector weight=0.3)"
-					+ "(COLUMN weight=0.7 " + "(LEAF name= demo weight=0.7)"
-					+ "(LEAF name=source weight=0.3)" + ")" + ")";
-				return layoutDefinition;
-			}
-		};
-		final JComponent demoContainer = new JXPanel();
-		demoContainer.setLayout(new BorderLayout()); // BoxLayout(demoContainer,
-		// BoxLayout.LINE_AXIS));
-		demoContainer.setBorder(BorderFactory.createLoweredSoftBevelBorder());
-		multiSplitPanePanel.getMultiSplitPane().add("selector", createButtonStack(demoContainer));
-		multiSplitPanePanel.getMultiSplitPane().add("demo", demoContainer);
-		return multiSplitPanePanel;
-	}
-
-	@SuppressWarnings("serial")
-	public static JXMultiSplitPanePanel<ApplicationTestModel<String>> newJXMultiSplitPanePanelCustomLayout2()
-	{
-		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
-		{
-			@Override
-			protected MultiSplitLayout.Node newRootNode(String layoutDefinition)
-			{
-				return TestSplitFactory.newTestSplit();
-			}
-		};
-
-		multiSplitPanePanel.getMultiSplitPane().add(new JButton("Content"), "content");
-		multiSplitPanePanel.getMultiSplitPane().add(new JButton("Bottom"), "bottom");
-		multiSplitPanePanel.getMultiSplitPane().add(new JButton("Left"), "left");
-		return multiSplitPanePanel;
-	}
-
-	@SuppressWarnings("serial")
-	public static JXMultiSplitPanePanel<ApplicationTestModel<String>> newJXMultiSplitPanePanelDefault()
-	{
-		JXMultiSplitPanePanel<ApplicationTestModel<String>> multiSplitPanePanel = new JXMultiSplitPanePanel<ApplicationTestModel<String>>()
-		{
-			@Override
-			protected Dimension newPreferredSize(int width, int height)
-			{
-				return super.newPreferredSize(1000, 600);
-			}
-		};
-
-		multiSplitPanePanel.getMultiSplitPane().add(new JButton("Left Top"), "left.top");
-		multiSplitPanePanel.getMultiSplitPane().add(new JButton("Editor"), "editor");
-		multiSplitPanePanel.getMultiSplitPane().add(new JButton("Bottom"), "bottom");
-		return multiSplitPanePanel;
-	}
-
-	public static JXMultiSplitPane createMultiSplitPaneDemo()
-	{
-		JXMultiSplitPane msp = new JXMultiSplitPane();
-		String layoutDef = "(COLUMN (ROW weight=0.8 (COLUMN weight=0.25 "
-			+ "(LEAF name=left.top weight=0.5) (LEAF name=left.middle weight=0.5))"
-			+ "(LEAF name=editor weight=0.75)) (LEAF name=bottom weight=0.2))";
-
-		MultiSplitLayout.Node modelRoot = MultiSplitLayout.parseModel(layoutDef);
-		msp.getMultiSplitLayout().setModel(modelRoot);
-
-		msp.add(new JButton("Left Top"), "left.top");
-		msp.add(new JButton("Left Middle"), "left.middle");
-		msp.add(new JButton("Editor"), "editor");
-		msp.add(new JButton("Bottom"), "bottom");
-
-		// ADDING A BORDER TO THE MULTISPLITPANE CAUSES ALL SORTS OF ISSUES
-		msp.setBorder(BorderFactory.createEmptyBorder(4, 4, 4, 4));
-		return msp;
-	}
 }

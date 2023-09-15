@@ -26,7 +26,7 @@ package io.github.astrapi69.swing.base;
 
 import java.awt.GraphicsConfiguration;
 
-import org.jdesktop.swingx.JXFrame;
+import javax.swing.*;
 
 import io.github.astrapi69.model.api.IModel;
 import lombok.AccessLevel;
@@ -49,7 +49,7 @@ import lombok.experimental.FieldDefaults;
 @ToString
 @EqualsAndHashCode(callSuper = true)
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class BaseFrame<T> extends JXFrame
+public class BaseFrame<T> extends JFrame
 {
 
 	/** The Constant serialVersionUID. */
@@ -57,6 +57,8 @@ public class BaseFrame<T> extends JXFrame
 
 	/** The model. */
 	IModel<T> model;
+
+	boolean exitOnClose;
 
 	/**
 	 * Instantiates a new {@link BaseFrame}.
@@ -112,7 +114,8 @@ public class BaseFrame<T> extends JXFrame
 	 */
 	public BaseFrame(String title, boolean exitOnClose)
 	{
-		super(title, exitOnClose);
+		super(title);
+		this.exitOnClose = exitOnClose;
 		initialize();
 	}
 
@@ -142,7 +145,8 @@ public class BaseFrame<T> extends JXFrame
 	 */
 	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose)
 	{
-		super(title, gc, exitOnClose);
+		super(title, gc);
+		this.exitOnClose = exitOnClose;
 		initialize();
 	}
 
@@ -160,7 +164,8 @@ public class BaseFrame<T> extends JXFrame
 	 */
 	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose, IModel<T> model)
 	{
-		super(title, gc, exitOnClose);
+		super(title, gc);
+		this.exitOnClose = exitOnClose;
 		this.model = model;
 		initialize();
 	}

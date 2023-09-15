@@ -31,12 +31,12 @@ import javax.swing.JButton;
 import javax.swing.JToolBar;
 import javax.swing.UIManager;
 
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.swing.button.IconButtonFactory;
 import io.github.astrapi69.swing.button.builder.JButtonInfo;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 import io.github.astrapi69.test.object.ApplicationTestModel;
-import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class ApplicationBasePanelFrameExample
 	extends

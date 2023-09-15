@@ -26,10 +26,10 @@ package io.github.astrapi69.swing.dialog.info;
 
 import java.awt.event.ActionEvent;
 
+import io.github.astrapi69.awt.screen.ScreenSizeExtensions;
+import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.swing.layout.ScreenSizeExtensions;
 import io.github.astrapi69.swing.panel.info.InfoModelBean;
-import io.github.astrapi69.window.adapter.CloseWindow;
 
 public class InfoDialogTest
 {

@@ -22,7 +22,7 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.action;
+package io.github.astrapi69.swing.base.action;
 
 import java.awt.event.ActionEvent;
 
@@ -47,24 +47,6 @@ public class ActionFactory
 		final JComponent content, boolean scrollable)
 	{
 		return new ReplaceContentAction(name, container, content, scrollable);
-	}
-
-
-	@SuppressWarnings("serial")
-	public static Action newTextAction(final String name, final JComponent container,
-		final JComponent content)
-	{
-		Action action = new AbstractAction(name)
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				ReplaceContentExtensions.replaceContentInMultiSplitPane(container, content, true);
-			}
-
-		};
-		return action;
 	}
 
 }

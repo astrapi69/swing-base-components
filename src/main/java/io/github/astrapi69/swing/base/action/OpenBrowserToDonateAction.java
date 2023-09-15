@@ -22,39 +22,34 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.util;
+package io.github.astrapi69.swing.base.action;
 
-import java.awt.event.KeyEvent;
+import java.awt.Component;
 
-import javax.swing.KeyStroke;
+import io.github.astrapi69.swing.action.BaseOpenBrowserAction;
+import lombok.NonNull;
 
 /**
- * The interface {@link Keystrokes}
+ * The class {@link OpenBrowserToDonateAction} is the action class for this project donation
  */
-public interface Keystrokes
+public class OpenBrowserToDonateAction extends BaseOpenBrowserAction
 {
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	/** The Constant URL_TO_DONATE. */
+	private static final String URL_TO_DONATE = "http://sourceforge.net/donate/index.php?group_id=207406";
 
-	/** The Constant CTRL_ALT_A. */
-	KeyStroke CTRL_ALT_A = KeyStroke.getKeyStroke(KeyEvent.VK_A,
-		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
+	/**
+	 * Instantiates a new {@link OpenBrowserToDonateAction}.
+	 *
+	 * @param name
+	 *            the name
+	 * @param component
+	 *            the component
+	 */
+	public OpenBrowserToDonateAction(final String name, final @NonNull Component component)
+	{
+		super(name, component, URL_TO_DONATE);
+	}
 
-	/** The Constant CTRL_ALT_B. */
-	KeyStroke CTRL_ALT_B = KeyStroke.getKeyStroke(KeyEvent.VK_B,
-		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
-
-	/** The Constant CTRL_ALT_C. */
-	KeyStroke CTRL_ALT_C = KeyStroke.getKeyStroke(KeyEvent.VK_C,
-		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
-
-	/** The Constant CTRL_ALT_D. */
-	KeyStroke CTRL_ALT_D = KeyStroke.getKeyStroke(KeyEvent.VK_D,
-		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
-
-	/** The Constant CTRL_ALT_E. */
-	KeyStroke CTRL_ALT_E = KeyStroke.getKeyStroke(KeyEvent.VK_E,
-		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
-
-	/** The Constant CTRL_ALT_F. */
-	KeyStroke CTRL_ALT_F = KeyStroke.getKeyStroke(KeyEvent.VK_F,
-		KeyEvent.CTRL_MASK + KeyEvent.ALT_MASK);
 }

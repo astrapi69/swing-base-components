@@ -29,10 +29,12 @@ import java.awt.datatransfer.StringSelection;
 
 import javax.swing.JTextArea;
 
+import io.github.astrapi69.awt.extension.ClipboardExtensions;
+
 /**
- * The class {@link ClipboardExtensions}
+ * The class {@link JTextAreaClipboardExtensions}
  */
-public class ClipboardExtensions
+public class JTextAreaClipboardExtensions
 {
 
 	/**
@@ -58,7 +60,7 @@ public class ClipboardExtensions
 			stringBuilder.append(" -->\n");
 		}
 		stringBuilder.append(textAreaHtmlEntitys.getText());
-		copyToClipboard(stringBuilder.toString());
+		ClipboardExtensions.copyToClipboard(stringBuilder.toString());
 	}
 
 	/**
@@ -69,21 +71,7 @@ public class ClipboardExtensions
 	 */
 	public static void copyToClipboard(JTextArea textArea)
 	{
-		copyToClipboard(textArea.getText());
-	}
-
-	/**
-	 * Copy the given {@link String} object to the clipboard
-	 *
-	 * @param value
-	 *            the {@link String} object to the clipboard
-	 * @deprecated use instead the same name method in same name class in module awt-extensions
-	 */
-	public static void copyToClipboard(String value)
-	{
-		Clipboard clipboard = AwtExtensions.getSystemClipboard();
-		StringSelection content = new StringSelection(value);
-		clipboard.setContents(content, content);
+		ClipboardExtensions.copyToClipboard(textArea.getText());
 	}
 
 }

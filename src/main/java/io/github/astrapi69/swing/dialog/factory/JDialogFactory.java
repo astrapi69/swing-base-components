@@ -33,7 +33,7 @@ import java.awt.Window;
 import javax.swing.JDialog;
 import javax.swing.JOptionPane;
 
-import io.github.astrapi69.swing.util.AwtExtensions;
+import io.github.astrapi69.awt.extension.AwtExtensions;
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
 

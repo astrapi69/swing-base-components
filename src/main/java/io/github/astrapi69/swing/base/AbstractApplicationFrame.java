@@ -125,7 +125,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	protected void onInitializeComponents()
 	{
 		super.onInitializeComponents();
-		setToolBar(newJToolBar());
+		// setToolBar(newJToolBar());
 		menu = newDesktopMenu(this);
 		setJMenuBar(newJMenuBar());
 		getContentPane().add(mainComponent = newMainComponent());

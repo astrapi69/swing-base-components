@@ -22,38 +22,50 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.panel.splitpane;
+package io.github.astrapi69.swing.base.action;
 
-import org.jdesktop.swingx.MultiSplitLayout;
+import java.awt.event.ActionEvent;
 
-public class SplitFactory
+import javax.swing.AbstractAction;
+import javax.swing.JComponent;
+
+import io.github.astrapi69.swing.component.replace.ReplaceContentExtensions;
+import lombok.NonNull;
+
+/**
+ * The class {@link ReplaceContentAction} replaces the content in a container object
+ */
+public class ReplaceContentAction extends AbstractAction
 {
 
+	/** The Constant serialVersionUID. */
+	private static final long serialVersionUID = 1L;
+	private final JComponent container;
+	private final JComponent content;
+	private final boolean scrollable;
 
-	public static MultiSplitLayout.Leaf newLeaf(String name, double weight)
+	/**
+	 * Instantiates a new {@link ReplaceContentAction} object
+	 *
+	 * @param name
+	 *            the name
+	 */
+	public ReplaceContentAction(final @NonNull String name, final @NonNull JComponent container,
+		final @NonNull JComponent content, boolean scrollable)
 	{
-		MultiSplitLayout.Leaf source = new MultiSplitLayout.Leaf(name);
-		source.setWeight(weight);
-		return source;
+		super(name);
+		this.container = container;
+		this.content = content;
+		this.scrollable = scrollable;
 	}
 
-	public static MultiSplitLayout newMultiSplitLayout(MultiSplitLayout.Split split)
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	public void actionPerformed(final ActionEvent e)
 	{
-		MultiSplitLayout layout = new MultiSplitLayout(split);
-		return layout;
-	}
-
-	public static MultiSplitLayout.Split newSplit(boolean rowLayout, double weight)
-	{
-		MultiSplitLayout.Split col1 = new MultiSplitLayout.Split();
-		col1.setRowLayout(rowLayout);
-		col1.setWeight(weight);
-		return col1;
-	}
-
-	public static void setChildren(MultiSplitLayout.Split split, MultiSplitLayout.Node... children)
-	{
-		split.setChildren(children);
+		ReplaceContentExtensions.replaceContent(container, content, scrollable);
 	}
 
 }

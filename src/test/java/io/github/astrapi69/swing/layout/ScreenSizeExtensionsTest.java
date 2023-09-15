@@ -35,6 +35,8 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
+import io.github.astrapi69.awt.screen.ScreenSizeExtensions;
+
 
 /**
  * The unit test class for the class {@link ScreenSizeExtensions}.
