@@ -4,6 +4,11 @@
 Version 3.1-SNAPSHOT
 -------------
 
+CHANGED:
+
+- update of dependency menu-action version to 3.3
+- removed of obsolet dependency swingx-*
+
 Version 3
 -------------
 

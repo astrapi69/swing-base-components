@@ -99,6 +99,10 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	@Getter
 	String applicationName;
 
+	/** The application toolbar */
+	@Getter
+	JToolBar toolBar;
+
 	/**
 	 * Instantiates a new {@link AbstractApplicationFrame}
 	 *
@@ -127,7 +131,7 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	{
 		super.onInitializeComponents();
 		this.setLayout(new BorderLayout());
-		add(newJToolBar(), BorderLayout.NORTH);
+		add(toolBar = newJToolBar(), BorderLayout.NORTH);
 		// setToolBar(newJToolBar());
 		menu = newDesktopMenu(this);
 		setJMenuBar(newJMenuBar());
