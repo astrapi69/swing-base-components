@@ -1,13 +1,31 @@
 ## Change log
 ----------------------
 
-Version 3.1-SNAPSHOT
+Version 4-SNAPSHOT
 -------------
+
+ADDED:
+
+- new field toolbar to class AbstractApplicationFrame
+- new class module-info.java that provides this library as a module
+- new module dependency awt-extensions in version 1.1
 
 CHANGED:
 
+- update gradle to new version 8.4-rc-1
+- update of lombok dependency to new patch version 1.18.30
 - update of dependency menu-action version to 3.3
-- removed of obsolet dependency swingx-*
+- update of dependency model-data to new minor module version 3.1
+- update of test module dependency icon-img-extensions version to 3.2
+- removed of dependency 'org.swinglabs.swingx:swingx-all' that is not supported anymore and is not provided as a module
+- removed of dependency 'javax.help:javahelp' that is not provided as a module
+- remove all classes and methods that are related to dependency 'org.swinglabs.swingx:swingx-all'
+- remove all classes and methods that are related to dependency 'javax.help:javahelp'
+- moved all actions from package io.github.astrapi69.swing.action to io.github.astrapi69.swing.base.action
+- remove of class AwtExtensions
+- remove of interface Keystrokes
+- remove of class GraphicsDeviceExtensions
+- remove of class ScreenSizeExtensions
 
 Version 3
 -------------

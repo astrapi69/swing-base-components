@@ -210,8 +210,8 @@ public class BaseDesktopMenu extends JMenu
 
 			.menuInfo(MenuInfo.builder().text(newLabelTextInfo())
 				.name(BaseMenuId.HELP_INFO.propertiesKey()).mnemonic(MenuExtensions.toMnemonic('i'))
-				.keyStrokeInfo(
-					KeyStrokeInfo.toKeyStrokeInfo(KeyStroke.getKeyStroke('I', Event.CTRL_MASK)))
+				.keyStrokeInfo(KeyStrokeInfo
+					.toKeyStrokeInfo(KeyStrokeExtensions.getKeyStroke("ctrl pressed I")))
 				.build())
 
 			.actionListener(newShowInfoDialogAction(newLabelTextInfo(),

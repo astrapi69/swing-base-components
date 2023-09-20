@@ -36,7 +36,6 @@ import lombok.Setter;
 import lombok.ToString;
 import lombok.experimental.FieldDefaults;
 
-
 /**
  * The class {@link BaseFrame} for swing frames to provide an initialization cycle where the user
  * can overwrite the callback methods for interaction.
@@ -57,8 +56,6 @@ public class BaseFrame<T> extends JFrame
 
 	/** The model. */
 	IModel<T> model;
-
-	boolean exitOnClose;
 
 	/**
 	 * Instantiates a new {@link BaseFrame}.
@@ -109,21 +106,6 @@ public class BaseFrame<T> extends JFrame
 	 *
 	 * @param title
 	 *            the title
-	 * @param exitOnClose
-	 *            the exit on close
-	 */
-	public BaseFrame(String title, boolean exitOnClose)
-	{
-		super(title);
-		this.exitOnClose = exitOnClose;
-		initialize();
-	}
-
-	/**
-	 * Instantiates a new {@link BaseFrame}.
-	 *
-	 * @param title
-	 *            the title
 	 * @param gc
 	 *            the gc
 	 */
@@ -133,22 +115,6 @@ public class BaseFrame<T> extends JFrame
 		initialize();
 	}
 
-	/**
-	 * Instantiates a new {@link BaseFrame}.
-	 *
-	 * @param title
-	 *            the title
-	 * @param gc
-	 *            the gc
-	 * @param exitOnClose
-	 *            the exit on close
-	 */
-	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose)
-	{
-		super(title, gc);
-		this.exitOnClose = exitOnClose;
-		initialize();
-	}
 
 	/**
 	 * Instantiates a new {@link BaseFrame}.
@@ -157,15 +123,12 @@ public class BaseFrame<T> extends JFrame
 	 *            the title
 	 * @param gc
 	 *            the gc
-	 * @param exitOnClose
-	 *            the exit on close
 	 * @param model
 	 *            the model
 	 */
-	public BaseFrame(String title, GraphicsConfiguration gc, boolean exitOnClose, IModel<T> model)
+	public BaseFrame(String title, GraphicsConfiguration gc, IModel<T> model)
 	{
 		super(title, gc);
-		this.exitOnClose = exitOnClose;
 		this.model = model;
 		initialize();
 	}
