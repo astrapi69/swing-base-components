@@ -4,7 +4,9 @@
 Version 4.1-SNAPSHOT
 -------------
 
+ADDED:
 
+- missing exports to class module-info.java file
 
 Version 4
 -------------
