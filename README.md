@@ -33,19 +33,21 @@ types of applications.
 
 ## gradle dependency
 
+Replace the variable ${latestVersion} with the current latest version: [![Maven Central](https://img.shields.io/maven-central/v/io.github.astrapi69/swing-base-components?style=plastic)](https://search.maven.org/artifact/io.github.astrapi69/swing-base-components)
+
 You can first define the version in the ext section and add than the following gradle dependency to
 your project `build.gradle` if you want to import the core functionality of swing-base-components:
 
 define version in file gradle.properties
 
 ```
-swingBaseComponentsVersion=4.1
+swingBaseComponentsVersion=${latestVersion}
 ```
 
 or in build.gradle ext area
 
 ```
-    swingBaseComponentsVersion = "4.1"
+    swingBaseComponentsVersion = "${latestVersion}"
 ```
 
 then add the dependency to the dependencies area
@@ -68,7 +70,7 @@ Then you can add the dependency to your dependencies:
     <properties>
             ...
         <!-- swing-base-components version -->
-        <swing-base-components.version>4.1</swing-base-components.version>
+        <swing-base-components.version>${latestVersion}</swing-base-components.version>
             ...
     </properties>
             ...
@@ -83,6 +85,29 @@ Then you can add the dependency to your dependencies:
             ...
         </dependencies>
 
+
+## 📸 Snapshots
+
+[![Snapshot](https://img.shields.io/badge/dynamic/xml?url=https://oss.sonatype.org/service/local/repositories/snapshots/content/io/github/astrapi69/swing-base-components/maven-metadata.xml&label=snapshot&color=red&query=.//versioning/latest)](https://oss.sonatype.org/content/repositories/snapshots/io/github/astrapi69/swing-base-components/)
+
+This section describes how to import snapshot versions into your project.
+Add the following code snippet to your gradle file in the repositories section:
+```
+repositories {
+   //...
+```
+```groovy
+    maven {
+        name "Sonatype Nexus Snapshots"
+        url "https://oss.sonatype.org/content/repositories/snapshots"
+        mavenContent {
+            snapshotsOnly()
+        }
+    }
+```
+```
+}
+```
 
 # Donations
 

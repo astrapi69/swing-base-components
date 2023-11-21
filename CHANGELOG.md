@@ -1,10 +1,25 @@
 ## Change log
 ----------------------
 
-Version 4.2-SNAPSHOT
+Version 4.2
 -------------
 
+CHANGED:
 
+- update gradle to new version 8.5-rc-3
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 8.4
+- update of gradle-plugin dependency 'com.github.ben-manes.versions.gradle.plugin' to new version 0.50.0
+- update of gradle-plugin dependency 'org.ajoberstar.grgit:grgit-gradle' to new version 5.2.1
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.22.0
+- update of dependency menu-action version to 3.4
+- update of dependency jobj-core version to 8.1
+- update of dependency silly-math to new major version 2.3
+- update of test dependency file-worker version to 17.1
+- update of test dependency randomizer to new minor version 10.2
+- update of test dependency test-object version to 8.2
+- update of test dependency silly-io version to 3
+- update of test dependency miglayout-swing version to 11.2
+- update of test dependencies junit-jupiter-* version to 5.10.1
 
 Version 4.1
 -------------
