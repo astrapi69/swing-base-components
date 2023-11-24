@@ -24,6 +24,7 @@
  */
 package io.github.astrapi69.swing.base;
 
+import java.awt.Component;
 import java.awt.Frame;
 
 import javax.swing.Icon;
@@ -35,6 +36,7 @@ import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.model.BaseModel;
 import io.github.astrapi69.swing.button.IconButtonFactory;
 import io.github.astrapi69.swing.button.builder.JButtonInfo;
+import io.github.astrapi69.swing.component.ComponentExtensions;
 import io.github.astrapi69.swing.plaf.LookAndFeels;
 import io.github.astrapi69.test.object.ApplicationTestModel;
 
@@ -122,6 +124,8 @@ public class ApplicationBasePanelFrameExample
 		JButton hardDriveToolButton = IconButtonFactory.newIconButton(hardDriveIcon);
 		hardDriveToolButton.addActionListener(event -> {
 			System.out.println("hardDriveToolButton ....");
+			Frame applicationFrame = ComponentExtensions
+				.getApplicationFrame((Component)event.getSource());
 			ApplicationTestModel<String> applicationTestModel = ApplicationTestModel
 				.<String> builder().model("bla").build();
 			LabelBasePanel labelPanel = new LabelBasePanel(BaseModel.of(applicationTestModel));

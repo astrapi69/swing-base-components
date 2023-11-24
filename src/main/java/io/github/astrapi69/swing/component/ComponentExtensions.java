@@ -26,8 +26,11 @@ package io.github.astrapi69.swing.component;
 
 import java.awt.Component;
 import java.awt.Container;
+import java.awt.Frame;
 import java.util.Optional;
 import java.util.logging.Level;
+
+import javax.swing.SwingUtilities;
 
 import lombok.NonNull;
 import lombok.experimental.UtilityClass;
@@ -95,5 +98,18 @@ public class ComponentExtensions
 		{
 			log.log(Level.INFO, exception.getMessage(), exception);
 		}
+	}
+
+	/**
+	 * Resolves the application frame from the given Component
+	 *
+	 * @param eventSource
+	 *            the event source
+	 * @return the application frame
+	 */
+	public static Frame getApplicationFrame(Component eventSource)
+	{
+		Frame frame = (Frame)SwingUtilities.getAncestorOfClass(Frame.class, eventSource);
+		return frame;
 	}
 }
