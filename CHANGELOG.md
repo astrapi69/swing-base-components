@@ -4,6 +4,15 @@
 Version 4.3-SNAPSHOT
 -------------
 
+ADDED:
+
+- new factory method for create the application configuration file name and the application configuration file
+
+CHANGED:
+
+- update gradle to new version 8.5
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.23.3
+- update of test dependency miglayout-swing version to 11.3
 
 Version 4.2
 -------------

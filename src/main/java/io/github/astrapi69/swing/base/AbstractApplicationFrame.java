@@ -74,11 +74,20 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 	 * value:".config"
 	 */
 	public static final String DEFAULT_APPLICATION_CONFIGURATION_DIRECTORY_NAME = ".config";
+
+	/**
+	 * Constant for the default configuration file name from the current application. current
+	 * value:"application-configuration.properties"
+	 */
+	public static final String DEFAULT_APPLICATION_CONFIGURATION_FILE_NAME = "application-configuration.properties";
 	/** The Constant serialVersionUID. */
 	private static final long serialVersionUID = 1L;
 	/** The configuration directory for configuration files. */
 	@Getter
 	File configurationDirectory;
+	/** The application configuration file */
+	@Getter
+	File configurationFile;
 	/** The current look and feels. */
 	@Getter
 	@Setter
@@ -121,6 +130,8 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 		applicationName = newApplicationName();
 		configurationDirectory = newConfigurationDirectory(System.getProperty("user.home"),
 			newApplicationConfigurationDirectoryName());
+		configurationFile = newConfigurationFile(configurationDirectory,
+			newApplicationConfigurationFileName());
 	}
 
 	/**
@@ -231,16 +242,63 @@ public abstract class AbstractApplicationFrame<T, C extends JComponent> extends 
 		return configurationDir;
 	}
 
+
+	/**
+	 * Factory method for create a new configuration directory {@link File} object if it is not
+	 * exists. This method is invoked in the constructor and can be overridden from the derived
+	 * classes so users can provide their own version of a new configuration {@link File} object
+	 *
+	 * @param configurationDir
+	 *            the configuration directory
+	 * @param configurationFileName
+	 *            the configuration file name
+	 * @return the new configuration file {@link File} object or the existing one
+	 */
+	protected File newConfigurationFile(final @NonNull File configurationDir,
+		final @NonNull String configurationFileName)
+	{
+		if (!configurationDir.isDirectory())
+		{
+			throw new RuntimeException(
+				"Given configuration directory file object is not a directory");
+		}
+		File configurationFile = new File(configurationDir, configurationFileName);
+		if (!configurationFile.exists())
+		{
+			try
+			{
+				configurationFile.createNewFile();
+			}
+			catch (IOException ioException)
+			{
+				throw new RuntimeException("Given configuration file object could not created");
+			}
+		}
+		return configurationFile;
+	}
+
 	/**
 	 * Factory method for create the new application configuration directory name. This method is
 	 * invoked in the constructor and should be overridden from the derived classes for set the
-	 * actual application name
+	 * actual application directory name
 	 *
 	 * @return the new application configuration directory name
 	 */
 	protected String newApplicationConfigurationDirectoryName()
 	{
 		return DEFAULT_APPLICATION_CONFIGURATION_DIRECTORY_NAME;
+	}
+
+	/**
+	 * Factory method for create the new application configuration file name. This method is invoked
+	 * in the constructor and should be overridden from the derived classes for set the actual
+	 * application configuration file name
+	 *
+	 * @return the new application configuration file name
+	 */
+	protected String newApplicationConfigurationFileName()
+	{
+		return DEFAULT_APPLICATION_CONFIGURATION_FILE_NAME;
 	}
 
 	/**
