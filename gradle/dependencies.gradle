@@ -1,24 +1,20 @@
 dependencies {
-    compileOnly("org.projectlombok:lombok:$lombokVersion")
-    annotationProcessor("org.projectlombok:lombok:$lombokVersion")
-    implementation("io.github.astrapi69:model-data:$modelDataVersion")
-    implementation("io.github.astrapi69:menu-action:$menuActionVersion")
-    implementation("io.github.astrapi69:silly-collection:$sillyCollectionVersion")
-    implementation("io.github.astrapi69:silly-math:$sillyMathVersion")
-    implementation("io.github.astrapi69:jobj-core:$jobjCoreVersion")
-    implementation("io.github.astrapi69:throwable:$throwableVersion")
-    implementation("io.github.astrapi69:awt-extensions:$awtExtensionsVersion")
-    testCompileOnly("org.projectlombok:lombok:$lombokVersion")
-    testAnnotationProcessor("org.projectlombok:lombok:$lombokVersion")
-    testImplementation("com.miglayout:miglayout-swing:$miglayoutSwingVersion")
-    testImplementation("org.assertj:assertj-swing:$assertjSwingVersion")
-    testImplementation("io.github.astrapi69:randomizer:$randomizerVersion")
-    testImplementation("io.github.astrapi69:test-object:$testObjectVersion")
-    testImplementation("io.github.astrapi69:silly-io:$sillyIoVersion")
-    testImplementation("io.github.astrapi69:icon-img-extensions:$iconImgExtensionsVersion")
-    testImplementation("io.github.astrapi69:file-worker:$fileWorkerVersion")
-    testImplementation("com.github.meanbeanlib:meanbean:$meanbeanVersion")
-    testImplementation("io.github.astrapi69:junit-jupiter-extensions:$junitJupiterExtensionsVersion")
-    testImplementation("org.junit.jupiter:junit-jupiter:$junitJupiterVersion")
-    testRuntimeOnly("org.junit.platform:junit-platform-launcher:$junitPlatformLauncherVersion")
+    compileOnly libs.lombok
+    implementation libs.model.data
+    implementation libs.menu.action
+    implementation libs.silly.collection
+    implementation libs.silly.math
+    implementation libs.jobj.core
+    implementation libs.throwable
+    implementation libs.awt.extensions
+    testImplementation libs.miglayout.swing
+    testImplementation libs.assertj.swing
+    testImplementation libs.randomizer
+    testImplementation libs.test.object
+    testImplementation libs.silly.io
+    testImplementation libs.icon.img.extensions
+    testImplementation libs.file.worker
+    // Note: use of bundles...
+    testImplementation libs.bundles.unit.testing
+    testRuntimeOnly libs.junit.platform.launcher
 }

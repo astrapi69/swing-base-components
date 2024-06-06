@@ -6,12 +6,14 @@ Version 4.3-SNAPSHOT
 
 ADDED:
 
+- new test dependency mockito-core
 - new factory method for create the application configuration file name and the application configuration file
+- new libs.versions.toml file for new automatic catalog versions update
 
 CHANGED:
 
-- update gradle to new version 8.6-rc-2
-- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new version 6.24.0
+- update gradle to new version 8.8
+- update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new minor version 7.0.0.BETA1
 - update of dependency jobj-core version to 8.2
 - update of dependency awt-extensions to new major version 1.2
 - update of test dependency miglayout-swing version to 11.3
