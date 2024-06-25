@@ -17,6 +17,7 @@ CHANGED:
 - update of dependency jobj-core version to 8.2
 - update of dependency awt-extensions to new major version 1.2
 - update of test dependency miglayout-swing version to 11.3
+- update of test dependency file-worker to new minor version 17.2
 
 Version 4.2
 -------------
