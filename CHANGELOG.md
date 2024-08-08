@@ -6,6 +6,7 @@ Version 4.3-SNAPSHOT
 
 ADDED:
 
+- new document class DecimalNumberValuesDocument for decimal number values
 - new test dependency mockito-core
 - new factory method for create the application configuration file name and the application configuration file
 - new libs.versions.toml file for new automatic catalog versions update
