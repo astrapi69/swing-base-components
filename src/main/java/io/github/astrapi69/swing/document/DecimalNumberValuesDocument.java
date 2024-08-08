@@ -24,6 +24,8 @@
  */
 package io.github.astrapi69.swing.document;
 
+import java.io.Serial;
+
 import javax.swing.text.BadLocationException;
 
 import lombok.NonNull;
@@ -36,6 +38,7 @@ public class DecimalNumberValuesDocument extends RegularExpressionDocument
 {
 
 	/** The Constant serialVersionUID. */
+	@Serial
 	private static final long serialVersionUID = 1L;
 
 	/** The Constant for the default regular expression. */
