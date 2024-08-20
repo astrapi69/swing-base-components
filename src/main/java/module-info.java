@@ -9,7 +9,7 @@ module swing.base.components.main
 	requires menu.actions.main;
 	requires model.data;
 	requires awt.extensions.main;
-	requires throwable;
+	requires io.github.astrapisixtynine.throwable;
 
 	exports io.github.astrapi69.swing.base;
 	exports io.github.astrapi69.swing.base.action;
