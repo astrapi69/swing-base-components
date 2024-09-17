@@ -43,7 +43,15 @@ public abstract class ShowLicenseFrameAction extends AbstractAction
 	final String title;
 
 	/**
-	 * Instantiates a new show license frame action.
+	 * Instantiates a new {@link ShowLicenseFrameAction}
+	 */
+	public ShowLicenseFrameAction()
+	{
+		this("License");
+	}
+
+	/**
+	 * Instantiates a new {@link ShowLicenseFrameAction}
 	 *
 	 * @param name
 	 *            the name
@@ -54,7 +62,7 @@ public abstract class ShowLicenseFrameAction extends AbstractAction
 	}
 
 	/**
-	 * Instantiates a new show license frame action.
+	 * Instantiates a new {@link ShowLicenseFrameAction}
 	 *
 	 * @param name
 	 *            the name

@@ -26,6 +26,7 @@ package io.github.astrapi69.swing.base.action;
 
 import java.awt.Component;
 
+import io.github.astrapi69.browser.BrowserControlExtensions;
 import io.github.astrapi69.swing.action.BaseOpenBrowserAction;
 import lombok.NonNull;
 
@@ -38,6 +39,17 @@ public class OpenBrowserToDonateAction extends BaseOpenBrowserAction
 	private static final long serialVersionUID = 1L;
 	/** The Constant URL_TO_DONATE. */
 	private static final String URL_TO_DONATE = "http://sourceforge.net/donate/index.php?group_id=207406";
+
+	/** The parent component */
+	Component component;
+
+	/**
+	 * Instantiates a new {@link OpenBrowserToDonateAction}
+	 */
+	public OpenBrowserToDonateAction()
+	{
+		this("Donate", null);
+	}
 
 	/**
 	 * Instantiates a new {@link OpenBrowserToDonateAction}.
@@ -52,6 +64,22 @@ public class OpenBrowserToDonateAction extends BaseOpenBrowserAction
 		super();
 		putValue(NAME, name);
 		setUrl(URL_TO_DONATE);
+		this.component = component;
 	}
 
+	/**
+	 * {@inheritDoc}
+	 */
+	@Override
+	protected void onDisplayURLonStandardBrowser(String url)
+	{
+		if (this.component != null)
+		{
+			BrowserControlExtensions.displayURLonStandardBrowser(this.component, url);
+		}
+		else
+		{
+			BrowserControlExtensions.displayURLonStandardBrowser(url);
+		}
+	}
 }
