@@ -13,6 +13,7 @@ ADDED:
 
 CHANGED:
 
+- rename module to 'io.github.astrapisixtynine.swing.base.components'
 - update gradle to new version 8.10.2
 - update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new minor version 7.0.0.BETA1
 - update of dependency jobj-core version to 9
