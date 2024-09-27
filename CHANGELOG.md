@@ -13,13 +13,13 @@ ADDED:
 
 CHANGED:
 
-- update gradle to new version 8.10
+- update gradle to new version 8.10.2
 - update of gradle-plugin dependency 'com.diffplug.spotless:spotless-plugin-gradle' to new minor version 7.0.0.BETA1
-- update of dependency jobj-core version to 8.2
+- update of dependency jobj-core version to 9
 - update of dependency awt-extensions to new major version 1.2
 - update of test dependency file-worker version to 17.4
-- update of test dependency miglayout-swing version to 11.3
-- update of test dependency file-worker to new minor version 17.2
+- update of test dependency miglayout-swing version to 11.4.2
+- update of test dependencies junit-jupiter-* version to 5.11.1
 
 Version 4.2
 -------------
