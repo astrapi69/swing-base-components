@@ -46,6 +46,7 @@ module io.github.astrapisixtynine.swing.base.components
 	exports io.github.astrapi69.swing.enumeration;
 	exports io.github.astrapi69.swing.filechooser;
 	exports io.github.astrapi69.swing.help;
+	exports io.github.astrapi69.swing.io;
 	exports io.github.astrapi69.swing.model.combobox;
 	exports io.github.astrapi69.swing.model.label;
 	exports io.github.astrapi69.swing.model.layout;
