@@ -28,7 +28,7 @@ module io.github.astrapisixtynine.swing.base.components
 	requires io.github.astrapisixtynine.jobj.core;
 	requires io.github.astrapisixtynine.menu.action;
 	requires model.data;
-	requires awt.extensions.main;
+	requires io.github.astrapisixtynine.awt.extensions;
 	requires io.github.astrapisixtynine.throwable;
 
 	exports io.github.astrapi69.swing.base;

@@ -1,8 +1,30 @@
 ## Change log
 ----------------------
 
-Version 5.1-SNAPSHOT
+Version 5.1
 -------------
+
+ADDED:
+
+- **TextAreaOutputStream**: A new `OutputStream` implementation that allows redirecting console output (e.g., `System.out` and `System.err`) to a `JTextArea` in a Swing UI, making it possible to capture and display console messages within the application.
+  - Added example usage to demonstrate how to redirect `System.out` and `System.err` to `TextAreaOutputStream` for displaying logs in a UI component.
+- **TeeOutputStream**: A new `OutputStream` implementation that duplicates output to two streams simultaneously. Useful for copying output to both the original console stream and a secondary destination, such as `TextAreaOutputStream`.
+
+CHANGED:
+
+- update gradle to new version 8.11
+- update of Gradle plugin com.diffplug.spotless:spotless-gradle-plugin to new version 7.0.0.BETA4
+- update of Gradle plugin nl.littlerobots.version-catalog-update to new version 0.8.5
+- update of Gradle plugin org.ajoberstar.grgit to new version 5.3.0
+- update of Gradle plugin io.freefair.lombok to new version 8.10.2
+- update of dependency io.github.astrapi69:awt-extensions to new version 2.0
+- update of dependency io.github.astrapi69:file-worker to new version 19.0
+- update of dependency io.github.astrapi69:jobj-core to new version 9.1
+- update of dependency io.github.astrapi69:silly-collection to new version 28.1
+- update of dependency io.github.astrapi69:silly-io to new version 3.2
+- update of dependency org.apache.logging.log4j:log4j-core to version 3.0.0-beta2
+- update of test dependency org.junit.jupiter:junit-jupiter to new version 5.11.3
+- update of test dependency org.junit.platform:junit-platform-launcher to new version 1.11.3
 
 
 Version 5.0
