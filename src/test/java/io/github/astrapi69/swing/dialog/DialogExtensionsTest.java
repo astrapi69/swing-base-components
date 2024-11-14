@@ -65,6 +65,7 @@ public class DialogExtensionsTest
 			if (option == JOptionPane.OK_OPTION)
 			{
 				System.err.println("Yes button pushed, so deletion will be executed.");
+				System.exit(0);
 			}
 			if (option == JOptionPane.CANCEL_OPTION)
 			{
