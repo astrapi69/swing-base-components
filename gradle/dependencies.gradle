@@ -1,20 +1,13 @@
 dependencies {
-    compileOnly libs.lombok
-    implementation libs.model.data
-    implementation libs.menu.action
-    implementation libs.silly.collection
-    implementation libs.silly.math
-    implementation libs.jobj.core
-    implementation libs.throwable
-    implementation libs.awt.extensions
-    testImplementation libs.miglayout.swing
-    testImplementation libs.assertj.swing
-    testImplementation libs.randomizer
-    testImplementation libs.test.object
-    testImplementation libs.silly.io
-    testImplementation libs.icon.img.extensions
-    testImplementation libs.file.worker
     // Note: use of bundles...
+    annotationProcessor libs.bundles.annotation.processor
+    compileOnly libs.bundles.compile.only
+
+    implementation libs.bundles.core.dependencies
+
+    testAnnotationProcessor libs.bundles.test.annotation.processor
+    testCompileOnly libs.bundles.test.compile.only
+
     testImplementation libs.bundles.unit.testing
-    testRuntimeOnly libs.junit.platform.launcher
+    testRuntimeOnly libs.bundles.test.runtime.only
 }

@@ -52,7 +52,6 @@ import io.github.astrapi69.swing.menu.MenuExtensions;
 import io.github.astrapi69.swing.menu.factory.JMenuBarFactory;
 import io.github.astrapi69.swing.menu.factory.JMenuItemFactory;
 import io.github.astrapi69.swing.menu.model.KeyStrokeInfo;
-import io.github.astrapi69.swing.menu.model.MenuInfo;
 import io.github.astrapi69.swing.menu.model.MenuItemInfo;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelGTKAction;
 import io.github.astrapi69.swing.plaf.action.LookAndFeelMetalAction;

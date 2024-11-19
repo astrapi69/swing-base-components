@@ -4,6 +4,11 @@
 Version 5.2-SNAPSHOT
 -------------
 
+CHANGED:
+
+- update of lombok dependency to new patch version 1.18.36
+- update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 8.11
+- update of dependency io.github.astrapi69:silly-io to new version 3.4
 
 Version 5.1
 -------------

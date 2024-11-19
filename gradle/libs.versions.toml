@@ -4,7 +4,7 @@ awt-extensions-version = "2.0"
 file-worker-version = "19.0"
 gradle-plugin-grgit-version = "5.3.0"
 gradle-plugin-license-version = "0.16.1"
-gradle-plugin-lombok-version = "8.10.2"
+gradle-plugin-lombok-version = "8.11"
 gradle-plugin-spotless-version = "7.0.0.BETA4"
 gradle-plugin-version-catalog-update-version = "0.8.5"
 gradle-plugin-versions-version = "0.51.0"
@@ -13,7 +13,7 @@ jobj-core-version = "9.1"
 junit-jupiter-extensions-version = "2"
 junit-jupiter-version = "5.11.3"
 junit-platform-launcher-version = "1.11.3"
-lombok-version = "1.18.34"
+lombok-version = "1.18.36"
 meanbean-version = "3.0.0-M9"
 menu-action-version = "4.1"
 miglayout-swing-version = "11.4.2"
@@ -21,7 +21,7 @@ mockito-core-version = "5.14.2"
 model-data-version = "3.1"
 randomizer-version = "10.2"
 silly-collection-version = "28.1"
-silly-io-version = "3.2"
+silly-io-version = "3.4"
 silly-math-version = "2.3"
 test-object-version = "9"
 throwable-version = "3"
@@ -49,11 +49,49 @@ test-object = { module = "io.github.astrapi69:test-object", version.ref = "test-
 throwable = { module = "io.github.astrapi69:throwable", version.ref = "throwable-version" }
 
 [bundles]
+# Dependencies for the annotation processor used during the compilation process
+annotation-processor = [
+    "lombok",
+]
+# Dependencies required only at compile-time and not included in the final artifact
+compile-only = [
+    "lombok",
+]
+# The core dependencies
+core-dependencies = [
+    "awt-extensions",
+    "jobj-core",
+    "menu-action",
+    "model-data",
+    "silly-collection",
+    "silly-math",
+    "throwable",
+]
+# Annotation processor dependencies used specifically for test classes
+test-annotation-processor = [
+    "lombok",
+]
+# Dependencies required only at test compile-time and not included in test runtime
+test-compile-only = [
+    "lombok",
+]
+# Dependencies required only at test runtime, such as test execution platforms
+test-runtime-only = [
+    "junit-platform-launcher",
+]
+# Dependencies required for unit testing
 unit-testing = [
+    "assertj-swing",
+    "file-worker",
+    "icon-img-extensions",
     "junit-jupiter",
     "junit-jupiter-extensions",
     "meanbean",
+    "miglayout-swing",
     "mockito-core",
+    "randomizer",
+    "silly-io",
+    "test-object",
 ]
 
 [plugins]
