@@ -4,11 +4,20 @@
 Version 5.2-SNAPSHOT
 -------------
 
+### Added
+- Unit tests for the `showOptionDialog` method in the `OptionDialog` class, covering default options, custom options, icon support, headless environments, and null message handling.
+- Comprehensive Javadoc for all test methods to improve readability and documentation.
+
+### Updated
+- Ran `versionCatalogUpdate` to refresh Gradle version catalog dependencies.
+- Updated dependencies and plugins to their latest milestone versions.
+- Noted dependencies with newer milestone versions for future updates.
+
 CHANGED:
 
 - update of lombok dependency to new patch version 1.18.36
 - update of gradle-plugin dependency 'io.freefair.gradle:lombok-plugin' to new version 8.11
-- update of dependency io.github.astrapi69:silly-io to new version 3.4
+- update of dependency io.github.astrapi69:silly-io to new version 3.5
 
 Version 5.1
 -------------

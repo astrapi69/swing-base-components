@@ -25,6 +25,7 @@
 package io.github.astrapi69.swing.dialog;
 
 import java.awt.Component;
+import java.awt.HeadlessException;
 import java.util.stream.Stream;
 
 import javax.swing.Icon;
@@ -141,6 +142,48 @@ public class DialogExtensions
 	}
 
 	/**
+	 * Displays a dialog with customizable options and returns the user's selection.
+	 *
+	 * @param parentComponent
+	 *            the parent component of the dialog, can be {@code null} to create a dialog with a
+	 *            default frame
+	 * @param message
+	 *            the message to be displayed in the dialog
+	 * @param title
+	 *            the title of the dialog
+	 * @param optionType
+	 *            an integer indicating the options available on the dialog; one of
+	 *            {@code JOptionPane.DEFAULT_OPTION}, {@code JOptionPane.YES_NO_OPTION},
+	 *            {@code JOptionPane.YES_NO_CANCEL_OPTION}, or {@code JOptionPane.OK_CANCEL_OPTION}
+	 * @param messageType
+	 *            an integer indicating the type of message to be displayed; one of
+	 *            {@code JOptionPane.ERROR_MESSAGE}, {@code JOptionPane.INFORMATION_MESSAGE},
+	 *            {@code JOptionPane.WARNING_MESSAGE}, {@code JOptionPane.QUESTION_MESSAGE}, or
+	 *            {@code JOptionPane.PLAIN_MESSAGE}
+	 * @param icon
+	 *            an icon to be displayed in the dialog, can be {@code null}
+	 * @param options
+	 *            an array of objects representing the options to display in the dialog; can be
+	 *            {@code null} for default options
+	 * @param initialValue
+	 *            the value that is initially selected; can be {@code null}
+	 * @return an integer indicating the option chosen by the user, or
+	 *         {@code JOptionPane.CLOSED_OPTION} if the dialog is closed without a selection
+	 * @throws HeadlessException
+	 *             if GraphicsEnvironment.isHeadless() returns {@code true}
+	 */
+	public static int showOptionDialog(Component parentComponent, Object message, String title,
+		int optionType, int messageType, Icon icon, Object[] options, Object initialValue)
+		throws HeadlessException
+	{
+		StringBuilder sb = new StringBuilder();
+		sb.append("<html>").append("<body>").append(message).append("</body>").append("</html>");
+		String htmlMessage = sb.toString();
+		return JOptionPane.showOptionDialog(parentComponent, htmlMessage, title, optionType,
+			messageType, icon, options, initialValue);
+	}
+
+	/**
 	 * Show an information message.
 	 *
 	 * @param title
@@ -152,5 +195,6 @@ public class DialogExtensions
 	{
 		showInformationDialog(null, title, message);
 	}
+
 
 }
