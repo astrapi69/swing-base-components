@@ -3,9 +3,8 @@ assertj-swing-version = "3.17.1"
 awt-extensions-version = "2.0"
 file-worker-version = "19.0"
 gradle-plugin-grgit-version = "5.3.0"
-gradle-plugin-license-version = "0.16.1"
 gradle-plugin-lombok-version = "8.11"
-gradle-plugin-spotless-version = "7.0.0.BETA4"
+gradle-plugin-spotless-version = "8.10.0"
 gradle-plugin-version-catalog-update-version = "0.8.5"
 gradle-plugin-versions-version = "0.51.0"
 icon-img-extensions-version = "4"
@@ -97,7 +96,6 @@ unit-testing = [
 [plugins]
 gradle-versions-plugin = { id = "com.github.ben-manes.versions", version.ref = "gradle-plugin-versions-version" }
 grgit-gradle = { id = "org.ajoberstar.grgit", version.ref = "gradle-plugin-grgit-version" }
-license-gradle-plugin = { id = "com.github.hierynomus.license", version.ref = "gradle-plugin-license-version" }
 lombok-plugin = { id = "io.freefair.lombok", version.ref = "gradle-plugin-lombok-version" }
 spotless-plugin-gradle = { id = "com.diffplug.spotless", version.ref = "gradle-plugin-spotless-version" }
 versionCatalogUpdate = { id = "nl.littlerobots.version-catalog-update", version.ref = "gradle-plugin-version-catalog-update-version" }
