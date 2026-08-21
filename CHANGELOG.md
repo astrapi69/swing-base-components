@@ -13,6 +13,9 @@ Version 5.2-SNAPSHOT
 
 ### Fixed
 - The `javadoc` task excluded all classes and produced an empty javadoc jar.
+- The assertj-swing robot test killed the test JVM through the `CloseWindow` adapter (`System.exit` on `windowClosed`), so gradle reported it as skipped; the adapter was removed from the test and the `FrameFixture` is now released with `cleanUp`.
+- The five `@Disabled` `DialogExtensionsTest` methods were rewritten as real assertj-swing robot tests: the modal dialog is shown on a daemon thread and the robot clicks the buttons, with a programmatic `doClick` fallback for displays without a window manager.
+- The `@Disabled` `JDialogFactoryTest` method was enabled as a real unit test that verifies the created dialog.
 
 ### Changed
 - Interactive demo classes renamed from `*Test` to `*Demo` so that only real unit tests are discovered by the test engine.
@@ -20,6 +23,7 @@ Version 5.2-SNAPSHOT
 - Removed unused test dependencies `meanbean`, `mockito-core`, `file-worker` and `silly-io`.
 - Makefile no longer hardcodes `JAVA_HOME`.
 - Github-actions workflow: removed obsolete ossrh secrets, updated `setup-gradle` to v4 and `codecov-action` to v5.
+- Github-actions workflow runs the build under Xvfb, so the assertj-swing robot tests are executed in CI instead of being skipped.
 
 ### Updated
 - Ran `versionCatalogUpdate` to refresh Gradle version catalog dependencies.

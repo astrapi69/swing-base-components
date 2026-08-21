@@ -24,6 +24,9 @@
  */
 package io.github.astrapi69.swing.dialog.factory;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
+
 import java.awt.BorderLayout;
 import java.awt.Frame;
 
@@ -34,7 +37,6 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 
-import org.junit.jupiter.api.Disabled;
 import org.junit.jupiter.api.Test;
 
 import io.github.astrapi69.swing.button.ButtonFactory;
@@ -101,7 +103,6 @@ public class JDialogFactoryTest
 	 * Test method for {@link JDialogFactory#newJDialog(JOptionPane, String)}
 	 */
 	@Test
-	@Disabled
 	public void testTestNewJDialogJOptionPaneString()
 	{
 		JPasswordField pf = new JPasswordField("", 10);
@@ -118,6 +119,10 @@ public class JDialogFactoryTest
 		dialog.addWindowFocusListener(new RequestFocusListener(pf));
 		dialog.pack();
 		dialog.setLocationRelativeTo(null);
-		dialog.setVisible(true);
+
+		assertNotNull(dialog);
+		assertEquals("Enter Password", dialog.getTitle());
+
+		dialog.dispose();
 	}
 }

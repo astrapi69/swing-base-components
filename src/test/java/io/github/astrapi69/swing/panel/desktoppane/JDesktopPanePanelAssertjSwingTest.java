@@ -33,7 +33,6 @@ import org.assertj.swing.fixture.JPanelFixture;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 
-import io.github.astrapi69.awt.window.adapter.CloseWindow;
 import io.github.astrapi69.junit.jupiter.callback.before.test.IgnoreHeadlessExceptionExtension;
 import io.github.astrapi69.test.object.ApplicationTestModel;
 
@@ -51,7 +50,6 @@ public class JDesktopPanePanelAssertjSwingTest
 
 		desktopPanePanel = new JDesktopPanePanel<>();
 		frame.add(desktopPanePanel);
-		frame.addWindowListener(new CloseWindow());
 		frame.setSize(300, 200);
 		frame.setVisible(true);
 		underTest = new FrameFixture(frame);
@@ -60,6 +58,7 @@ public class JDesktopPanePanelAssertjSwingTest
 		assertNotNull(focus.target());
 		frame.setVisible(false);
 		frame.dispose();
+		underTest.cleanUp();
 		underTest = null;
 	}
 }
