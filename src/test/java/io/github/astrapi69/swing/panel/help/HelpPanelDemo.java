@@ -22,30 +22,25 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.panel.desktoppane;
+package io.github.astrapi69.swing.panel.help;
 
 import java.awt.Frame;
 
 import io.github.astrapi69.awt.window.adapter.CloseWindow;
-import io.github.astrapi69.test.object.ApplicationTestModel;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.random.object.RandomStringFactory;
 
-public class JDesktopPanePanelTest
+public class HelpPanelDemo
 {
-
-	/**
-	 * The main method.
-	 *
-	 * @param args
-	 *            the arguments
-	 */
-	public static void main(final String[] args)
+	public static void main(final String[] arguments)
 	{
-		final Frame frame = new Frame("JDesktopPanePanel");
-
-		JDesktopPanePanel<ApplicationTestModel<String>> desktopPanePanel = new JDesktopPanePanel<>();
-		frame.add(desktopPanePanel);
+		final Frame frame = new Frame("HelpPanel");
 		frame.addWindowListener(new CloseWindow());
-		frame.setSize(300, 200);
+		String content = RandomStringFactory.newRandomLongString(100000);
+		HelpModelBean helpModelBean = HelpModelBean.builder().title("Help title").content(content)
+			.build();
+		frame.add(new HelpPanel(BaseModel.of(helpModelBean)));
+		frame.pack();
 		frame.setVisible(true);
 	}
 

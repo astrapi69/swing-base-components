@@ -1,5 +1,3 @@
-JAVA_HOME ?= /home/astrapi69/.sdkman/candidates/java/24.0.2-tem
-
 .PHONY: build build-stacktrace build-warning clean dependencies \
 	dependency-updates jacoco-coverage jacoco-report jar javadoc \
 	license-format publish publish-local release spotless-apply \
@@ -7,71 +5,71 @@ JAVA_HOME ?= /home/astrapi69/.sdkman/candidates/java/24.0.2-tem
 	version-catalog-format version-catalog-update
 
 build:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew build
+	./gradlew build
 
 build-stacktrace:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew build --stacktrace --warning-mode all
+	./gradlew build --stacktrace --warning-mode all
 
 build-warning:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew build --warning-mode all
+	./gradlew build --warning-mode all
 
 clean:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew clean
+	./gradlew clean
 
 test:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew test
+	./gradlew test
 
 # --- mirrors Gradle "Run Configurations" panel ---
 
 dependencies:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew dependencies
+	./gradlew dependencies
 
 dependency-updates:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew dependencyUpdates
+	./gradlew dependencyUpdates
 
 jacoco-coverage:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew jacocoTestCoverageVerification
+	./gradlew jacocoTestCoverageVerification
 
 jacoco-report:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew jacocoTestReport
+	./gradlew jacocoTestReport
 
 jar:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew jar
+	./gradlew jar
 
 javadoc:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew javadoc
+	./gradlew javadoc
 
 # license headers are managed by the spotless licenseHeaderFile step
 license-format:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew spotlessApply
+	./gradlew spotlessApply
 
 publish:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew publish
+	./gradlew publish
 
 publish-local:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew publishMavenJavaPublicationToMavenLocal
+	./gradlew publishMavenJavaPublicationToMavenLocal
 
 # full release: clean, publish to local and remote, tag the release
 release:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew clean publishMavenJavaPublicationToMavenLocal publish tagRelease
+	./gradlew clean publishMavenJavaPublicationToMavenLocal publish tagRelease
 
 spotless-apply:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew spotlessApply
+	./gradlew spotlessApply
 
 spotless-check:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew spotlessCheck
+	./gradlew spotlessCheck
 
 spotless-java:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew spotlessJavaApply
+	./gradlew spotlessJavaApply
 
 spotless-misc:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew spotlessMiscApply
+	./gradlew spotlessMiscApply
 
 tag-release:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew tagRelease
+	./gradlew tagRelease
 
 version-catalog-format:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew versionCatalogFormat
+	./gradlew versionCatalogFormat
 
 version-catalog-update:
-	JAVA_HOME=$(JAVA_HOME) ./gradlew versionCatalogUpdate
+	./gradlew versionCatalogUpdate

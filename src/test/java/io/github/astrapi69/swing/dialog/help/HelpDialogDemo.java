@@ -22,21 +22,36 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.help;
+package io.github.astrapi69.swing.dialog.help;
 
-import java.awt.Frame;
+import java.awt.event.ActionEvent;
 
+import io.github.astrapi69.awt.screen.ScreenSizeExtensions;
 import io.github.astrapi69.awt.window.adapter.CloseWindow;
+import io.github.astrapi69.model.BaseModel;
+import io.github.astrapi69.swing.panel.help.HelpModelBean;
 
-public class HelpFrameTest
+public class HelpDialogDemo
 {
-	public static void main(final String[] arguments)
-	{
-		final Frame frame = new HelpFrame("HelpFrameTest", "Help test");
-		frame.addWindowListener(new CloseWindow());
-		frame.setSize(800, 300);
-		// frame.pack();
-		frame.setVisible(true);
-	}
 
+	public static void main(final String[] a)
+	{
+		HelpModelBean helpModelBean = HelpModelBean.builder().title("Help title")
+			.content("Help content").build();
+		final HelpDialog dialog = new HelpDialog(null, "Help Dialog", true,
+			BaseModel.of(helpModelBean))
+		{
+			@Override
+			protected void onClose(ActionEvent e)
+			{
+				super.onClose(e);
+				System.exit(0);
+			}
+		};
+		dialog.addWindowListener(new CloseWindow());
+		ScreenSizeExtensions.centralize(dialog, 3, 3);
+		dialog.setSize(800, 300);
+
+		dialog.setVisible(true);
+	}
 }

@@ -32,7 +32,7 @@ import javax.swing.JOptionPane;
 
 import io.github.astrapi69.awt.window.adapter.CloseWindow;
 
-public class DialogExtensionsMainMethodTest
+public class DialogExtensionsMainMethodDemo
 {
 
 	public static void main(final String[] arguments)

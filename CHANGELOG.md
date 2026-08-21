@@ -7,6 +7,19 @@ Version 5.2-SNAPSHOT
 ### Added
 - Unit tests for the `showOptionDialog` method in the `OptionDialog` class, covering default options, custom options, icon support, headless environments, and null message handling.
 - Comprehensive Javadoc for all test methods to improve readability and documentation.
+- Publishing repository configuration for the Central Portal (releases over the OSSRH staging API, snapshots to central.sonatype.com) with credentials from CENTRAL_USERNAME/CENTRAL_PASSWORD or the gradle properties centralUsername/centralPassword.
+- New gradle file `tagging.gradle` with the `tagRelease` task based on a plain git `Exec` task.
+- New gradle plugin `org.gradle.toolchains.foojay-resolver-convention` for automatic JDK provisioning.
+
+### Fixed
+- The `javadoc` task excluded all classes and produced an empty javadoc jar.
+
+### Changed
+- Interactive demo classes renamed from `*Test` to `*Demo` so that only real unit tests are discovered by the test engine.
+- Removed the grgit gradle plugin; the `tagRelease` task now uses a plain git `Exec` task, so the gradle configuration cache works without workarounds.
+- Removed unused test dependencies `meanbean`, `mockito-core`, `file-worker` and `silly-io`.
+- Makefile no longer hardcodes `JAVA_HOME`.
+- Github-actions workflow: removed obsolete ossrh secrets, updated `setup-gradle` to v4 and `codecov-action` to v5.
 
 ### Updated
 - Ran `versionCatalogUpdate` to refresh Gradle version catalog dependencies.

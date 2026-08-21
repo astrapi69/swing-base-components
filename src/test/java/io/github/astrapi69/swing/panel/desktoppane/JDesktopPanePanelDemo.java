@@ -22,38 +22,31 @@
  * OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
  * WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
  */
-package io.github.astrapi69.swing.dialog.info;
+package io.github.astrapi69.swing.panel.desktoppane;
 
-import java.awt.event.ActionEvent;
+import java.awt.Frame;
 
-import io.github.astrapi69.awt.screen.ScreenSizeExtensions;
 import io.github.astrapi69.awt.window.adapter.CloseWindow;
-import io.github.astrapi69.model.BaseModel;
-import io.github.astrapi69.swing.panel.info.InfoModelBean;
+import io.github.astrapi69.test.object.ApplicationTestModel;
 
-public class InfoDialogTest
+public class JDesktopPanePanelDemo
 {
 
-	public static void main(final String[] a)
+	/**
+	 * The main method.
+	 *
+	 * @param args
+	 *            the arguments
+	 */
+	public static void main(final String[] args)
 	{
-		InfoModelBean infoModelBean = InfoModelBean.builder().applicationName("silent mouse")
-			.labelApplicationName("Application name:").labelCopyright("Copyright:")
-			.copyright("Asterios Raptis").labelVersion("Version:").version("1.0")
-			.licence("This Software is licensed under the MIT Licence").build();
-		final AppInfoDialog dialog = new AppInfoDialog(null, "About Dialog", true,
-			BaseModel.of(infoModelBean))
-		{
-			@Override
-			protected void onClose(ActionEvent e)
-			{
-				super.onClose(e);
-				System.exit(0);
-			}
-		};
-		dialog.addWindowListener(new CloseWindow());
-		ScreenSizeExtensions.centralize(dialog, 3, 3);
-		dialog.setSize(800, 300);
+		final Frame frame = new Frame("JDesktopPanePanel");
 
-		dialog.setVisible(true);
+		JDesktopPanePanel<ApplicationTestModel<String>> desktopPanePanel = new JDesktopPanePanel<>();
+		frame.add(desktopPanePanel);
+		frame.addWindowListener(new CloseWindow());
+		frame.setSize(300, 200);
+		frame.setVisible(true);
 	}
+
 }

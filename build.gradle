@@ -14,7 +14,6 @@ plugins {
     id 'jacoco'
     alias(libs.plugins.lombok.plugin)
     alias(libs.plugins.gradle.versions.plugin)
-    alias(libs.plugins.grgit.gradle)
     alias(libs.plugins.spotless.plugin.gradle)
     alias(libs.plugins.versionCatalogUpdate)
 }

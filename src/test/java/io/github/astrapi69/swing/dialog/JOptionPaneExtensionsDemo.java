@@ -42,7 +42,7 @@ import io.github.astrapi69.swing.listener.RequestFocusListener;
 import io.github.astrapi69.swing.panel.help.HelpModelBean;
 import io.github.astrapi69.swing.panel.help.HelpPanel;
 
-class JOptionPaneExtensionsTest
+class JOptionPaneExtensionsDemo
 {
 	public static void main(final String[] arguments)
 	{

@@ -18,10 +18,21 @@ javadoc {
         options.addBooleanOption("html5", true)
     }
     failOnError = false
-    exclude 'io/github/astrapi69/**'
 }
 
 publishing {
+    repositories {
+        maven {
+            name = "central"
+            def releasesRepoUrl = "$projectRepositoriesReleasesRepoUrl"
+            def snapshotsRepoUrl = "$projectRepositoriesSnapshotsRepoUrl"
+            url = releaseVersion ? releasesRepoUrl : snapshotsRepoUrl
+            credentials {
+                username = System.getenv("CENTRAL_USERNAME") ?: (project.findProperty("centralUsername") ?: "")
+                password = System.getenv("CENTRAL_PASSWORD") ?: (project.findProperty("centralPassword") ?: "")
+            }
+        }
+    }
     publications {
         mavenJava(MavenPublication) {
             artifactId = "$rootProject.name"
