@@ -16,6 +16,7 @@ Version 5.2-SNAPSHOT
 - The assertj-swing robot test killed the test JVM through the `CloseWindow` adapter (`System.exit` on `windowClosed`), so gradle reported it as skipped; the adapter was removed from the test and the `FrameFixture` is now released with `cleanUp`.
 - The five `@Disabled` `DialogExtensionsTest` methods were rewritten as real assertj-swing robot tests: the modal dialog is shown on a daemon thread and the robot clicks the buttons, with a programmatic `doClick` fallback for displays without a window manager.
 - The `@Disabled` `JDialogFactoryTest` method was enabled as a real unit test that verifies the created dialog.
+- `EnumComboBoxModel` ordered its items by the enum values' identity hash (HashSet), so the order was not the declaration order and could change between JVM runs; the items are now kept in a `LinkedHashSet` in declaration order (#1).
 
 ### Changed
 - Interactive demo classes renamed from `*Test` to `*Demo` so that only real unit tests are discovered by the test engine.

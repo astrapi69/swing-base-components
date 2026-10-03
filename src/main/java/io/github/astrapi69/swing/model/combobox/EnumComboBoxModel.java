@@ -27,7 +27,7 @@ package io.github.astrapi69.swing.model.combobox;
 import java.util.Collection;
 import java.util.EnumSet;
 import java.util.HashMap;
-import java.util.HashSet;
+import java.util.LinkedHashSet;
 import java.util.Map;
 import java.util.Set;
 
@@ -95,14 +95,14 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 		final Set<E> excludeValues)
 	{
 		super(
-			newHashSet(EnumSet.allOf(enumClass),
+			newOrderedSet(EnumSet.allOf(enumClass),
 				excludeValues != null ? excludeValues : SetFactory.newHashSet()),
-			newHashSet(EnumSet.allOf(enumClass),
+			newOrderedSet(EnumSet.allOf(enumClass),
 				excludeValues != null ? excludeValues : SetFactory.newHashSet())
 					.contains(selectedItem)
 						? selectedItem
 						: ListExtensions
-							.getFirst(ListExtensions.toList(newHashSet(EnumSet.allOf(enumClass),
+							.getFirst(ListExtensions.toList(newOrderedSet(EnumSet.allOf(enumClass),
 								excludeValues != null ? excludeValues : SetFactory.newHashSet()))));
 		this.enumClass = enumClass;
 		this.valueMap = new HashMap<>();
@@ -121,29 +121,28 @@ public class EnumComboBoxModel<E extends Enum<E>> extends AbstractComboBoxModel<
 	public EnumComboBoxModel(final Class<E> enumClass, final Set<E> excludeValues)
 	{
 		this(enumClass,
-			ListExtensions.getFirst(ListExtensions.toList(newHashSet(EnumSet.allOf(enumClass),
+			ListExtensions.getFirst(ListExtensions.toList(newOrderedSet(EnumSet.allOf(enumClass),
 				excludeValues != null ? excludeValues : SetFactory.newHashSet()))),
 			excludeValues);
 	}
 
 	/**
-	 * Factory method for create new {@link HashSet} and will be returned as {@link Set}
+	 * Factory method for create a new {@link LinkedHashSet} from the given collection without the
+	 * excluded elements. The iteration order of the given collection is preserved, so the enum
+	 * values keep their declaration order
 	 *
 	 * @param <T>
 	 *            the generic type of the elements
 	 * @param collection
-	 *            the optional collection that will be added to the new list
+	 *            the collection that will be added to the new set
 	 * @param exclude
-	 *            the element that have to be excluded
-	 * @param elements
-	 *            the elements to add in the new {@link HashSet}
-	 * @return the new {@link HashSet}
+	 *            the elements that have to be excluded
+	 * @return the new {@link LinkedHashSet}
 	 */
-	@SafeVarargs
-	private static <T> Set<T> newHashSet(final Collection<T> collection,
-		final Collection<T> exclude, final T... elements)
+	private static <T> Set<T> newOrderedSet(final Collection<T> collection,
+		final Collection<T> exclude)
 	{
-		final Set<T> set = SetFactory.newHashSet(collection, elements);
+		final Set<T> set = new LinkedHashSet<>(collection);
 		set.removeAll(exclude);
 		return set;
 	}
