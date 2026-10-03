@@ -1,10 +1,11 @@
 ## Change log
 ----------------------
 
-Version 5.2-SNAPSHOT
+Version 5.2
 -------------
 
 ### Added
+- Github-actions workflow `publish.yml` that publishes a `RELEASE-*` tag to Maven Central, and the make targets `central-list`, `central-upload`, `central-upload-repository` and `central-drop` for the OSSRH staging api.
 - Unit tests for the `showOptionDialog` method in the `OptionDialog` class, covering default options, custom options, icon support, headless environments, and null message handling.
 - Comprehensive Javadoc for all test methods to improve readability and documentation.
 - Publishing repository configuration for the Central Portal (releases over the OSSRH staging API, snapshots to central.sonatype.com) with credentials from CENTRAL_USERNAME/CENTRAL_PASSWORD or the gradle properties centralUsername/centralPassword.
@@ -19,6 +20,8 @@ Version 5.2-SNAPSHOT
 - `EnumComboBoxModel` ordered its items by the enum values' identity hash (HashSet), so the order was not the declaration order and could change between JVM runs; the items are now kept in a `LinkedHashSet` in declaration order (#1).
 
 ### Changed
+- The minimum Java version was raised from 17 to 25. The jar is compiled to class file version 69, so consumers need a Java 25 runtime.
+- Gradle wrapper updated from 8.11 to 9.7.0.
 - Interactive demo classes renamed from `*Test` to `*Demo` so that only real unit tests are discovered by the test engine.
 - Removed the grgit gradle plugin; the `tagRelease` task now uses a plain git `Exec` task, so the gradle configuration cache works without workarounds.
 - Removed unused test dependencies `meanbean`, `mockito-core`, `file-worker` and `silly-io`.
@@ -27,6 +30,8 @@ Version 5.2-SNAPSHOT
 - Github-actions workflow runs the build under Xvfb, so the assertj-swing robot tests are executed in CI instead of being skipped.
 
 ### Updated
+- Runtime dependency `menu-action` updated from 4.1 to 5.1, which itself requires Java 25.
+- Runtime dependency `model-data` updated from 3.1 to 3.2.1.
 - Ran `versionCatalogUpdate` to refresh Gradle version catalog dependencies.
 - Updated dependencies and plugins to their latest milestone versions.
 - Noted dependencies with newer milestone versions for future updates.
