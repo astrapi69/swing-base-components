@@ -5,11 +5,10 @@
 [![Java CI with Gradle](https://github.com/astrapi69/swing-base-components/actions/workflows/gradle.yml/badge.svg)](https://github.com/astrapi69/swing-base-components/actions/workflows/gradle.yml)
 [![Open Issues](https://img.shields.io/github/issues/astrapi69/swing-base-components.svg?style=flat)](https://github.com/astrapi69/swing-base-components/issues)
 [![Maven Central](https://img.shields.io/maven-central/v/io.github.astrapi69/swing-base-components?style=plastic)](https://search.maven.org/artifact/io.github.astrapi69/swing-base-components)
-[![Javadocs](http://www.javadoc.io/badge/io.github.astrapi69/swing-base-components.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-base-components)
+[![Javadocs](https://javadoc.io/badge2/io.github.astrapi69/swing-base-components/javadoc.svg)](http://www.javadoc.io/doc/io.github.astrapi69/swing-base-components)
 [![MIT license](http://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat)](http://opensource.org/licenses/MIT)
 [![Donate](https://img.shields.io/badge/donate-❤-ff2244.svg)](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=GVBTWLRAZ7HB8)
 [![Hits Of Code](https://hitsofcode.com/github/astrapi69/swing-base-components?branch=develop)](https://hitsofcode.com/github/astrapi69/swing-base-components/view?branch=develop)
-[![Lines Of Code](https://tokei.rs/b1/github/astrapi69/swing-base-components)](https://github.com/astrapi69/swing-base-components)
 
 </div>
 
@@ -58,9 +57,7 @@ then add the dependency to the dependencies area
 
 ## Maven dependency
 
-Maven dependency is now on sonatype. Check
-out [sonatype repository](https://oss.sonatype.org/index.html#nexus-search;gav~io.github.astrapi69~swing-base-components~~~)
-for latest snapshots and releases.
+The library is on Maven Central. Check out [Maven Central](https://central.sonatype.com/artifact/io.github.astrapi69/swing-base-components) for the latest release.
 
 Add the following maven dependency to your project `pom.xml` if you want to import the core
 functionality of swing-base-components:
@@ -88,8 +85,6 @@ Then you can add the dependency to your dependencies:
 
 ## 📸 Snapshots
 
-[![Snapshot](https://img.shields.io/badge/dynamic/xml?url=https://oss.sonatype.org/service/local/repositories/snapshots/content/io/github/astrapi69/swing-base-components/maven-metadata.xml&label=snapshot&color=red&query=.//versioning/latest)](https://oss.sonatype.org/content/repositories/snapshots/io/github/astrapi69/swing-base-components/)
-
 This section describes how to import snapshot versions into your project.
 Add the following code snippet to your gradle file in the repositories section:
 ```
@@ -98,8 +93,8 @@ repositories {
 ```
 ```groovy
     maven {
-        name "Sonatype Nexus Snapshots"
-        url "https://oss.sonatype.org/content/repositories/snapshots"
+        name "Central Portal Snapshots"
+        url "https://central.sonatype.com/repository/maven-snapshots/"
         mavenContent {
             snapshotsOnly()
         }
