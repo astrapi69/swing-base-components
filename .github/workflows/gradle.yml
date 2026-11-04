@@ -24,10 +24,15 @@ jobs:
           distribution: 'temurin'
       - name: Setup Gradle
         uses: gradle/actions/setup-gradle@v4
-      - name: Install Xvfb
-        run: sudo apt-get update && sudo apt-get install -y xvfb
+      - name: Install Xvfb and what the display plugin needs
+        # io.github.astrapi69.own-display starts an Xvfb of the build's own and fluxbox on it, waits
+        # until wmctrl sees the window manager, and uses the display only when ss (iproute2) names
+        # that Xvfb as the listener on its socket; xdpyinfo is in x11-utils. xvfb-run gave no window
+        # manager (astrapi69/mystic-crypt-ui#322, astrapi69/mystic-crypt-ui#505)
+        run: sudo apt-get update && sudo apt-get install -y xvfb fluxbox wmctrl x11-utils iproute2
       - name: Execute Gradle build
-        run: xvfb-run -a ./gradlew build
+        # no xvfb-run: every test task gets its display from the plugin, as it does on a desktop
+        run: ./gradlew build
       - uses: codecov/codecov-action@v5
         with:
           token: ${{ secrets.CODECOV_TOKEN }} # not required for public repos
