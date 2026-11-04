@@ -1,6 +1,33 @@
 
+/**
+ * Hands the built jar and the runtime class path to ModulePathTest, which resolves the module on the
+ * module path from them (#21). Both are inputs of the test task, so the test task runs after jar and
+ * reruns when either changes; both are read when the test JVM starts, so the configuration cache
+ * keeps working.
+ */
+abstract class ModulePathTestArguments implements CommandLineArgumentProvider {
+
+    @InputFile
+    @PathSensitive(PathSensitivity.NONE)
+    abstract RegularFileProperty getModuleJar()
+
+    @Classpath
+    abstract ConfigurableFileCollection getRuntimeClasspath()
+
+    @Override
+    Iterable<String> asArguments() {
+        ["-Dmodule.path.test.jar=${moduleJar.get().asFile.absolutePath}".toString(),
+         "-Dmodule.path.test.runtime.classpath=${runtimeClasspath.asPath}".toString()]
+    }
+}
+
+def modulePathTestArguments = objects.newInstance(ModulePathTestArguments)
+modulePathTestArguments.moduleJar.set(tasks.named('jar', Jar).flatMap { it.archiveFile })
+modulePathTestArguments.runtimeClasspath.from(configurations.named('runtimeClasspath'))
+
 test {
     useJUnitPlatform()
+    jvmArgumentProviders.add(modulePathTestArguments)
 }
 
 jacoco {

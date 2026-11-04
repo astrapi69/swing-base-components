@@ -22,7 +22,7 @@ module io.github.astrapisixtynine.swing.base.components
 {
 	requires java.desktop;
 	requires io.github.astrapisixtynine.silly.collection;
-	requires lombok;
+	requires static lombok;
 	requires silly.math;
 	requires java.logging;
 	requires io.github.astrapisixtynine.jobj.core;
