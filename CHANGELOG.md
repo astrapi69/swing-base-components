@@ -1,6 +1,22 @@
 ## Change log
 ----------------------
 
+Version 5.2.1
+-------------
+
+### Fixed
+- The module required `lombok` without `static`. Lombok is compile-only, so on the module path the module did not resolve (`FindException: Module lombok not found, required by io.github.astrapisixtynine.swing.base.components`). The descriptor says `requires static lombok` now, and the module resolves on the module path. `ModulePathTest` resolves the built jar with the runtime class path on the module path (#21).
+- Runtime dependency `silly-collection` updated from 28.1 to 28.3. With 28.1, it and its `comparator-extensions` 2 put the milestone `commons-collections4` 4.5.0-M2 on the consumers' runtime class path; with 28.3, `commons-collections4` resolves to the release 4.6.0 (#23).
+- The issue templates' front matter has its line breaks back, so GitHub offers the templates in the "New issue" chooser again (#7).
+
+### Changed
+- Publishing goes to the Central Portal through the nmcp settings plugin 1.6.2, and the signing subkey signs (`GPG_KEY_ID`). The OSSRH staging repository that 5.2's `publishing` block uploaded to is removed, together with its insecure-checksums property. An upload runs only in CI and a release only from a `RELEASE-*` tag. A release without a key, or with only half a key, is refused. A manual run of `publish.yml` asks whether to publish a snapshot or a release (#13).
+- The tests get their display from the plugin `io.github.astrapi69.own-display` 1.0, an Xvfb of the build's own with fluxbox on it, instead of from `xvfb-run`. A test class that leaves no result fails the build, through the plugin `io.github.astrapi69.test-results-complete` 1.0 (#15, #19).
+- Every workflow runs Gradle on JDK 25. Gradle wrapper updated from 9.7.0 to 9.8.2 and Spotless from 8.10.0 to 8.10.4 (#17).
+- A pre-commit hook refuses a commit whose files Spotless would format, activated with `git config core.hooksPath .githooks` (#3).
+- The Gradle dependency graph is submitted to GitHub, so Dependabot sees this build's dependencies (#5).
+- README: the dead badges and links are replaced, and the donation section is now "Support this project", without cryptocurrency addresses. `.github/FUNDING.yml` names the family's funding channels (#9, #11).
+
 Version 5.2
 -------------
 
