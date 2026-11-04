@@ -15,6 +15,7 @@ plugins {
     alias(libs.plugins.lombok.plugin)
     alias(libs.plugins.gradle.versions.plugin)
     alias(libs.plugins.spotless.plugin.gradle)
+    alias(libs.plugins.own.display)
     alias(libs.plugins.test.results.complete)
     alias(libs.plugins.versionCatalogUpdate)
 }
